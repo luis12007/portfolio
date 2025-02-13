@@ -1,0 +1,16 @@
+:root {
+    --font-high-emphasis: rgba(37, 40, 43, 1);
+    --bg-line: rgba(37, 40, 43, 1);
+    --title-h1-font-family: "Playfair Display", Helvetica;
+    --title-h1-font-weight: 700;
+    --title-h1-font-size: 64px;
+    --title-h1-letter-spacing: 0px;
+    --title-h1-line-height: 120.00000476837158%;
+    --title-h1-font-style: normal;
+    --body-18px-font-family: "Raleway", Helvetica;
+    --body-18px-font-weight: 500;
+    --body-18px-font-size: 18px;
+    --body-18px-letter-spacing: 0px;
+    --body-18px-line-height: 28px;
+    --body-18px-font-style: normal;
+  }

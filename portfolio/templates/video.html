@@ -6,9 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
@@ -19,7 +18,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap"
     />
     <link
       rel="stylesheet"
@@ -27,20 +26,16 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
     />
   </head>
   <body>
-    <div class="profile">
-      <header class="frame-parent">
+    <div class="profile-part-2">
+      <header class="content">
         <div class="madelyn-torff-wrapper">
           <b class="madelyn-torff">My space AI</b>
         </div>
@@ -77,7 +72,6 @@
               loading="lazy"
               alt=""
               src="{% static 'public/bilinkedin.svg' %}"
-
             />
 
             <img
@@ -90,56 +84,30 @@
           <div class="madelyn-torff-2021">Madelyn Torff 2021</div>
         </div>
       </header>
-      <section class="profile-inner">
-        <div class="intro-content-parent">
-          <div class="intro-content">
-            <div class="intro">
-              <b class="ai-engineer">AI engineer</b>
-              <div class="content">
-                <h1 class="title">Hello, my name is Alex Hernández</h1>
-                <div class="subheadline">
-                  <div class="text">
-                    Short text with details about you, what you do or your
-                    professional career. You can add more information on the
-                    about page.
-                  </div>
-                </div>
-                <div class="buttons">
-                  <button class="button-primary">
-                    <div class="text1">Projects</div>
-                  </button>
-                  <button class="button-secondary">
-                    <div class="text2">CV</div>
-                  </button>
-                </div>
-              </div>
-            </div>
+      <section class="title-container-wrapper">
+        <div class="title-container">
+          <div class="title-wrapper">
+            <h1 class="title">Presentation</h1>
           </div>
-          <div class="image-content-wrapper">
-            <div class="image-content">
-              <div class="profile-picture"></div>
-              <img
-                class="whatsapp-image-2024-12-03-at-1-icon"
-                loading="lazy"
-                alt=""
-                src="{% static 'public/whatsapp-image-20241203-at-112048-db451066removebgpreview-1@2x.png' %}"
-              />
-            </div>
-          </div>
+          <img
+            class="image-3-icon"
+            controls
+            alt=""
+            src="{% static 'public/image-3@2x.png' %}"
+          />
         </div>
       </section>
     </div>
 
-    <!-- projects -->
-    {% include 'projects.html' %}
-    <!-- technologies -->
-    {% include 'technologies.html' %}
+     <!-- cv -->
+    {% include 'c-v.html' %}
 
-    <!-- background -->
-    {% include 'background.html' %}
+     <!-- bout me -->
+    {% include 'about-me.html' %}
 
-    <!-- footer -->
+     <!-- footer 2 -->
     {% include 'footer.html' %}
 
+    
   </body>
 </html>

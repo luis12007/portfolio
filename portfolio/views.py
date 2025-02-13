@@ -4,6 +4,8 @@ from .models import TodoItem
 def home(request):
     return render(request, 'home.html')
 
-def todos_list(request):
-    todos = TodoItem.objects.all()
-    return render(request, 'todos.html', {'todos': todos})
+def presentation(request):
+    return render(request, 'video.html')
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
