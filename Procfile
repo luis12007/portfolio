@@ -1,1 +1,1 @@
-web: gunicorn portfolio_alex.wsgi
+web: python manage.py collectstatic && gunicorn portfolio_alex.wsgi
