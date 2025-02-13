@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6*3iy%e86d0y38o-3cg2h(k=sfy%#_%yno7xxz%_fz1ca@ep_^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]' , "portfolio-production-319e.up.railway.app" , "myspaceai.online" , "www.myspaceai.online"]
 
 # Application definition
 
