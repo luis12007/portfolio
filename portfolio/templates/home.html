@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
     <link
       rel="stylesheet"
@@ -37,6 +37,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
     />
+    <script src="{% static 'js/scripts.js' %}"></script>
   </head>
   <body>
     <div class="profile">
@@ -47,37 +48,38 @@
         <div class="nav-wrapper">
           <div class="nav">
             <div class="tab-default">
-              <a class="sobre">Home</a>
+              <a class="sobre" href="#Home-section">Home</a>
             </div>
             <div class="tab-default">
-              <a class="sobre">Projects</a>
+              <a class="sobre" href="#Projects-section">Projects</a>
             </div>
             <div class="tab-default">
-              <a class="sobre">Presentation</a>
+              <a class="sobre" href="{% url 'presentation' %}">Presentation</a>
             </div>
             <div class="tab-default">
-              <a class="sobre">about me</a>
+              <a class="sobre" href="#Technologies-section">Skills</a>
             </div>
             <div class="tab-default">
-              <a class="sobre">Skills</a>
+              <a class="sobre" href="#Education-section">Education</a>
             </div>
           </div>
         </div>
         <div class="footer-icons">
           <div class="icons">
             <img
-              class="phinstagram-logo-fill-icon"
+              class="github"
               loading="lazy"
               alt=""
-              src="{% static 'public/phinstagramlogofill.svg' %}"
+              src="{% static 'public/github.png' %}"
+              onclick="openGitHub()"
             />
 
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
-              alt=""
+              alt="LinkedIn"
               src="{% static 'public/bilinkedin.svg' %}"
-
+              onclick="openLinkedIn()"
             />
 
             <img
@@ -85,12 +87,13 @@
               loading="lazy"
               alt=""
               src="{% static 'public/bienvelopefill.svg' %}"
+              onclick="openEmail()"
             />
           </div>
           <div class="madelyn-torff-2021">Madelyn Torff 2021</div>
         </div>
       </header>
-      <section class="profile-inner">
+      <section class="profile-inner" id="Home-section">
         <div class="intro-content-parent">
           <div class="intro-content">
             <div class="intro">
@@ -99,16 +102,17 @@
                 <h1 class="title">Hello, my name is Alex Hernández</h1>
                 <div class="subheadline">
                   <div class="text">
-                    Short text with details about you, what you do or your
-                    professional career. You can add more information on the
-                    about page.
+                    Passionate AI engineer specializing in machine learning and
+                    data science. I thrive on optimizing AI models and
+                    developing innovative solutions that push the boundaries of
+                    technology. Let's build the future of AI together.
                   </div>
                 </div>
                 <div class="buttons">
-                  <button class="button-primary">
-                    <div class="text1">Projects</div>
+                  <button class="button-primary" onclick="openVideo()">
+                    <div class="text1" >Video</div>
                   </button>
-                  <button class="button-secondary">
+                  <button class="button-secondary" onclick="downloadCV()">
                     <div class="text2">CV</div>
                   </button>
                 </div>
@@ -131,15 +135,27 @@
     </div>
 
     <!-- projects -->
-    {% include 'projects.html' %}
+    <section id="Projects-section">{% include 'projects.html' %}</section>
     <!-- technologies -->
-    {% include 'technologies.html' %}
-
-    <!-- background 
-    {% include 'background.html' %}-->
+    <section id="Technologies-section">
+      {% include 'technologies.html' %}
+    </section>
+    <!-- background -->
+    <section id="Education-section">{% include 'background.html' %}</section>
 
     <!-- footer -->
     {% include 'footer.html' %}
 
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
   </body>
 </html>

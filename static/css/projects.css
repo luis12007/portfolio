@@ -4,11 +4,11 @@
     line-height: 120%;
     align-self: flex-end;
     padding-right: 6%;
-    font-size: var(--font-size-32xl);
+    font-size: 80px;
 }
 
 .project-description {
-    width: 486px;
+    width: 550px;
     position: relative;
     font-size: var(--font-size-5xl);
     line-height: 150%;
@@ -16,6 +16,7 @@
     color: var(--color-dimgray);
     display: inline-block;
     max-width: 100%;
+    text-align: end;
 }
 
 .title-parent {
@@ -224,10 +225,23 @@
 }
 
 .component-5-inner,
+.component-5-inner-large,
 .frame-container {
     display: flex;
     flex-direction: column;
     max-width: 100%;
+}
+
+.pytorch {
+    width: 70px;
+}
+
+.TensorFlow {
+    width: 70px;
+}
+
+.Scikit-learn {
+    width: 130px;
 }
 
 .frame-container {
@@ -236,7 +250,13 @@
 }
 
 .component-5-inner {
-    padding: 0 0 var(--padding-61xl);
+    padding: 0 0 50px;
+    box-sizing: border-box;
+    min-width: 574.4px;
+}
+
+.component-5-inner-large {
+    padding: 0 0 20px;
     box-sizing: border-box;
     min-width: 574.4px;
 }
@@ -248,13 +268,16 @@
     /* Ensure the image takes full width */
     height: 100%;
     margin-bottom: -16px;
-    margin-right: -22px;
     /* Ensure the image takes full height */
     object-fit: cover;
     padding: 0 0 0 20px;
 }
 
 .image-wrapper-responsive {
+    width: 0px;
+}
+
+.image-wrapper-responsive-large {
     width: 0px;
 }
 
@@ -343,11 +366,21 @@
 .title5 {
     width: 537px;
     line-height: 120%;
+    font-size: 50px;
+    padding-top: 20px;
+}
+
+.title5-large {
+    width: 537px;
+    line-height: 120%;
+    font-size: 35px;
+    padding-top: 20px;
 }
 
 .lorem-ipsum-dolor2 {
-    width: 506px;
+    width: 456px;
     font-weight: 300;
+    text-align: justify;
 }
 
 .link-to-project-group {
@@ -361,7 +394,7 @@
 .title-container {
     align-self: stretch;
     display: flex;
-    padding: 0 0 0 var(--padding-26xl);
+    padding: 0 0 0 30px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -493,14 +526,24 @@
         padding-bottom: var(--padding-33xl);
         box-sizing: border-box;
     }
+    .component-5-inner-large {
+        display: block;
+        flex-direction: row;
+        padding-bottom: var(--padding-33xl);
+        box-sizing: border-box;
+    }
 }
 
 @media screen and (max-width: 1300px) {
     .component-5-inner,
+    .component-5-inner-large,
     .image-wrapper {
         min-width: 100%;
         display: block;
         height: 600px;
+    }
+    .title5-large {
+        padding-bottom: 40px;
     }
     .image-icon3 {
         width: 0%;
@@ -527,7 +570,19 @@
         border-radius: 0px 0px 20px 20px;
         background-color: aqua;
         padding-right: -60px;
-        margin-top: -90px;
+        margin-top: -85px;
+        display: block;
+        /* Ensure the image does not overflow the border radius */
+    }
+    .image-wrapper-responsive-large {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        background-color: aqua;
+        padding-right: -60px;
+        margin-top: -70px;
         display: block;
         /* Ensure the image does not overflow the border radius */
     }
@@ -551,7 +606,7 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 940px) {
     .title1 {
         font-size: var(--font-size-32xl);
         line-height: 61px;
@@ -572,6 +627,18 @@
         background-color: aqua;
         padding-right: -60px;
         margin-top: -110px;
+        display: block;
+        /* Ensure the image does not overflow the border radius */
+    }
+    .image-wrapper-responsive-large {
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        background-color: aqua;
+        padding-right: -60px;
+        margin-top: -85px;
         display: block;
         /* Ensure the image does not overflow the border radius */
     }
@@ -610,9 +677,9 @@
     }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 650px) {
     .title1 {
-        font-size: var(--font-size-32xl);
+        font-size: 55px;
         line-height: 61px;
     }
     .lorem-ipsum-dolor-sit-amet-co-parent {
@@ -631,6 +698,18 @@
         background-color: aqua;
         padding-right: -60px;
         margin-top: -110px;
+        display: block;
+        /* Ensure the image does not overflow the border radius */
+    }
+    .image-wrapper-responsive-large {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        background-color: aqua;
+        padding-right: -60px;
+        margin-top: -50px;
         display: block;
         /* Ensure the image does not overflow the border radius */
     }
@@ -666,5 +745,12 @@
         padding-left: 13px;
         padding-right: 13px;
         box-sizing: border-box;
+    }
+    .lorem-ipsum-dolor2 {
+        font-size: 18px;
+        width: 90%;
+    }
+    .projects {
+        padding-bottom: 170px;
     }
 }

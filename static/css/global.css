@@ -6,6 +6,7 @@ body {
 :root {
     /* fonts */
     --font-roboto: Roboto;
+    --title13-text: "Certificates";
     --font-nunito: Nunito;
     --title-h1: "Playfair Display";
     --body-18: Raleway;

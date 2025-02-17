@@ -3,7 +3,8 @@
     position: relative;
     width: 40%;
     object-fit: contain;
-    max-width: 100%;
+    max-width: 500px;
+    margin-left: 20px;
 }
 
 .about {
@@ -72,11 +73,11 @@
 .about-me {
     width: 100%;
     position: relative;
-    background-color: var(--color-silver);
+    background-color: var(--color-gainsboro-200);
     overflow: hidden;
     flex-direction: row;
     justify-content: center;
-    margin: 50px 0px 50px 0px;
+    padding: 50px 0px 50px 0px;
     gap: 23.4px;
     line-height: normal;
     letter-spacing: normal;
@@ -103,11 +104,12 @@
         padding: 20px 20px 20px 20px;
     }
     .about-me-child {
-        width: 80%;
+        width: 60%;
         position: relative;
-        width: 80%;
+        width: 60%;
         object-fit: contain;
-        max-width: 100%;
+        max-width: 60%;
+        min-width: 50%;
     }
 }
 

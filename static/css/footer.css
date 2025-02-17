@@ -74,6 +74,7 @@
     flex-shrink: 0;
     max-width: 100%;
     z-index: 1;
+    color: #333
 }
 
 .phone {
@@ -279,12 +280,16 @@
         gap: var(--gap-xl);
     }
     .footer1 {
-        padding-left: var(--padding-xl);
-        padding-right: var(--padding-xl);
+        padding-left: 20px;
+        padding-right: 20px;
         box-sizing: border-box;
     }
     .rectangle-parent5 {
         gap: var(--gap-mini);
         flex-wrap: wrap;
+        width: 70%;
+    }
+    .title21 {
+        width: 50%;
     }
 }
