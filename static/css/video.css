@@ -1,7 +1,9 @@
 /* Hide the default cursor everywhere */
 
-* {
-    cursor: none;
+*,
+*::before,
+*::after {
+    cursor: none !important;
 }
 
 
@@ -87,8 +89,9 @@
 }
 
 
-/* Ensure cursor is visible on buttons and links */
+/* Ensure cursor is hidden on all interactive elements */
 
+video,
 button,
 a,
 input,

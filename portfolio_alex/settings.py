@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from static_ranges import Ranges
+from dj_static import Cling, MediaCling
+from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +30,14 @@ SECRET_KEY = 'django-insecure-6*3iy%e86d0y38o-3cg2h(k=sfy%#_%yno7xxz%_fz1ca@ep_^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]' , "portfolio-production-319e.up.railway.app" , "myspaceai.online" , "www.myspaceai.online"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "[::1]",
+    "portfolio-production-319e.up.railway.app",
+    "myspaceai.online",
+    "www.myspaceai.online",
+]
 
 # Application definition
 
@@ -134,3 +145,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+application = Ranges(Cling(MediaCling(get_wsgi_application())))
