@@ -111,9 +111,8 @@
             <h1 class="title">Presentation</h1>
           </div>
           <video class="presentation-video" controls>
-            <source src="{% static 'public/presentation-video.mp4' %}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+            <source src="{{ MEDIA_URL }}public/presentation-video.mp4" type="video/mp4">
+        </video>
         </div>
       </section>
     </div>
