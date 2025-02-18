@@ -35,32 +35,38 @@
     <script src="{% static 'js/scripts.js' %}"></script>
   </head>
   <body>
-    <div class="profile-part-2">
-      <header class="content">
+    <div class="overlay">
+      <div class="loader"></div>
+  </div>
+    <div class="profile">
+      <header class="frame-parent">
         <div class="madelyn-torff-wrapper">
-          <b class="madelyn-torff">My space AI</b>
+          <b class="madelyn-torff">AIex engineer</b>
         </div>
         <div class="nav-wrapper">
           <div class="nav">
             <div class="tab-default">
               <a class="sobre" href="{% url 'home' %}">Home</a>
             </div>
-            {% comment %}
             <div class="tab-default">
-              <a class="sobre">Projects</a>
+              <a class="sobre" href="#About-me-section">About me</a>
             </div>
-            {% endcomment %}
-            <div class="tab-default">
-              <a class="sobre" href="#Presentation-section">Presentation</a>
-            </div>
-            <div class="tab-default">
-              <a class="sobre" href="#About-me-section">about me</a>
-            </div>
-            {% comment %}
-            <div class="tab-default">
-              <a class="sobre">Skills</a>
-            </div>
-            {% endcomment %}
+            
+            
+
+
+          </div>
+          <div class="tab-Hamburger">
+            <button class="hamburger" onclick="openNav()">
+      
+              <img
+                class="hamburger-icon"
+                loading="lazy"
+                alt=""
+                src="{% static 'public/menu-hamburger.png' %}"
+              />
+          </button>
+
           </div>
         </div>
         <div class="footer-icons">
@@ -76,7 +82,7 @@
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
-              alt=""
+              alt="LinkedIn"
               src="{% static 'public/bilinkedin.svg' %}"
               onclick="openLinkedIn()"
             />
@@ -89,20 +95,25 @@
               onclick="openEmail()"
             />
           </div>
-          <div class="madelyn-torff-2021">Madelyn Torff 2021</div>
         </div>
+
+
       </header>
+      
+      <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="#About-me-section">About me</a>
+      </div>
+
       <section class="title-container-wrapper" id="Presentation-section">
         <div class="title-container">
           <div class="title-wrapper">
             <h1 class="title">Presentation</h1>
           </div>
-          <img
-            class="image-3-icon"
-            controls
-            alt=""
-            src="{% static 'public/image-3@2x.png' %}"
-          />
+          <video class="presentation-video" controls>
+            <source src="{% static 'public/presentation-video.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
     </div>

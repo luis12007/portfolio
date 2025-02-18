@@ -1,3 +1,164 @@
+/* Hide the default cursor everywhere */
+
+* {
+    cursor: none;
+}
+
+
+/* Custom cursor */
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    /* Slightly smaller for a more subtle effect */
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease-out, background-color 0.3s ease;
+}
+
+
+/* Click effect */
+
+@keyframes clickEffect {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.custom-cursor.click {
+    animation: clickEffect 0.3s ease;
+}
+
+
+/* Smooth wake effect */
+
+.cursor-wake {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0.12;
+    animation: wakeFadeOut 0.7s ease-out forwards;
+}
+
+
+/* Wake shrinking and fading */
+
+@keyframes wakeFadeOut {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    25% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    75% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+    }
+}
+
+
+/* Ensure cursor is visible on buttons and links */
+
+button,
+a,
+input,
+textarea,
+select {
+    cursor: none !important;
+}
+
+
+/* Full-screen overlay */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    /* Fog effect */
+    backdrop-filter: blur(5px);
+    /* Blur effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 2s forwards 1s;
+    /* Fade out after 3 seconds */
+}
+
+
+/* Loader animation */
+
+.loader {
+    --r1: 154%;
+    --r2: 68.5%;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), radial-gradient(var(--r1) var(--r2) at bottom, var(--color-darkslategray) 79.5%, #0000 80%), radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), #ccc;
+    background-size: 50.5% 220%;
+    background-position: -100% 0%, 0% 0%, 100% 0%;
+    background-repeat: no-repeat;
+    animation: l9 2s infinite linear;
+}
+
+
+/* Keyframes for loader animation */
+
+@keyframes l9 {
+    33% {
+        background-position: 0% 33%, 100% 33%, 200% 33%;
+    }
+    66% {
+        background-position: -100% 66%, 0% 66%, 100% 66%;
+    }
+    100% {
+        background-position: 0% 100%, 100% 100%, 200% 100%;
+    }
+}
+
+
+/* Fade out animation */
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .madelyn-torff {
     position: relative;
     line-height: 180%;
@@ -19,6 +180,41 @@
     color: inherit;
 }
 
+.nav-links {
+    display: none;
+    /* Initially hidden */
+    flex-direction: row;
+    /* Display links in rows */
+    gap: 10px;
+    padding-top: 20px;
+    visibility: hidden;
+    /* Add space between links */
+}
+
+.hamburger {
+    background-color: var(--color-gainsboro-200);
+    border-radius: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sobre-presentation {
+    text-decoration: none;
+    position: relative;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 25px;
+    color: inherit;
+}
+
 .tab-default {
     flex-direction: column;
     justify-content: flex-start;
@@ -29,6 +225,48 @@
 .tab-default {
     display: flex;
     align-items: flex-start;
+}
+
+.tab-default a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.tab-default a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.tab-default a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tab-default a:active {
+    animation: clickAnimation 0.2s ease;
 }
 
 .nav {
@@ -107,6 +345,58 @@
     position: relative;
 }
 
+@keyframes elevator {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    75% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+.ai-engineer {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1.7em;
+    /* Adjust based on your font size */
+}
+
+.ai-engineer span {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    text-align: start;
+    animation: elevator 3s infinite;
+    font-size: 30px;
+}
+
 .title {
     margin: 0;
     font-size: inherit;
@@ -121,10 +411,12 @@
     text-align: justify;
 }
 
-.github {
-    width: 40px;
-    padding-top: 5px;
-    opacity: 0.8;
+.hamburger,
+.hamburger-icon,
+.tab-default-left {
+    width: 1px;
+    position: absolute;
+    visibility: hidden;
 }
 
 .subheadline {
@@ -161,6 +453,36 @@
     justify-content: flex-start;
 }
 
+
+/* Hover animation */
+
+.button-primary:hover {
+    background-color: var(--color-darkslategray);
+    /* Adjust the hover color as needed */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-primary:active {
+    animation: clickAnimation 0.2s ease;
+}
+
 .text2 {
     position: relative;
     font-size: var(--body-18-size);
@@ -177,7 +499,121 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+    overflow: visible;
 }
+
+
+/* Hover and click animations for .github */
+
+.github {
+    width: 36px;
+    padding-top: 10px;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.github:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.github:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Hover and click animations for .phinstagram-logo-fill-icon */
+
+.phinstagram-logo-fill-icon {
+    width: 40px;
+    padding-top: 5px;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.phinstagram-logo-fill-icon:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.phinstagram-logo-fill-icon:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Hover and click animations for .phinstagram-logo-fill-icon */
+
+.phinstagram-logo-fill-icon {
+    width: 40px;
+    padding-top: 5px;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.phinstagram-logo-fill-icon:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+    color: white;
+    /* Change color to white on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.phinstagram-logo-fill-icon:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Hover and click animations for button-secondary */
 
 .button-secondary {
     cursor: pointer;
@@ -185,6 +621,39 @@
     padding: var(--padding-5xs) var(--padding-5xl);
     background-color: transparent;
     border-radius: var(--br-5xs);
+    color: var(--bg-line);
+    /* Initial text color */
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.button-secondary:hover {
+    background-color: white;
+    /* Adjust the hover background color as needed */
+    border-color: var(--color-darkslategray);
+    /* Adjust the hover border color as needed */
+    color: white;
+    /* Change text color to white on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.button-secondary:active {
+    animation: clickAnimation 0.2s ease;
 }
 
 .buttons {
@@ -214,7 +683,7 @@
 .intro {
     align-self: stretch;
     overflow: hidden;
-    gap: var(--gap-xs);
+    gap: 0px;
 }
 
 .intro-content {
@@ -317,6 +786,9 @@
         gap: 0px;
         flex-wrap: wrap;
     }
+    .nav-links {
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 1250px) {
@@ -327,6 +799,9 @@
         margin-top: 100px;
         flex-wrap: wrap;
     }
+    .nav-links {
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 1050px) {
@@ -334,7 +809,7 @@
         display: none;
     }
     .nav-wrapper {
-        width: 15px;
+        width: 25px;
     }
     .title {
         font-size: var(--font-size-32xl);
@@ -363,6 +838,31 @@
         flex-wrap: wrap;
         padding: 0 0 0 0;
         margin: 50px 0 0 0;
+    }
+    .hamburger,
+    .hamburger-icon,
+    .tab-default-left {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        visibility: visible;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .hamburger-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+    }
+    .nav-links {
+        visibility: visible;
+    }
+    .tab-Hamburger {
+        margin-left: 13px;
     }
 }
 
@@ -417,15 +917,27 @@
         max-height: 400px;
         margin: 0 20px 0 20px;
     }
+    .tab-Hamburger {
+        margin-left: 13px;
+    }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
     .ai-engineer {
-        font-size: var(--font-size-base);
+        font-size: 40px;
     }
     .title {
         font-size: var(--font-size-19xl);
         line-height: 46px;
+    }
+    .tab-Hamburger,
+    .Hamburger,
+    .Hamburger-icon {
+        position: relative;
+        right: 0;
+        align-items: start;
+        align-self: start;
+        visibility: visible;
     }
     .text {
         font-size: var(--font-size-lgi);
@@ -435,5 +947,27 @@
         gap: 44px;
         padding-left: var(--padding-xl);
         box-sizing: border-box;
+    }
+    .github,
+    .phinstagram-logo-fill-icon,
+    .phinstagram-logo-fill-icon {
+        width: 40px;
+    }
+    .github {
+        width: 36px;
+        padding: 0 0 0 0;
+        margin: 7px 0 0 0;
+    }
+    .icons {
+        gap: 15px;
+        margin-left: 70px;
+    }
+    .tab-Hamburger {
+        margin-left: 13px;
+    }
+    .nav-links {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        flex-direction: column;
     }
 }

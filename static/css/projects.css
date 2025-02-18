@@ -651,6 +651,8 @@
     }
     .frame-wrapper {
         box-sizing: border-box;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
     }
     .title2,
     .title3,
@@ -722,6 +724,8 @@
     }
     .frame-wrapper {
         box-sizing: border-box;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
     }
     .title2,
     .title3,
@@ -735,6 +739,90 @@
     }
     .title5 {
         font-size: var(--font-size-32xl);
+        line-height: 61px;
+    }
+    .lorem-ipsum-dolor-sit-amet-co-parent {
+        gap: var(--gap-lg);
+    }
+    .projects {
+        gap: var(--gap-20xl);
+        padding-left: 13px;
+        padding-right: 13px;
+        box-sizing: border-box;
+    }
+    .lorem-ipsum-dolor2 {
+        font-size: 18px;
+        width: 90%;
+    }
+    .projects {
+        padding-bottom: 170px;
+    }
+    .title5-large {
+        line-height: 61px;
+        height: 29px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title1 {
+        font-size: 55px;
+        line-height: 61px;
+    }
+    .lorem-ipsum-dolor-sit-amet-co-parent {
+        align-items: center;
+        place-items: center;
+        padding: 20px 0px 100px 0px;
+        gap: 20px 0px 0px 0px;
+        height: 20px;
+    }
+    .image-wrapper-responsive {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        background-color: aqua;
+        padding-right: -60px;
+        margin-top: -110px;
+        display: block;
+        /* Ensure the image does not overflow the border radius */
+    }
+    .image-wrapper-responsive-large {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 0px 0px 20px 20px;
+        background-color: aqua;
+        padding-right: -60px;
+        margin-top: -50px;
+        display: block;
+        /* Ensure the image does not overflow the border radius */
+    }
+    .image-icon3 {
+        width: 0px;
+        margin-bottom: -16px;
+        margin-right: -6px;
+        margin-bottom: 0;
+        margin-right: 0;
+    }
+    .frame-wrapper {
+        box-sizing: border-box;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+    .title2,
+    .title3,
+    .title4 {
+        font-size: var(--font-size-32xl);
+        line-height: 61px;
+    }
+    .frame-container,
+    .frame-group {
+        gap: var(--gap-lg);
+    }
+    .title5 {
+        font-size: 40px;
         line-height: 61px;
     }
     .lorem-ipsum-dolor-sit-amet-co-parent {

@@ -1,6 +1,381 @@
+/* Hide the default cursor everywhere */
+
+* {
+    cursor: none;
+}
+
+
+/* Custom cursor */
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    /* Slightly smaller for a more subtle effect */
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s ease-out, background-color 0.3s ease;
+}
+
+
+/* Click effect */
+
+@keyframes clickEffect {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.custom-cursor.click {
+    animation: clickEffect 0.3s ease;
+}
+
+
+/* Smooth wake effect */
+
+.cursor-wake {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0.17;
+    animation: wakeFadeOut 0.7s ease-out forwards;
+}
+
+
+/* Wake shrinking and fading */
+
+@keyframes wakeFadeOut {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    25% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    75% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.2);
+    }
+}
+
+
+/* Ensure cursor is visible on buttons and links */
+
+button,
+a,
+input,
+textarea,
+select {
+    cursor: none !important;
+}
+
+
+/* Full-screen overlay */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    /* Fog effect */
+    backdrop-filter: blur(5px);
+    /* Blur effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 2s forwards 1s;
+    /* Fade out after 3 seconds */
+}
+
+.tab-default a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.tab-default a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.tab-default a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tab-default a:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Loader animation */
+
+.loader {
+    --r1: 154%;
+    --r2: 68.5%;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), radial-gradient(var(--r1) var(--r2) at bottom, var(--color-darkslategray) 79.5%, #0000 80%), radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), #ccc;
+    background-size: 50.5% 220%;
+    background-position: -100% 0%, 0% 0%, 100% 0%;
+    background-repeat: no-repeat;
+    animation: l9 2s infinite linear;
+}
+
+
+/* Keyframes for loader animation */
+
+@keyframes l9 {
+    33% {
+        background-position: 0% 33%, 100% 33%, 200% 33%;
+    }
+    66% {
+        background-position: -100% 66%, 0% 66%, 100% 66%;
+    }
+    100% {
+        background-position: 0% 100%, 100% 100%, 200% 100%;
+    }
+}
+
+
+/* Fade out animation */
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+/* Hover and click animations for .github */
+
+.github {
+    width: 36px;
+    padding-top: 10px;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.github:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.github:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Hover and click animations for .phinstagram-logo-fill-icon */
+
+.phinstagram-logo-fill-icon {
+    width: 40px;
+    padding-top: 5px;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.phinstagram-logo-fill-icon:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.phinstagram-logo-fill-icon:active {
+    animation: clickAnimation 0.2s ease;
+}
+
+
+/* Hover and click animations for .phinstagram-logo-fill-icon */
+
+.phinstagram-logo-fill-icon {
+    width: 40px;
+    padding-top: 5px;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.phinstagram-logo-fill-icon:hover {
+    transform: scale(1.1);
+    /* Slightly enlarge the icon */
+    opacity: 1;
+    /* Increase opacity on hover */
+    color: white;
+    /* Change color to white on hover */
+}
+
+
+/* Click animation */
+
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.phinstagram-logo-fill-icon:active {
+    animation: clickAnimation 0.2s ease;
+}
+
 .madelyn-torff {
     position: relative;
     line-height: 180%;
+}
+
+.profile,
+.profile-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gap-xl);
+    max-width: 95%;
+    text-align: left;
+    padding-left: 20px;
+    font-size: var(--body-18-size);
+    color: var(--bg-line);
+    font-family: var(--font-comfortaa);
+}
+
+.footer-icons {
+    width: 178px;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-13xl);
+    font-size: var(--font-size-base);
+    color: var(--font-medium-emphasis);
+    font-family: var(--font-nunito);
+}
+
+.presentation-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    /* Add rounded borders */
+    object-fit: cover;
+    /* Ensure the video covers the entire area */
+}
+
+.hamburger {
+    background-color: var(--color-gainsboro-200);
+    border-radius: 10px;
+}
+
+.profile {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-gainsboro-200);
+    overflow: hidden;
+    flex-direction: column;
+    padding: 20px 0px 20px 0px;
+    gap: 20px;
+    line-height: normal;
+    letter-spacing: normal;
 }
 
 .madelyn-torff-wrapper {
@@ -35,7 +410,7 @@
     align-self: stretch;
     flex-direction: row;
     justify-content: space-between;
-    gap: var(--gap-xl);
+    gap: 20px;
 }
 
 .nav-wrapper {
@@ -135,10 +510,33 @@
     justify-content: center;
 }
 
-.github {
-    width: 40px;
-    padding-top: 5px;
-    opacity: 0.8;
+.nav-links {
+    display: none;
+    /* Initially hidden */
+    flex-direction: row;
+    /* Display links in rows */
+    gap: 10px;
+    padding-top: 20px;
+    visibility: hidden;
+    /* Add space between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hamburger,
+.hamburger-icon,
+.tab-default-left {
+    width: 1px;
+    position: absolute;
+    visibility: hidden;
 }
 
 .title-container {
@@ -178,6 +576,10 @@
     letter-spacing: normal;
 }
 
+.nav-links {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 1200px) {
     .title-wrapper {
         padding-left: var(--padding-118xl);
@@ -196,11 +598,44 @@
         display: none;
     }
     .nav-wrapper {
-        width: 15px;
+        width: 2px;
     }
     .title {
         font-size: var(--font-size-32xl);
         line-height: 61px;
+    }
+    .hamburger,
+    .hamburger-icon,
+    .tab-default-left {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        visibility: visible;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .hamburger-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: visible;
+        width: 45px;
+        height: 45px;
+    }
+    .nav-links {
+        visibility: visible;
+        flex-direction: column;
+    }
+    .tab-Hamburger {
+        margin-right: 30px;
+        align-items: start;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .profile-part-2 {
+        gap: 20px;
     }
 }
 
@@ -237,5 +672,56 @@
     }
     .profile-part-2 {
         gap: 27px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .ai-engineer {
+        font-size: var(--font-size-base);
+    }
+    .title {
+        font-size: var(--font-size-19xl);
+        line-height: 46px;
+    }
+    .tab-Hamburger {
+        right: 0;
+        align-items: start;
+        align-self: start;
+    }
+    .text {
+        font-size: var(--font-size-lgi);
+        line-height: 29px;
+    }
+    .profile {
+        gap: 44px;
+        padding-left: var(--padding-xl);
+        box-sizing: border-box;
+    }
+    .github,
+    .phinstagram-logo-fill-icon,
+    .phinstagram-logo-fill-icon {
+        width: 40px;
+    }
+    .github {
+        width: 36px;
+        padding: 0 0 0 0;
+        margin: 10px 0 0 0;
+    }
+    .icons {
+        gap: 8px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .nav-links {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        flex-direction: column;
+    }
+    .hamburger {
+        margin-right: 20px;
+    }
+    .nav-wrapper {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
     }
 }

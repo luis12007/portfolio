@@ -41,9 +41,12 @@
   </head>
   <body>
     <div class="profile">
+      <div class="overlay">
+        <div class="loader"></div>
+    </div>
       <header class="frame-parent">
         <div class="madelyn-torff-wrapper">
-          <b class="madelyn-torff">My space AI</b>
+          <b class="madelyn-torff">AIex engineer</b>
         </div>
         <div class="nav-wrapper">
           <div class="nav">
@@ -54,7 +57,27 @@
               <a class="sobre" href="#Projects-section">Projects</a>
             </div>
             <div class="tab-default">
-              <a class="sobre" href="{% url 'presentation' %}">Presentation</a>
+              <img
+                  class="hamburger-icon"
+                  loading="lazy"
+                  alt=""
+                  src="{% static 'public/menu-hamburger.png' %}"
+                />
+            </div>
+            <div class="tab-default">
+              <a class="sobre-presentation" href="{% url 'presentation' %}">Presentation</a>
+            </div>
+            <div class="tab-Hamburger">
+              <button class="hamburger" onclick="openNav()">
+        
+                <img
+                  class="hamburger-icon"
+                  loading="lazy"
+                  alt=""
+                  src="{% static 'public/menu-hamburger.png' %}"
+                />
+            </button>
+
             </div>
             <div class="tab-default">
               <a class="sobre" href="#Technologies-section">Skills</a>
@@ -62,6 +85,18 @@
             <div class="tab-default">
               <a class="sobre" href="#Education-section">Education</a>
             </div>
+          </div>
+          <div class="tab-Hamburger">
+            <button class="hamburger" onclick="openNav()">
+      
+              <img
+                class="hamburger-icon"
+                loading="lazy"
+                alt=""
+                src="{% static 'public/menu-hamburger.png' %}"
+              />
+          </button>
+
           </div>
         </div>
         <div class="footer-icons">
@@ -90,14 +125,23 @@
               onclick="openEmail()"
             />
           </div>
-          <div class="madelyn-torff-2021">Madelyn Torff 2021</div>
         </div>
+
+
       </header>
+      
+      <div class="nav-links">
+        <a href="#Home-section">Home</a>
+        <a href="#Projects-section">Projects</a>
+        <a href="{% url 'presentation' %}">Presentation</a>
+        <a href="#Technologies-section">Skills</a>
+        <a href="#Education-section">Education</a>
+      </div>
       <section class="profile-inner" id="Home-section">
         <div class="intro-content-parent">
           <div class="intro-content">
             <div class="intro">
-              <b class="ai-engineer">AI engineer</b>
+              <b class="ai-engineer"><span>AI Engineer</span></b>
               <div class="content">
                 <h1 class="title">Hello, my name is Alex Hernández</h1>
                 <div class="subheadline">

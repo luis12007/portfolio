@@ -461,4 +461,10 @@
         justify-content: center;
         text-align: center;
     }
+    .universidad-centroamericana-jo {
+        padding-top: 10px;
+        line-height: 29px;
+        padding: 0 0 10px 0;
+        margin: 0 0 0 0;
+    }
 }
