@@ -799,9 +799,17 @@ select {
     .intro-content-parent {
         margin-top: 100px;
         flex-wrap: wrap;
+        flex-direction: column-reverse;
     }
     .nav-links {
         visibility: hidden;
+    }
+    .image-content {
+        height: 400px;
+    }
+    .image-content-wrapper {
+        padding: 0 0 30px 0;
+        margin: 1px 1px 30px 1px;
     }
 }
 
@@ -821,7 +829,6 @@ select {
     }
     .image-content-wrapper {
         flex: 1;
-        margin-top: 140px;
     }
     .profile {
         width: 100%;
@@ -888,7 +895,8 @@ select {
         min-height: 400px;
         max-width: 400px;
         max-height: 400px;
-        margin-top: 140px;
+        margin-top: 30px;
+        padding-bottom: 30px;
     }
     .whatsapp-image-2024-12-03-at-1-icon {
         position: relative;
@@ -988,5 +996,280 @@ select {
         text-align: start;
         animation: elevator 3s infinite;
         font-size: 23px;
+    }
+    .image-content-wrapper {
+        width: 90%;
+    }
+    .intro-content-parent {
+        gap: 0px;
+        flex-wrap: wrap;
+        padding: 0 0 0 0;
+        margin: 0px 0 0 0;
+    }
+    .intro-content {
+        gap: 0px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .ai-engineer {
+        font-size: 40px;
+    }
+    .title {
+        font-size: var(--font-size-19xl);
+        line-height: 46px;
+    }
+    .tab-Hamburger,
+    .Hamburger,
+    .Hamburger-icon {
+        position: relative;
+        right: 0;
+        align-items: start;
+        align-self: start;
+        visibility: visible;
+    }
+    .text {
+        font-size: var(--font-size-lgi);
+        line-height: 29px;
+    }
+    .profile {
+        gap: 44px;
+        padding-left: var(--padding-xl);
+        box-sizing: border-box;
+    }
+    .github,
+    .phinstagram-logo-fill-icon,
+    .phinstagram-logo-fill-icon {
+        width: 40px;
+    }
+    .github {
+        width: 36px;
+        padding: 0 0 0 0;
+        margin: 7px 0 0 0;
+    }
+    .icons {
+        gap: 15px;
+        margin-left: 70px;
+    }
+    .tab-Hamburger {
+        margin-left: 13px;
+    }
+    .nav-links {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        flex-direction: column;
+    }
+    .ai-engineer {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 0.7em;
+        justify-content: end;
+        justify-items: end;
+        place-items: end;
+        /* Adjust based on your font size */
+    }
+    .ai-engineer span {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        text-align: start;
+        animation: elevator 3s infinite;
+        font-size: 23px;
+    }
+    .image-content-wrapper {
+        width: 90%;
+    }
+    .intro-content-parent {
+        gap: 0px;
+        flex-wrap: wrap;
+        padding: 0 0 0 0;
+        margin: 0px 0 0 0;
+    }
+    .intro-content {
+        gap: 0px;
+        flex-wrap: wrap;
+    }
+    .whatsapp-image-2024-12-03-at-1-icon,
+    .profile-picture,
+    .image-content-wrapper,
+    .image-content {
+        object-fit: stretch;
+        width: 360px;
+        height: 360px;
+        min-width: 0;
+        min-height: 0;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .ai-engineer {
+        font-size: 40px;
+    }
+    .title {
+        font-size: var(--font-size-19xl);
+        line-height: 46px;
+    }
+    .tab-Hamburger,
+    .Hamburger,
+    .Hamburger-icon {
+        position: relative;
+        right: 0;
+        align-items: start;
+        align-self: start;
+        visibility: visible;
+    }
+    .text {
+        font-size: var(--font-size-lgi);
+        line-height: 29px;
+    }
+    .profile {
+        gap: 44px;
+        padding-left: var(--padding-xl);
+        box-sizing: border-box;
+    }
+    .github,
+    .phinstagram-logo-fill-icon,
+    .phinstagram-logo-fill-icon {
+        width: 40px;
+    }
+    .github {
+        width: 36px;
+        padding: 0 0 0 0;
+        margin: 7px 0 0 0;
+    }
+    .icons {
+        gap: 15px;
+        margin-left: 70px;
+    }
+    .tab-Hamburger {
+        margin-left: 13px;
+    }
+    .nav-links {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        flex-direction: column;
+    }
+    .ai-engineer {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 0.7em;
+        justify-content: end;
+        justify-items: end;
+        place-items: end;
+        /* Adjust based on your font size */
+    }
+    .ai-engineer span {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        text-align: start;
+        animation: elevator 3s infinite;
+        font-size: 23px;
+    }
+    .image-content-wrapper {
+        width: 90%;
+    }
+    .intro-content-parent {
+        gap: 0px;
+        flex-wrap: wrap;
+        padding: 0 0 0 0;
+        margin: 0px 0 0 0;
+    }
+    .intro-content {
+        gap: 0px;
+        flex-wrap: wrap;
+    }
+    .whatsapp-image-2024-12-03-at-1-icon,
+    .profile-picture,
+    .image-content-wrapper,
+    .image-content {
+        object-fit: stretch;
+        width: 340px;
+        height: 340px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .ai-engineer {
+        font-size: 40px;
+    }
+    .title {
+        font-size: var(--font-size-19xl);
+        line-height: 46px;
+    }
+    .tab-Hamburger,
+    .Hamburger,
+    .Hamburger-icon {
+        position: relative;
+        right: 0;
+        align-items: start;
+        align-self: start;
+        visibility: visible;
+    }
+    .text {
+        font-size: var(--font-size-lgi);
+        line-height: 29px;
+    }
+    .profile {
+        gap: 44px;
+        padding-left: var(--padding-xl);
+        box-sizing: border-box;
+    }
+    .github,
+    .phinstagram-logo-fill-icon,
+    .phinstagram-logo-fill-icon {
+        width: 40px;
+    }
+    .github {
+        width: 36px;
+        padding: 0 0 0 0;
+        margin: 7px 0 0 0;
+    }
+    .icons {
+        gap: 15px;
+        margin-left: 70px;
+    }
+    .tab-Hamburger {
+        margin-left: 13px;
+    }
+    .nav-links {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+        flex-direction: column;
+    }
+    .ai-engineer {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 0.7em;
+        justify-content: end;
+        justify-items: end;
+        place-items: end;
+        /* Adjust based on your font size */
+    }
+    .ai-engineer span {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        text-align: start;
+        animation: elevator 3s infinite;
+        font-size: 23px;
+    }
+    .image-content-wrapper {
+        width: 90%;
+    }
+    .intro-content-parent {
+        gap: 0px;
+        flex-wrap: wrap;
+        padding: 0 0 0 0;
+        margin: 0px 0 0 0;
+    }
+    .intro-content {
+        gap: 0px;
+        flex-wrap: wrap;
+        margin-left: -70px;
     }
 }
