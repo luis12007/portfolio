@@ -97,3 +97,18 @@ document.addEventListener("DOMContentLoaded", function() {
         cursor.classList.remove("click");
     });
 });
+
+/* to change menu */
+/* 
+document.addEventListener('DOMContentLoaded', () => {
+    const frameParent = document.querySelector('.frame-parent');
+    const originalOffsetTop = frameParent.offsetTop;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > originalOffsetTop) {
+            frameParent.classList.add('fixed');
+        } else {
+            frameParent.classList.remove('fixed');
+        }
+    });
+}); */

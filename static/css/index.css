@@ -321,7 +321,16 @@ select {
 }
 
 .frame-parent {
-    align-self: stretch;
+    position: sticky;
+    /* Make the section sticky */
+    top: 0;
+    /* Align it to the top */
+    width: 100%;
+    /* Make it span the full width of the screen */
+    z-index: 1000;
+    /* Ensure it stays above other content */
+    background-color: var(--color-gainsboro-200);
+    /* Add a background color to match your design */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -332,7 +341,25 @@ select {
     font-size: var(--body-18-size);
     color: var(--bg-line);
     font-family: var(--font-comfortaa);
+    padding: 10px 20px;
+    /* Add padding for spacing */
+    transition: all 0.3s ease;
+    /* Smooth transition */
 }
+
+
+/* .frame-parent.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    z-index: 1000;
+    background-color: var(--color-gainsboro-200);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 20px 20px 20px 20px;
+}
+ */
 
 .ai-engineer {
     align-self: stretch;
@@ -774,7 +801,7 @@ select {
     overflow: hidden;
     flex-direction: column;
     padding: var(--padding-7xs) var(--padding-22xl) 120px 120px;
-    gap: 130px;
+    gap: 50px;
     line-height: normal;
     letter-spacing: normal;
 }
