@@ -10,11 +10,15 @@
 }
 
 .group-icon {
-    width: 251px;
+    width: 240px;
     height: 250px;
+    background-color: rgb(229, 234, 241);
     position: relative;
-    object-fit: contain;
+    object-fit: cover;
     z-index: 1;
+    border-radius: 50%;
+    /* Add border radius */
+    /* Change background color to white */
 }
 
 .frame-wrapper1 {
@@ -227,11 +231,13 @@
 
 @media screen and (max-width: 1050px) {
     .group-icon {
-        align-self: stretch;
-        width: auto;
+        width: 200px;
+        height: 200px;
     }
     .frame-wrapper1 {
         flex: 1;
+        align-items: center;
+        display: flex;
     }
     .title19 {
         font-size: 36px;

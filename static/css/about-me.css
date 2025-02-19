@@ -1,9 +1,7 @@
 .about-me-child {
-    width: 40%;
+    width: 25%;
     position: relative;
-    width: 40%;
     object-fit: contain;
-    max-width: 500px;
     margin-left: 20px;
 }
 

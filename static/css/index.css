@@ -716,6 +716,7 @@ select {
     height: 600px;
     object-fit: cover;
     z-index: 1;
+    transform: rotate(-3deg);
 }
 
 .image-content {
@@ -969,5 +970,23 @@ select {
         padding: 0 0 0 0;
         margin: 0 0 0 0;
         flex-direction: column;
+    }
+    .ai-engineer {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 0.7em;
+        justify-content: end;
+        justify-items: end;
+        place-items: end;
+        /* Adjust based on your font size */
+    }
+    .ai-engineer span {
+        display: inline-block;
+        position: absolute;
+        width: 100%;
+        text-align: start;
+        animation: elevator 3s infinite;
+        font-size: 23px;
     }
 }
