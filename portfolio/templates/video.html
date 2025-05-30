@@ -37,12 +37,14 @@
   <body>
     <div class="overlay">
       <div class="loader"></div>
-  </div>
+    </div>
+    
     <div class="profile">
       <header class="frame-parent">
         <div class="madelyn-torff-wrapper">
           <b class="madelyn-torff">AIex engineer</b>
         </div>
+        
         <div class="nav-wrapper">
           <div class="nav">
             <div class="tab-default">
@@ -51,24 +53,20 @@
             <div class="tab-default">
               <a class="sobre" href="#About-me-section">About me</a>
             </div>
-            
-            
-
-
           </div>
-          <div class="tab-Hamburger">
-            <button class="hamburger" onclick="openNav()">
-      
-              <img
-                class="hamburger-icon"
-                loading="lazy"
-                alt=""
-                src="{% static 'public/menu-hamburger.png' %}"
-              />
-          </button>
-
+          
+          <!-- IMPROVED HAMBURGER BUTTON -->
+          <div class="hamburger-container">
+            <button class="hamburger" id="hamburgerBtn">
+              <div class="hamburger-lines">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+              </div>
+            </button>
           </div>
         </div>
+        
         <div class="footer-icons">
           <div class="icons">
             <img
@@ -78,7 +76,6 @@
               src="{% static 'public/github.png' %}"
               onclick="openGitHub()"
             />
-
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
@@ -86,7 +83,6 @@
               src="{% static 'public/bilinkedin.svg' %}"
               onclick="openLinkedIn()"
             />
-
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
@@ -96,31 +92,43 @@
             />
           </div>
         </div>
-
-
       </header>
-      
-      <div class="nav-links">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="#About-me-section">About me</a>
-      </div>
+
+      <!-- MOBILE NAVIGATION OVERLAY -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- MOBILE NAVIGATION MENU -->
+      <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        
+        <div class="mobile-nav-links">
+          <a href="{% url 'home' %}" class="mobile-nav-link">🏠 Home</a>
+          <a href="#About-me-section" class="mobile-nav-link">👤 About me</a>
+        </div>
+      </nav>
 
       <section class="title-container-wrapper" id="Presentation-section">
         <div class="title-container">
           <div class="title-wrapper">
-            <h1 class="title">Presentation</h1>
+            <div class="title-section">
+              <h1 class="title">Meet Alex Martinez</h1>
+              <p class="subtitle">AI Engineer</p>
+            </div>
           </div>
-          {% for x in video%}
-          <video class="presentation-video" controls>
-            <source src="{{x.video.url}}" type="video/mp4">
-        </video>
-        {% endfor%}
+          {% for x in video %}
+          <div class="video-container">
+            <video class="presentation-video" controls>
+              <source src="{{x.video.url}}" type="video/mp4">
+            </video>
+          </div>
+          {% endfor %}
         </div>
       </section>
     </div>
-
-    <!-- cv
-    {% include 'c-v.html' %}  -->
 
     <!-- bout me -->
     <section id="About-me-section">{% include 'about-me.html' %}</section>
@@ -129,14 +137,87 @@
     {% include 'footer.html' %}
 
     <script>
+      // Page load animations
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add animation classes after page loads
+        setTimeout(() => {
+          document.querySelector('.title-section').classList.add('animate-in');
+          document.querySelector('.video-container').classList.add('animate-in');
+        }, 500);
+      });
+
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-
           document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth",
           });
         });
+      });
+
+      // Header floating effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('.frame-parent');
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > 100) {
+          header.classList.add('floating');
+        } else {
+          header.classList.remove('floating');
+        }
+      });
+
+      // IMPROVED MOBILE NAVIGATION JAVASCRIPT
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+      const mobileNavClose = document.getElementById('mobileNavClose');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMobileNav() {
+        hamburgerBtn.classList.add('active');
+        mobileNav.classList.add('active');
+        mobileNavOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileNav() {
+        hamburgerBtn.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Event listeners
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', openMobileNav);
+      }
+      
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', closeMobileNav);
+      }
+      
+      if (mobileNavOverlay) {
+        mobileNavOverlay.addEventListener('click', closeMobileNav);
+      }
+
+      // Close menu when clicking on navigation links
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+      });
+
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
+          closeMobileNav();
+        }
+      });
+
+      // Prevent body scroll when menu is open
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1050) {
+          closeMobileNav();
+        }
       });
     </script>
   </body>

@@ -6,8 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/background.css' %}" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
@@ -39,144 +39,304 @@
   </head>
   <body>
     <div class="background">
+      <!-- Header Section -->
       <div class="header">
-          <h1 class="title12">education</h1>
-            <h1 class="title13">certificates</h1>
-            <h1 class="title14-responsive">background</h1>
+        <h1 class="title12">Education</h1>
+        <h1 class="title13">Certificates</h1>
+        <h1 class="title14-responsive">Education & Certificates</h1>
       </div>
+
+      <!-- Main Content -->
       <section class="main-content">
-        <div class="content-left">
-          <div class="image-gallery">
-            <img
-              class="logo_uca"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/logo_uca.png' %}"
-            />
-
-            {% comment %} <img
-              class="images-removebg-preview-1-icon-2"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/imagesremovebgpreview-1@2x.png' %}"
-            />
-
-            <img
-              class="images-removebg-preview-1-icon-2"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/imagesremovebgpreview-1@2x.png' %}"
-            />
-
-            <img
-              class="images-removebg-preview-1-icon-2"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/imagesremovebgpreview-1@2x.png' %}"
-            /> {% endcomment %}
-          </div>
-          <div class="footer">
-            <div class="footer-left">
-              <h2 class="title14">Bachelor Software engineering</h2>
-              <div class="text4">
-                <p class="universidad-centroamericana-jo">
-                  universidad centroamericana "josé simeón cañas"
-                </p>
-                <p class="p">graduation AUG 2025</p>
+        <!-- Education Column (Left) -->
+        <div class="education-column">
+          <div class="section-items">
+            <!-- Education Item 1 -->
+            <div class="item">
+              <div class="item-header">
+                <img
+                  class="item-logo"
+                  loading="lazy"
+                  alt="UCA Logo"
+                  src="{% static 'public/logo_uca.png' %}"
+                />
+                <div class="item-content">
+                  <h2 class="item-title">Bachelor Software Engineering</h2>
+                  <p class="item-subtitle">Universidad Centroamericana "José Simeón Cañas"</p>
+                  <p class="item-date">Graduation AUG 2025</p>
+                  <button class="item-btn" onclick="viewEducation('uca-degree')">
+                    <span class="btn-text">View Diploma</span>
+                    <span class="btn-icon">🎓</span>
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="footer-right">
+
+            <!-- Education Item 2 -->
+            <div class="item">
+              <div class="item-header">
+                <img
+                  class="item-logo"
+                  loading="lazy"
+                  alt="ZTM Logo"
+                  src="{% static 'public/ztm.png' %}"
+                />
+                <div class="item-content">
+                  <h2 class="item-title">Bootcamp Fundamentals in AI/ML</h2>
+                  <p class="item-subtitle">Zero To Mastery Academy (Online)</p>
+                  <p class="item-date">Completed JUNE 2024</p>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="content-right">
-          <div class="image-gallery">
-            <img
-              class="images-removebg-preview-1-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/imagesremovebgpreview-1@2x.png' %}"
-            />
 
-            <img
-              class="images-removebg-preview-1-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/imagesremovebgpreview-1@2x.png' %}"
-            />
-
-            <img
-              class="images-removebg-preview-1-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/omdena.png' %}"
-            />
-
-            <img
-              class="images-removebg-preview-1-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/omdena.png' %}"
-            />
-            <img
-              class="images-removebg-preview-1-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/LinkedIn_logo.png' %}"
-            />
-          </div>
-          <div class="footer">
-            <div class="footer-left">
-              <h2 class="title14">Bootcamp AI/ML engineering</h2>
-              <div class="text4">
-                <p class="universidad-centroamericana-jo">
-                  zero to mastery academy
-                </p>
-                <p class="p">issued FEB 2024</p>
-              </div>
-            </div>
-            <div class="footer-right">
-              <h2 class="title16">Algorithms and data structures</h2>
-              <div class="contact-info">
-                <div class="contact-details">
-                  <p class="universidad-centroamericana-jo">
-                    zero to mastery academy
-                  </p>
-                  <p class="p">issued DEC 2024</p>
-                </div>
-                <div class="address">
-                  <h2 class="title17">Machine Learning Basics</h2>
-                </div>
-                <div class="contact-details">
-                  <p class="universidad-centroamericana-jo">
-                    Omdena Academy
-                  </p>
-                  <p class="p">issued NOV 2024</p>
-                </div>
-                <div class="address">
-                  <h2 class="title17">Data Science and python basics</h2>
-                </div>
-                <div class="contact-details">
-                  <p class="universidad-centroamericana-jo">
-                    Omdena Academy
-                  </p>
-                  <p class="p">issued DEC 2024</p>
-                </div>
-                <div class="address">
-                  <h2 class="title17">AWS for Developers and Linux </h2>
-                </div>
-                <div class="contact-details">
-                  <p class="universidad-centroamericana-jo">
-                    LinkedIn Learning
-                  </p>
-                  <p class="p">issued DEC 2024</p>
+        <!-- Certificates Column (Right) -->
+        <div class="certificates-column">
+          <div class="certificates-container collapsed" id="certificatesContainer">
+            <div class="section-items">
+              <!-- Certificate Item 1 -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="ZTM Logo"
+                    src="{% static 'public/ztm.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title"> Complete A.I. & Machine Learning, Data Science Course</h3>
+                    <p class="item-subtitle">Zero to Mastery Academy</p>
+                    <p class="item-date">Issued JAN 2025</p>
+                    <button class="item-btn" onclick="viewEducation('ztm-aiml')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
+              <!-- Certificate Item 2 -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="ZTM Logo"
+                    src="{% static 'public/udemy.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">Algorithms and Data Structures</h3>
+                    <p class="item-subtitle">Zero to Mastery Academy</p>
+                    <p class="item-date">Issued DEC 2024</p>
+                    <button class="item-btn" onclick="viewEducation('ztm-algorithms')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+                            <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="Google Cloud"
+                    src="{% static 'public/omdena.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">Leveraging NLP in Medical Prescription</h3>
+                    <p class="item-subtitle">OMDENA Local Chapter</p>
+                    <p class="item-date">Issued MAY 2025</p>
+                    <button class="item-btn" onclick="viewEducation('gcp-fundamentals')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Certificate Item 5 (Hidden initially) -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="LinkedIn Learning"
+                    src="{% static 'public/LinkedIn_logo.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">AWS for Developers, Linux, SQL and more..</h3>
+                    <p class="item-subtitle">LinkedIn Learning</p>
+                    <p class="item-date">Issued DEC 2024</p>
+                    <button class="item-btn" onclick="viewEducation('linkedin-aws')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Certificate Item 6 (Hidden initially) -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="Python Institute"
+                    src="{% static 'public/ztm.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">PyTorch for Deep Learning Bootcamp</h3>
+                    <p class="item-subtitle">Zero To Mastery</p>
+                    <p class="item-date">Issued APR 2025</p>
+                    <button class="item-btn" onclick="viewEducation('python-fundamentals')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Certificate Item 7 (Hidden initially) -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="Google Cloud"
+                    src="{% static 'public/ztm.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">TensorFlow for Deep Learning Bootcamp</h3>
+                    <p class="item-subtitle">Zero To Mastery</p>
+                    <p class="item-date">Issued JUN 2025</p>
+                    <button class="item-btn" onclick="viewEducation('gcp-fundamentals')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- Certificate Item 3 -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="Omdena Logo"
+                    src="{% static 'public/omdena.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">Machine Learning Basics</h3>
+                    <p class="item-subtitle">Omdena Academy</p>
+                    <p class="item-date">Issued NOV 2024</p>
+                    <button class="item-btn" onclick="viewEducation('omdena-ml')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Certificate Item 4 -->
+              <div class="item">
+                <div class="item-header">
+                  <img
+                    class="item-logo"
+                    loading="lazy"
+                    alt="Omdena Logo"
+                    src="{% static 'public/omdena.png' %}"
+                  />
+                  <div class="item-content">
+                    <h3 class="item-title">Data Science and Python Basics</h3>
+                    <p class="item-subtitle">Omdena Academy</p>
+                    <p class="item-date">Issued DEC 2024</p>
+                    <button class="item-btn" onclick="viewEducation('omdena-ds')">
+                      <span class="btn-text">View Certificate</span>
+                      <span class="btn-icon">📜</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
+            
+            <!-- Fade gradient overlay -->
+            <div class="certificates-fade"></div>
           </div>
+          
+          <!-- Show More Button -->
+          <button class="show-more-btn" id="showMoreBtn" onclick="toggleCertificates()">
+            <span class="btn-text">Show More</span>
+            <span class="btn-icon">▼</span>
+          </button>
         </div>
       </section>
     </div>
+
+    <script>
+      function viewEducation(educationId) {
+        const educationUrls = {
+          'uca-degree': '#', // Will be available upon graduation
+          'ztm-bootcamp': 'https://certificate.ztm.com/your-bootcamp-cert',
+          'ztm-aiml': 'https://www.udemy.com/certificate/UC-4023ad73-2720-40ec-bd4e-cef2f58d5315/',
+          'ztm-algorithms': 'https://www.udemy.com/certificate/UC-c3544eeb-2d13-46a4-a8a2-dfae00d41b0f/',
+          'omdena-ml': 'https://omdena.com/certificates/your-ml-cert',
+          'omdena-ds': 'https://omdena.com/certificates/your-ds-cert',
+          'linkedin-aws': 'https://www.linkedin.com/in/alexmtzai/',
+          'python-fundamentals': 'https://www.udemy.com/certificate/UC-bb2d8045-6e67-4739-951a-a318a82a97e0/',
+          'gcp-fundamentals': 'https://confirm.omdena.com/LCbozv2'
+        };
+
+        const url = educationUrls[educationId];
+        if (url && url !== '#') {
+          window.open(url, '_blank');
+        } else {
+          alert('Certificate will be available upon completion/graduation.');
+        }
+      }
+
+      function toggleCertificates() {
+        const container = document.getElementById('certificatesContainer');
+        const btn = document.getElementById('showMoreBtn');
+        const btnText = btn.querySelector('.btn-text');
+        const btnIcon = btn.querySelector('.btn-icon');
+
+        if (container.classList.contains('collapsed')) {
+          // Expand
+          container.classList.remove('collapsed');
+          container.classList.add('expanded');
+          btnText.textContent = 'Show Less';
+          btnIcon.style.transform = 'rotate(180deg)';
+          btn.classList.add('expanded');
+        } else {
+          // Collapse
+          container.classList.remove('expanded');
+          container.classList.add('collapsed');
+          btnText.textContent = 'Show More';
+          btnIcon.style.transform = 'rotate(0deg)';
+          btn.classList.remove('expanded');
+          
+          // Smooth scroll to top of certificates section
+          container.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }
+
+      // Initialize certificates as collapsed on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('certificatesContainer');
+        container.classList.add('collapsed');
+      });
+    </script>
   </body>
 </html>

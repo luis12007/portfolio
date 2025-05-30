@@ -4,8 +4,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
+
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
 
@@ -37,17 +39,18 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
     />
-    <script src="{% static 'js/scripts.js' %}"></script>
   </head>
   <body>
     <div class="profile">
       <div class="overlay">
         <div class="loader"></div>
-    </div>
+      </div>
+
       <header class="frame-parent">
         <div class="madelyn-torff-wrapper">
           <b class="madelyn-torff">AIex engineer</b>
         </div>
+
         <div class="nav-wrapper">
           <div class="nav">
             <div class="tab-default">
@@ -57,27 +60,9 @@
               <a class="sobre" href="#Projects-section">Projects</a>
             </div>
             <div class="tab-default">
-              <img
-                  class="hamburger-icon"
-                  loading="lazy"
-                  alt=""
-                  src="{% static 'public/menu-hamburger.png' %}"
-                />
-            </div>
-            <div class="tab-default">
-              <a class="sobre-presentation" href="{% url 'presentation' %}">Presentation</a>
-            </div>
-            <div class="tab-Hamburger">
-              <button class="hamburger" onclick="openNav()">
-        
-                <img
-                  class="hamburger-icon"
-                  loading="lazy"
-                  alt=""
-                  src="{% static 'public/menu-hamburger.png' %}"
-                />
-            </button>
-
+              <a class="sobre-presentation" href="{% url 'presentation' %}"
+                >Presentation</a
+              >
             </div>
             <div class="tab-default">
               <a class="sobre" href="#Technologies-section">Skills</a>
@@ -86,19 +71,19 @@
               <a class="sobre" href="#Education-section">Education</a>
             </div>
           </div>
-          <div class="tab-Hamburger">
-            <button class="hamburger" onclick="openNav()">
-      
-              <img
-                class="hamburger-icon"
-                loading="lazy"
-                alt=""
-                src="{% static 'public/menu-hamburger.png' %}"
-              />
-          </button>
 
+          <!-- IMPROVED HAMBURGER BUTTON -->
+          <div class="hamburger-container">
+            <button class="hamburger" id="hamburgerBtn">
+              <div class="hamburger-lines">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+              </div>
+            </button>
           </div>
         </div>
+
         <div class="footer-icons">
           <div class="icons">
             <img
@@ -108,7 +93,6 @@
               src="{% static 'public/github.png' %}"
               onclick="openGitHub()"
             />
-
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
@@ -116,7 +100,6 @@
               src="{% static 'public/bilinkedin.svg' %}"
               onclick="openLinkedIn()"
             />
-
             <img
               class="phinstagram-logo-fill-icon"
               loading="lazy"
@@ -126,35 +109,58 @@
             />
           </div>
         </div>
-
-
       </header>
-      
-      <div class="nav-links">
-        <a href="#Home-section">Home</a>
-        <a href="#Projects-section">Projects</a>
-        <a href="{% url 'presentation' %}">Presentation</a>
-        <a href="#Technologies-section">Skills</a>
-        <a href="#Education-section">Education</a>
-      </div>
+
+      <!-- MOBILE NAVIGATION OVERLAY -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- MOBILE NAVIGATION MENU -->
+      <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M12 4L4 12M4 4L12 12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <div class="mobile-nav-links">
+          <a href="#Home-section" class="mobile-nav-link">🏠 Home</a>
+          <a href="#Projects-section" class="mobile-nav-link">💼 Projects</a>
+          <a href="{% url 'presentation' %}" class="mobile-nav-link"
+            >🎯 Presentation</a
+          >
+          <a href="#Technologies-section" class="mobile-nav-link">⚡ Skills</a>
+          <a href="#Education-section" class="mobile-nav-link">🎓 Education</a>
+        </div>
+      </nav>
+
       <section class="profile-inner" id="Home-section">
         <div class="intro-content-parent">
           <div class="intro-content">
             <div class="intro">
               <b class="ai-engineer"><span>AI Engineer</span></b>
               <div class="content">
-                <h1 class="title">Hello, my name is Alex Hernández</h1>
+                <h1 class="title">Alex Martínez</h1>
                 <div class="subheadline">
                   <div class="text">
-                    Passionate AI engineer specializing in machine learning and
-                    data science. I thrive on optimizing AI models and
-                    developing innovative solutions that push the boundaries of
-                    technology. Let's build the future of AI together.
+                    Focused on transforming complex problems into elegant AI
+                    solutions. I thrive on optimizing AI models and developing
+                    innovative solutions that push the boundaries of technology.
+                    <br />
+                    <br />
+                    My commitment extends beyond technical skills—I'm constantly
+                    evolving as a professional, learning from every project, and
+                    refining my approach to build high-quality products that
+                    deliver real value.
                   </div>
                 </div>
                 <div class="buttons">
                   <button class="button-primary" onclick="openVideo()">
-                    <div class="text1" >Video</div>
+                    <div class="text1">Video</div>
                   </button>
                   <button class="button-secondary" onclick="downloadCV()">
                     <div class="text2">CV</div>
@@ -178,25 +184,948 @@
     </div>
 
     <!-- projects -->
-    <section id="Projects-section">{% include 'projects.html' %}</section>
+    <section id="Projects-section">
+      <div class="projects">
+        <!-- Header Section -->
+        <header class="projects-header project-animate">
+          <h1 class="projects-title">Projects</h1>
+          <p class="projects-description">
+            AI solutions, data science, and web design. From optimizing models
+            to crafting digital experiences through my own company, explore my
+            work and innovations.
+          </p>
+        </header>
+
+        <!-- Projects Grid -->
+        <main class="projects-grid">
+          {% comment %}
+          <article class="project-item project-animate" data-layout="text-left">
+            <div class="project-text">
+              <h2 class="project-title">
+                Neural Language Translator
+                <span class="wip-badge">Work in Progress</span>
+              </h2>
+              <p class="project-description">
+                Building an advanced neural machine translation system with
+                real-time voice translation capabilities. Features include
+                context-aware translations, accent adaptation, and multi-modal
+                input support for text, voice, and images.
+              </p>
+              <button
+                class="project-button wip-button"
+                onclick="openProjectModal('translator')"
+              >
+                <span>View Progress</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="project-image wip-image">
+              <img
+                src="{% static 'public/translator_wip.png' %}"
+                alt="Neural Language Translator"
+              />
+              <div class="wip-overlay">
+                <div class="wip-animation">
+                  <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                  </div>
+                  <span class="wip-text">In Development</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endcomment %}
+
+          <!-- Project 1: Text Left, Image Right -->
+          <article class="project-item project-animate" data-layout="text-left">
+            <div class="project-text">
+              <h2 class="project-title">SaaS Billing System</h2>
+              <p class="project-description">
+                I developed a full-stack billing system using React and a REST
+                API, integrating multiple APIs for seamless communication.
+                Designed and deployed on my own web server, it meets government
+                standards for compliance.
+              </p>
+              <button
+                class="project-button"
+                onclick="openProjectModal('billing')"
+              >
+                <span>View Project</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="project-image">
+              <img src="{% static 'public/DTE.png' %}" alt="Billing System" />
+            </div>
+          </article>
+
+          <!-- Project 2: Image Left, Text Right -->
+          <article
+            class="project-item project-animate"
+            data-layout="image-left"
+          >
+            <div class="project-image">
+              <img
+                src="{% static 'public/rag.webp' %}"
+                alt="RAG Portfolio Assistant"
+              />
+            </div>
+            <div class="project-text">
+              <h2 class="project-title">RAG Portfolio Assistant</h2>
+              <p class="project-description">
+                An intelligent AI assistant trained on my portfolio data using
+                LangChain and RAG architecture. Features a quantized LLM
+                optimized for CPU execution, deployed 24/7 on DigitalOcean with
+                smart filtering to answer only portfolio-related questions.
+              </p>
+              <button class="project-button" onclick="openProjectModal('rag')">
+                <span>View Project</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3: Text Left, Image Right -->
+          <article class="project-item project-animate" data-layout="text-left">
+            <div class="project-text">
+              <h2 class="project-title">Open-Source AI for Healthcare</h2>
+              <p class="project-description">
+                Contributed to an Omdena project developing a model to predict
+                diseases based on symptoms, focusing on illnesses prevalent in
+                Africa. Worked on data collection, modeling, EDA, training, and
+                result visualization.
+              </p>
+              <button
+                class="project-button"
+                onclick="openProjectModal('healthcare')"
+              >
+                <span>View Project</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div class="project-image">
+              <img
+                src="{% static 'public/omdena_medical.jpg' %}"
+                alt="Healthcare AI"
+              />
+            </div>
+          </article>
+
+          <!-- Hidden Projects - Initially Hidden -->
+          <div id="hiddenProjects" class="hidden-projects">
+            <!-- Project 4: Image Left, Text Right -->
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="image-left"
+            >
+              <div class="project-image">
+                <img
+                  src="{% static 'public/gymjudge.png' %}"
+                  alt="Judge Gymnasts App"
+                />
+              </div>
+              <div class="project-text">
+                <h2 class="project-title">Judge Gymnasts App</h2>
+                <p class="project-description">
+                  A comprehensive cross-platform application for gymnastics
+                  judges built with React Native and Expo. Features custom
+                  authentication, file management, MAG/WAG calculators, digital
+                  whiteboard, PDF export, and upcoming AI competition summaries.
+                </p>
+                <button
+                  class="project-button"
+                  onclick="openProjectModal('gymnastics')"
+                >
+                  <span>View Project</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Project 5: Text Left, Image Right -->
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="text-left"
+            >
+              <div class="project-text">
+                <h2 class="project-title">Enterprise Digital Billing API</h2>
+                <p class="project-description">
+                  A Java Spring Boot enterprise API that integrates digital
+                  billing capabilities into existing company systems. Features
+                  custom authentication, multi-server architecture with AWS,
+                  NGINX proxy, government compliance, and comprehensive
+                  documentation for large-scale deployments.
+                </p>
+                <button
+                  class="project-button"
+                  onclick="openProjectModal('enterprise')"
+                >
+                  <span>View Project</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="project-image">
+                <img
+                  src="{% static 'public/API spring.png' %}"
+                  alt="Enterprise Digital Billing API"
+                />
+              </div>
+            </article>
+
+            <!-- Project 6: Image Left, Text Right -->
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="image-left"
+            >
+              <div class="project-image">
+                <img
+                  src="{% static 'public/ERP.png' %}"
+                  alt="Multi-Branch ERP System"
+                />
+              </div>
+              <div class="project-text">
+                <h2 class="project-title">Multi-Branch ERP System</h2>
+                <p class="project-description">
+                  A comprehensive ERP solution for small businesses built with
+                  C# .NET and cloud SQL database. Features cashier POS,
+                  multi-branch inventory management, HR system, ingredients
+                  tracking, sales metrics, and business intelligence modules.
+                </p>
+                <button
+                  class="project-button"
+                  onclick="openProjectModal('erp')"
+                >
+                  <span>View Project</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Project 7: Work in Progress - Text Left, Image Right -->
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="text-left"
+            >
+              <div class="project-text">
+                <h2 class="project-title">
+                  AI Voice Translation System
+                  <span class="wip-badge">Work in Progress</span>
+                </h2>
+                <p class="project-description">
+                  An advanced AI system that translates Japanese anime episodes
+                  to English with authentic voice actor replication. Uses voice
+                  recognition, sequence-to-sequence AI translation, and voice
+                  synthesis to create fully dubbed episodes with original
+                  English voice actors.
+                </p>
+                <button
+                  class="project-button wip-button"
+                  onclick="openProjectModal('translator')"
+                >
+                  <span>View Progress</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="project-image wip-image">
+                <img
+                  src="{% static 'public/ippo.webp' %}"
+                  alt="AI Voice Translation System"
+                />
+                <div class="wip-overlay">
+                  <div class="wip-animation">
+                    <div class="loading-dots">
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                      <div class="dot"></div>
+                    </div>
+                    <span class="wip-text">In Development</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Hidden Project 6: Work in Progress - Image Left, Text Right -->
+            {% comment %}
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="image-left"
+            >
+              <div class="project-image wip-image">
+                <img
+                  src="{% static 'public/ai_assistant_wip.png' %}"
+                  alt="Personal AI Assistant"
+                />
+                <div class="wip-overlay">
+                  <div class="wip-animation">
+                    <div class="progress-bar">
+                      <div class="progress-fill"></div>
+                    </div>
+                    <span class="wip-text">75% Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="project-text">
+                <h2 class="project-title">
+                  Personal AI Assistant
+                  <span class="wip-badge">Work in Progress</span>
+                </h2>
+                <p class="project-description">
+                  Developing a comprehensive personal AI assistant with advanced
+                  natural language understanding, task automation, and learning
+                  capabilities. Integrates with multiple platforms and devices
+                  for seamless productivity enhancement.
+                </p>
+                <button
+                  class="project-button wip-button"
+                  onclick="openProjectModal('assistant')"
+                >
+                  <span>View Progress</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+            {% endcomment %}
+          </div>
+        </main>
+
+        <!-- Show More Button -->
+        <div class="show-more-container project-animate">
+          <button class="show-more-button" onclick="showMoreProjects()">
+            <span>Show More Projects</span>
+            <svg class="show-more-icon" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M6 9l6 6 6-6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- technologies -->
     <section id="Technologies-section">
       {% include 'technologies.html' %}
     </section>
+
     <!-- background -->
     <section id="Education-section">{% include 'background.html' %}</section>
 
     <!-- footer -->
     {% include 'footer.html' %}
 
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
+    <!-- GLOBAL MODAL - Outside all sections for proper positioning -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-container" id="modalContainer">
+        <button class="modal-close" id="modalClose">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div class="modal-content" id="modalContent">
+          <!-- Modal content will be inserted here -->
+        </div>
+      </div>
+    </div>
 
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
+    <!-- Load scripts.js ONLY - remove duplicate JavaScript -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+    <script>
+      // Project data for modals
+      const projectData = {
+        billing: {
+          title: "Billing System",
+          image: "{% static 'public/videos/Saas Billing project.mp4' %}",
+          buttonText: "View Live Demo",
+          buttonLink: "https://billing-demo.example.com",
+          description: `
+            <p>I developed a comprehensive full-stack billing system that revolutionizes invoice management and financial tracking. This project showcases my expertise in both frontend and backend development, creating a seamless user experience while maintaining robust functionality.</p>
+            
+            <h3>Technical Implementation</h3>
+            <p>Built using React for the frontend, I implemented a modern, responsive interface that provides intuitive navigation and real-time data updates. The backend consists of a custom REST API that handles all business logic, data validation, and secure communication between different system components.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+              <li>Automated invoice generation and management</li>
+              <li>Real-time payment tracking and notifications</li>
+              <li>Multi-API integration for enhanced functionality</li>
+              <li>Government compliance standards implementation</li>
+              <li>Secure user authentication and authorization</li>
+            </ul>
+            
+            <h3>Deployment & Infrastructure</h3>
+            <p>The system is deployed on my own web server infrastructure, ensuring complete control over security, performance, and compliance requirements. I implemented proper security measures, regular backups, and monitoring systems to ensure 99.9% uptime.</p>
+            
+            <h3>Impact</h3>
+            <p>This billing system has streamlined financial operations for multiple clients, reducing invoice processing time by 60% and improving payment tracking accuracy. The system's compliance with government standards has enabled businesses to meet regulatory requirements effortlessly.</p>
+          `,
+        },
+        rag: {
+          title: "RAG Portfolio Assistant",
+          image: "{% static 'public/rag.webp' %}",
+          buttonText: "Try AI Assistant",
+          buttonLink: "https://your-portfolio.com/ai-chat",
+          description: `
+          <p>An intelligent AI assistant trained specifically on my professional portfolio and experience. This project demonstrates my expertise in Retrieval-Augmented Generation (RAG), model optimization, and production deployment of AI systems.</p>
+
+          <h3>Technical Architecture</h3>
+          <p>Built using LangChain framework for seamless integration of language models with vector databases. I implemented a comprehensive RAG pipeline that vectorizes my entire portfolio data including projects, experience, skills, and achievements to provide accurate, contextual responses about my professional background.</p>
+
+          <h3>Model Optimization</h3>
+          <ul>
+            <li>Self-quantized LLM optimized for CPU-only execution</li>
+            <li>Deployed on DigitalOcean server infrastructure</li>
+            <li>24/7 availability with automatic scaling</li>
+            <li>Intelligent query filtering for relevant questions</li>
+            <li>Vector similarity search for accurate information retrieval</li>
+            <li>Context-aware response generation</li>
+          </ul>
+
+            <h3>Data Processing & Vectorization</h3>
+            <p>Used LangChain's document loaders and text splitters to process my portfolio content, creating semantic embeddings that enable precise information retrieval. The system maintains up-to-date knowledge about my projects, skills, and professional journey.</p>
+
+            <h3>Production Features</h3>
+            <p>Implemented robust filtering mechanisms to ensure the assistant only responds to portfolio-related queries, maintaining professional focus. The system includes rate limiting, error handling, and logging for production reliability.</p>
+
+            <h3>Impact & Innovation</h3>
+            <p>This RAG assistant provides instant, accurate responses about my professional background 24/7, enhancing user engagement and demonstrating practical AI implementation. It showcases my ability to deploy optimized AI solutions in resource-constrained environments while maintaining high performance.</p>
+          `,
+        },
+        linkedin: {
+          title: "LinkedIn AI Bot",
+          image: "{% static 'public/linkedin.png' %}",
+          buttonText: "View GitHub Repository",
+          buttonLink: "https://github.com/alexhernandez/linkedin-ai-bot",
+          description: `
+            <p>An innovative AI-powered automation bot designed to revolutionize professional networking on LinkedIn. This project demonstrates my expertise in artificial intelligence, machine learning, and social media automation.</p>
+            
+            <h3>AI Training & Implementation</h3>
+            <p>The bot utilizes a custom-trained language model based on my own communication patterns and professional interactions. I collected and curated thousands of my previous LinkedIn messages, posts, and responses to create a personalized dataset that enables the AI to communicate authentically in my style.</p>
+            
+            <h3>Core Functionalities</h3>
+            <ul>
+              <li>Intelligent profile discovery and professional matching</li>
+              <li>Automated connection requests with personalized messages</li>
+              <li>Smart content posting and engagement scheduling</li>
+              <li>Contextual message responses using NLP</li>
+              <li>Network analysis and relationship mapping</li>
+              <li>Engagement tracking and performance analytics</li>
+            </ul>
+            
+            <h3>Technical Architecture</h3>
+            <p>Built using Python with advanced machine learning frameworks including TensorFlow and scikit-learn. The system integrates web scraping capabilities, natural language processing, and automated browser interactions to provide seamless LinkedIn automation.</p>
+            
+            <h3>Ethical Considerations</h3>
+            <p>The bot operates within LinkedIn's terms of service and includes built-in rate limiting, human-like interaction patterns, and respect for user privacy. All automated actions are designed to add genuine value to professional connections.</p>
+            
+            <h3>Results</h3>
+            <p>The bot has successfully expanded my professional network by 300% while maintaining high-quality connections. It has automated 80% of routine networking tasks, allowing me to focus on meaningful professional relationships and opportunities.</p>
+          `,
+        },
+
+        analytics: {
+          title: "Smart Data Analytics Dashboard",
+          image: "{% static 'public/analytics.png' %}",
+          buttonText: "Try Dashboard",
+          buttonLink: "https://analytics-dashboard.example.com",
+          description: `
+            <p>I created an intelligent analytics platform that transforms raw data into actionable business insights through advanced machine learning algorithms and real-time processing capabilities. This project showcases my expertise in data engineering, predictive analytics, and interactive visualization design.</p>
+            
+            <h3>Real-Time Data Processing</h3>
+            <p>The platform processes millions of data points in real-time using Apache Spark and Kafka streaming. It ingests data from multiple sources including databases, APIs, IoT devices, and social media feeds, providing a unified view of business metrics and performance indicators.</p>
+            
+            <h3>Advanced Analytics Features</h3>
+            <ul>
+              <li>Predictive analytics with time-series forecasting</li>
+              <li>Anomaly detection and automated alerting</li>
+              <li>Interactive dashboards with drill-down capabilities</li>
+              <li>Natural language query interface</li>
+              <li>Automated report generation and distribution</li>
+              <li>Custom KPI tracking and goal monitoring</li>
+            </ul>
+            
+            <h3>Machine Learning Integration</h3>
+            <p>Incorporated multiple ML models including LSTM networks for time-series prediction, isolation forests for anomaly detection, and clustering algorithms for customer segmentation. The system automatically retrains models based on new data to maintain accuracy and relevance.</p>
+            
+            <h3>Visualization & UX</h3>
+            <p>Built with D3.js and React to create highly interactive and responsive visualizations. The dashboard features customizable layouts, real-time updates, and mobile-responsive design. Users can create custom views, set up automated alerts, and share insights across teams.</p>
+            
+            <h3>Impact & Results</h3>
+            <p>The platform reduced decision-making time by 60% through automated insights and early warning systems. It helped identify cost-saving opportunities worth $2M annually and improved operational efficiency by providing real-time visibility into key business metrics.</p>
+          `,
+        },
+        assistant: {
+          title: "Personal AI Assistant",
+          image: "{% static 'public/ai_assistant_wip.png' %}",
+          buttonText: "View Development Blog",
+          buttonLink: "https://blog.alexhernandez.dev/ai-assistant-progress",
+          description: `
+          <p><strong>🚧 75% Complete - Final testing phase</strong></p>
+          <p>I'm developing a comprehensive personal AI assistant that revolutionizes productivity through advanced natural language understanding, intelligent task automation, and adaptive learning capabilities.</p>
+
+          <h3>Development Status</h3>
+          <ul>
+          <li>✅ Natural language processing core (100%)</li>
+          <li>✅ Task automation framework (100%)</li>
+          <li>✅ Calendar and email integration (100%)</li>
+          <li>✅ Smart home device connectivity (90%)</li>
+          <li>🔄 Machine learning personalization (80%)</li>
+          <li>🔄 Voice interface optimization (70%)</li>
+          <li>⏳ Mobile app final testing (60%)</li>
+              </ul>
+
+              <h3>Key Capabilities</h3>
+              <p>The assistant learns from user patterns to proactively suggest optimizations, manages complex scheduling across multiple platforms, automates routine tasks, and provides intelligent insights for decision-making.</p>
+
+              <h3>Integration Features</h3>
+              <p>Seamlessly connects with popular productivity tools, smart home systems, and professional platforms. Features include voice commands, predictive text input, automated report generation, and intelligent notification management.</p>
+
+              <h3>Privacy & Security</h3>
+              <p>Built with privacy-first architecture, local data processing options, and enterprise-grade encryption. Users maintain full control over their data with transparent AI decision-making processes.</p>
+
+              <h3>Launch Timeline</h3>
+              <p>Beta testing with selected users ongoing. Public release scheduled for Q2 2025. The assistant will be available as both a standalone application and API for integration into existing workflows.</p>
+            `,
+        },
+
+        healthcare: {
+          title: "Open-Source AI for Healthcare",
+          image: "{% static 'public/videos/healthcare nlp.mp4' %}",
+          buttonText: "View Project on Streamlit",
+          buttonLink:
+            "https://leveraging-nlp-omdena-medical-prescription-app.streamlit.app",
+          description: `
+                <p>A collaborative open-source project with Omdena focused on developing AI solutions for healthcare challenges in Africa. This project showcases my ability to work in diverse, international teams while contributing to meaningful social impact initiatives.</p>
+
+                <h3>Project Scope & Objectives</h3>
+                <p>Our team developed a machine learning model capable of predicting diseases based on symptom analysis, specifically targeting illnesses prevalent in African communities. The goal was to create an accessible diagnostic tool that could assist healthcare providers in resource-limited settings.</p>
+
+                <h3>My Contributions</h3>
+                <ul>
+                  <li>Data collection from multiple African health databases</li>
+                  <li>Comprehensive exploratory data analysis (EDA)</li>
+                  <li>Feature engineering and data preprocessing</li>
+                  <li>Model development using ensemble methods</li>
+                  <li>Results visualization and interpretation</li>
+                  <li>Documentation and knowledge sharing</li>
+                </ul>
+
+                <h3>Technical Implementation</h3>
+                <p>I utilized machine learning techniques including Random Forest, Gradient Boosting, and Neural Networks to create a robust prediction model. The project involved extensive data cleaning, handling missing values, and addressing class imbalances common in medical datasets.</p>
+
+                <h3>Data Science Methodology</h3>
+                <p>Applied rigorous data science practices including cross-validation, hyperparameter tuning, and statistical significance testing. I created comprehensive visualizations to communicate findings effectively to both technical and non-technical stakeholders.</p>
+
+                <h3>Collaboration & Impact</h3>
+                <p>Worked with a diverse team of 50+ data scientists from around the world, contributing to code reviews, team meetings, and knowledge sharing sessions. The final model achieved 84% accuracy in disease prediction, potentially improving diagnostic capabilities in underserved communities.</p>
+
+                <h3>Open Source Contribution</h3>
+                <p>All code, documentation, and findings are publicly available, enabling other researchers and healthcare organizations to build upon our work. This project demonstrates my commitment to using AI for social good and collaborative development practices.</p>
+              `,
+        },
+        gymnastics: {
+          title: "Judge Gymnasts App",
+          image: "{% static 'public/videos/gymjudge.mp4' %}",
+          buttonText: "View Repository on GitHub",
+          buttonLink: "https://github.com/luis12007/mobile_app_gymnastics",
+          description: `
+                <p>A comprehensive cross-platform application designed specifically for gymnastics judges, built with React Native and Expo. This project demonstrates my expertise in mobile development, responsive design, and creating specialized tools for professional use across web, Android, and iOS platforms.</p>
+
+                <h3>Cross-Platform Architecture</h3>
+                <p>Developed using React Native with Expo framework to ensure seamless functionality across all platforms. The app maintains consistent performance and user experience whether accessed through web browsers, Android devices, or iOS devices, with responsive design that adapts to different screen sizes.</p>
+
+                <h3>Core Features</h3>
+                <ul>
+                  <li>Custom authentication system with secure user management</li>
+                  <li>Advanced file management and organization capabilities</li>
+                  <li>Specialized calculators for MAG and WAG scoring (floor and vault)</li>
+                  <li>Interactive digital whiteboard for notes and diagrams</li>
+                  <li>PDF export functionality for official documentation</li>
+                  <li>Responsive interface optimized for tablets and mobile devices</li>
+                </ul>
+
+                <h3>Technical Implementation</h3>
+                <p>Built with React Native and Expo, utilizing native device capabilities while maintaining code reusability across platforms. Implemented secure authentication logic, efficient file handling systems, and complex scoring algorithms specific to gymnastics judging standards.</p>
+
+                <h3>Gymnastics-Specific Functionality</h3>
+                <p>The app includes precise calculators for Men's Artistic Gymnastics (MAG) and Women's Artistic Gymnastics (WAG) with specialized modules for floor exercise and vault scoring. These tools follow official FIG (International Gymnastics Federation) scoring guidelines and regulations.</p>
+
+                <h3>Upcoming AI Integration</h3>
+                <p>Next major update will feature AI-powered competition summary generation, automatically analyzing performance data and creating comprehensive reports. This will further streamline the judging process and provide valuable insights for coaches and athletes.</p>
+
+                <h3>Professional Impact</h3>
+                <p>This application revolutionizes the judging workflow by digitizing traditional paper-based processes, reducing scoring errors, and providing instant access to competition data. Judges can now work more efficiently while maintaining the highest standards of accuracy and professionalism.</p>
+              `,
+        },
+
+        enterprise: {
+          title: "Enterprise Digital Billing API",
+          image: "{% static 'public/videos/API spring.mp4' %}",
+          buttonText: "View API Documentation",
+          buttonLink:
+            "https://www.canva.com/design/DAGhxIZAOg4/zvoh9aanXloL3FJJCccqYQ/edit?utm_content=DAGhxIZAOg4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
+          description: `
+               <p>A robust enterprise-grade API module built with Java Spring Boot that enables large companies to integrate digital billing capabilities into their existing systems. This project demonstrates my expertise in enterprise architecture, system integration, and government compliance requirements.</p>
+
+               <h3>Enterprise Integration Architecture</h3>
+               <p>Designed as a modular extension of my SaaS billing service, this API serves as a bridge between existing enterprise systems and government-mandated digital billing requirements. The architecture supports seamless integration without disrupting current business workflows.</p>
+
+               <h3>Technical Infrastructure</h3>
+               <ul>
+                 <li>Java Spring Boot backend with custom authentication token system</li>
+                 <li>NGINX proxy server for load balancing and security</li>
+                 <li>Multi-server architecture with AWS cloud integration</li>
+                 <li>SMTP server integration for automated email notifications</li>
+                 <li>Direct government API connectivity for compliance</li>
+                 <li>Comprehensive logging and monitoring systems</li>
+               </ul>
+
+               <h3>System Integration & Scalability</h3>
+               <p>The API connects multiple servers including local infrastructure, AWS cloud services, and government systems. I implemented advanced proxy configurations using NGINX to handle high-traffic loads and ensure reliable communication between different system components.</p>
+
+               <h3>Problem-Solving Innovations</h3>
+               <p>Overcame significant technical challenges including SMTP port restrictions on commercial web services by implementing alternative email delivery methods and failover systems. Developed creative solutions for maintaining reliable communication channels in restricted network environments.</p>
+
+               <h3>Documentation & Compliance</h3>
+               <p>Created comprehensive system documentation including API specifications, integration guides, and troubleshooting manuals. The system maintains detailed audit logs to meet government compliance requirements and facilitate system monitoring and debugging.</p>
+
+               <h3>Learning & Growth</h3>
+               <p>This project significantly expanded my expertise in enterprise architecture, server connectivity, scalability design, and complex problem-solving. I gained deep insights into government integration requirements and enterprise-level system design principles.</p>
+
+               <h3>Business Impact</h3>
+               <p>Enables large enterprises to comply with government digital billing mandates while maintaining their existing operational workflows. The API has successfully processed thousands of digital invoices and reduced compliance overhead by 70% for client companies.</p>
+             `,
+        },
+        erp: {
+          title: "Multi-Branch ERP System",
+          image: "{% static 'public/videos/ERP.mp4' %}",
+          buttonText: "View Repository on GitHub",
+          buttonLink: "https://github.com/luis12007/La_Lupita_Kika_System",
+          description: `
+               <p>A comprehensive Enterprise Resource Planning (ERP) system designed specifically for small businesses in El Salvador. Built with C# .NET using Visual Studio Code and cloud SQL database, this system integrates all critical business operations into a unified platform.</p>
+
+               <h3>Core Business Modules</h3>
+               <p>The ERP system encompasses complete business workflow management from point-of-sale operations to strategic business intelligence. Each module is designed to work seamlessly together while maintaining the flexibility to operate independently when needed.</p>
+
+               <h3>Point of Sale & Transaction Management</h3>
+               <ul>
+                 <li>Intuitive cashier interface for efficient customer service</li>
+                 <li>Real-time ticket generation and management</li>
+                 <li>Multiple payment method support and processing</li>
+                 <li>Automated receipt printing and digital backup</li>
+                 <li>Daily sales reconciliation and reporting</li>
+               </ul>
+
+               <h3>Multi-Branch Inventory Control</h3>
+               <p>Advanced inventory management system that tracks stock levels across three business branches simultaneously. Features include real-time stock updates, automated low-stock alerts, inter-branch transfer management, and comprehensive product cataloging with barcode support.</p>
+
+               <h3>Human Resources Management</h3>
+               <p>Complete HR module for user administration, employee management, payroll processing, and access control. The system handles employee scheduling, performance tracking, and automated payment calculations based on hours worked and performance metrics.</p>
+
+               <h3>Ingredients & Recipe Management</h3>
+               <p>Specialized module that manages the relationship between inventory items and their component ingredients. This feature is particularly valuable for restaurants and food service businesses, tracking ingredient usage, cost calculations, and recipe standardization.</p>
+
+               <h3>Business Intelligence & Analytics</h3>
+               <p>Integrated BI module provides comprehensive sales metrics, performance dashboards, and strategic insights. Features include trend analysis, profit margin calculations, branch performance comparisons, and predictive analytics for inventory planning.</p>
+
+               <h3>Technical Architecture</h3>
+               <p>Built using C# .NET framework with Visual Studio Code, ensuring robust performance and maintainability. The cloud-based SQL database provides scalability, automatic backups, and secure access from multiple locations while maintaining data consistency across all branches.</p>
+
+               <h3>Business Impact</h3>
+               <p>This ERP system has streamlined operations for the client business, reducing administrative overhead by 50% and improving inventory accuracy by 95%. The multi-branch coordination has eliminated stock discrepancies and improved overall operational efficiency.</p>
+             `,
+        },
+
+        translator: {
+          title: "AI Voice Translation System",
+          image: "{% static 'public/videos/ippo.mp4' %}",
+          buttonText: "View Development Progress",
+          buttonLink:
+            "https://blog.alexhernandez.dev/voice-translator-progress",
+          description: `
+    <p><strong>🚧 Work in Progress - Advanced Development Phase</strong></p>
+    <p>An ambitious AI-powered voice translation system that transforms Japanese anime episodes into English with authentic voice replication. This project pushes the boundaries of speech recognition, neural machine translation, and voice synthesis technologies.</p>
+
+    <h3>Development Status</h3>
+    <ul>
+      <li>✅ Voice recognition pipeline (Japanese) (100%)</li>
+      <li>✅ Speech-to-text conversion framework (95%)</li>
+      <li>🔄 AI sequence-to-sequence translation model (85%)</li>
+      <li>🔄 Text-to-speech synthesis engine (80%)</li>
+      <li>🔄 Voice cloning and replication system (70%)</li>
+      <li>⏳ Real-time audio processing optimization (60%)</li>
+      <li>⏳ Episode-length content processing (45%)</li>
+    </ul>
+
+    <h3>Technical Pipeline</h3>
+    <p>The system follows a sophisticated four-stage pipeline: Japanese voice recognition extracts speech from anime episodes, converts it to text, applies AI-powered sequence-to-sequence translation to English, and finally synthesizes the English text using cloned voices of the original English voice actors.</p>
+
+    <h3>AI Model Architecture</h3>
+    <p>Utilizing advanced transformer models for translation accuracy, custom voice cloning algorithms trained on English voice actor datasets, and optimized speech synthesis that maintains emotional context and timing synchronization with the original audio.</p>
+
+    <h3>Voice Replication Innovation</h3>
+    <p>The most challenging aspect involves training voice synthesis models on existing English dubs to replicate the authentic voices of professional voice actors, ensuring the final output maintains the original character personalities and emotional delivery.</p>
+
+    <h3>Target Application</h3>
+    <p>The end goal is to process complete anime episodes, replacing Japanese dialogue with natural-sounding English while preserving background music, sound effects, and the original timing. This could revolutionize how international content is localized.</p>
+
+    <h3>Current Challenges</h3>
+    <p>Working on optimizing processing time for full episodes, maintaining audio-visual synchronization, and achieving broadcast-quality voice synthesis that matches professional dubbing standards.</p>
+
+    <h3>Expected Completion</h3>
+    <p>Beta version scheduled for Q3 2025. The project represents a significant advancement in automated content localization and demonstrates cutting-edge applications of AI in media processing.</p>
+  `,
+        },
+      };
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-in");
+            }
           });
+        }, observerOptions);
+
+        // Observe all elements with project-animate class
+        document.querySelectorAll(".project-animate").forEach((el, index) => {
+          // Add staggered delay for project items
+          if (el.classList.contains("project-item")) {
+            el.style.transitionDelay = `${index * 0.2}s`;
+          }
+          observer.observe(el);
+        });
+      });
+
+      // Modal functionality
+      function openProjectModal(projectKey) {
+        const project = projectData[projectKey];
+        if (!project) return;
+
+        const modalOverlay = document.getElementById("modalOverlay");
+        const modalContent = document.getElementById("modalContent");
+
+        // Function to get file extension
+        function getFileExtension(filename) {
+          return filename.split(".").pop().toLowerCase();
+        }
+
+        // Function to create media element based on file type
+        function createMediaElement(imageSrc, title) {
+          const extension = getFileExtension(imageSrc);
+
+          if (
+            extension === "mp4" ||
+            extension === "webm" ||
+            extension === "ogg"
+          ) {
+            // Create video element
+            return `
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          controls
+          style="width: 100%; height: auto; border-radius: 8px;"
+        >
+          <source src="${imageSrc}" type="video/${extension}">
+          <img src="${imageSrc.replace(
+            /\.(mp4|webm|ogg)$/,
+            ".png"
+          )}" alt="${title}" />
+        </video>
+      `;
+          } else {
+            // Create img element for png, jpg, gif, webp, etc.
+            return `<img src="${imageSrc}" alt="${title}" />`;
+          }
+        }
+
+        modalContent.innerHTML = `
+    <div class="modal-image">
+      ${createMediaElement(project.image, project.title)}
+    </div>
+    <div class="modal-text">
+      <h2 class="modal-title">${project.title}</h2>
+      <div class="modal-description">${project.description}</div>
+      <div class="modal-action-container">
+        <a href="${
+          project.buttonLink
+        }" target="_blank" rel="noopener noreferrer" class="modal-action-button">
+          <span>${project.buttonText}</span>
+          <svg class="modal-button-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  `;
+
+        modalOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeProjectModal() {
+        const modalOverlay = document.getElementById("modalOverlay");
+        modalOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Show more projects functionality
+      function showMoreProjects() {
+        const hiddenProjects = document.getElementById("hiddenProjects");
+        const showMoreButton = document.querySelector(".show-more-button");
+        const showMoreContainer = document.querySelector(
+          ".show-more-container"
+        );
+
+        if (hiddenProjects && showMoreButton) {
+          // Show hidden projects with animation
+          hiddenProjects.classList.add("show-projects");
+
+          // Hide the "Show More" button
+          showMoreContainer.style.display = "none";
+
+          // Animate in the new projects
+          const hiddenProjectElements =
+            hiddenProjects.querySelectorAll(".hidden-project");
+          hiddenProjectElements.forEach((project, index) => {
+            setTimeout(() => {
+              project.classList.add("animate-in");
+            }, index * 200);
+          });
+
+          // Re-observe the new projects for scroll animations
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("animate-in");
+                }
+              });
+            },
+            {
+              threshold: 0.1,
+              rootMargin: "0px 0px -50px 0px",
+            }
+          );
+
+          hiddenProjectElements.forEach((el) => {
+            observer.observe(el);
+          });
+        }
+      }
+
+      // Event listeners for modal
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("modalClose")
+          .addEventListener("click", closeProjectModal);
+        document
+          .getElementById("modalOverlay")
+          .addEventListener("click", (e) => {
+            if (e.target === e.currentTarget) {
+              closeProjectModal();
+            }
+          });
+
+        // Close modal on escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeProjectModal();
+          }
         });
       });
     </script>

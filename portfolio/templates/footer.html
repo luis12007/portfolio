@@ -1,105 +1,136 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
-    />
-  </head>
-  <body>
-    <div class="footer1">
-      <div class="rectangle-parent5">
-        <div class="frame-child5"></div>
-        <div class="frame-wrapper1">
-          <img
-            class="group-icon"
-            loading="lazy"
-            alt=""
-            src="{% static 'public/profile3-removebg.png' %}"
-          />
-        </div>
-        <div class="titles-parent">
-          <div class="titles">
-            <h2 class="title19">Alex Hernández</h2>
-            <div class="title20">AI Engineer</div>
-          </div>
-          <div class="phone-parent">
-            <div class="phone">
-              <img
-                class="phone-call-1-icon"
-                loading="lazy"
-                alt=""
-                src="{% static 'public/phonecall-1@2x.png' %}"
-              />
-
-              <b class="title21">(+503) 6431-9239</b>
-            </div>
-            <div class="links">
-              <div class="link-icons">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@400;500;700&family=Roboto:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <footer class="footer1" role="contentinfo" aria-label="Contact Information">
+        <div class="rectangle-parent5">
+            <!-- Profile Image Section -->
+            <div class="frame-wrapper1">
                 <img
-                  class="bienvelope-fill-icon1"
-                  loading="lazy"
-                  alt=""
-                  src="{% static 'public/bienvelopefill1.svg' %}"
+                    class="group-icon"
+                    loading="lazy"
+                    alt="Alex Hernández - AI Engineer Profile Picture"
+                    src="{% static 'public/profile3-removebg.png' %}"
                 />
-
-                <div class="link-titles">
-                  <a
-                    class="title22"
-                    href="mailto:luishdezmtz12@gmail.com' %}"
-                    target="_blank"
-                    >luishdezmtz12@gmail.com</a
-                  >
-                </div>
-              </div>
-              <div class="link-icons1">
-                <img
-                  class="bilinkedin-icon1"
-                  loading="lazy"
-                  alt=""
-                  src="{% static 'public/bilinkedin1.svg' %}"
-                />
-
-                <div class="link-titles">
-                  <a class="title23" href="https://www.linkedin.com/in/alexmtzai">www.linkedin.com/in/alexmtzai</a>
-                </div>
-              </div>
             </div>
-          </div>
+            
+            <!-- Content Section -->
+            <div class="titles-parent">
+                <!-- Title Section -->
+                <div class="titles">
+                    <h2 class="title19">Alex Hernández</h2>
+                    <div class="title20">AI Engineer</div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="phone-parent">
+                    <!-- Phone Number -->
+                    <div class="phone" role="group" aria-label="Phone Number">
+                        <img
+                            class="phone-call-1-icon"
+                            loading="lazy"
+                            alt="Phone"
+                            src="{% static 'public/phonecall-1@2x.png' %}"
+                        />
+                        <span class="title21">(+503) 7752-2702</span>
+                    </div>
+                    
+                    <!-- Contact Links -->
+                    <div class="links" role="group" aria-label="Contact Links">
+                        <!-- Email -->
+                        <div class="link-icons">
+                            <img
+                                class="bienvelope-fill-icon1"
+                                loading="lazy"
+                                alt="Email"
+                                src="{% static 'public/bienvelopefill1.svg' %}"
+                            />
+                            <div class="link-titles">
+                                <a
+                                    class="title22"
+                                    href="mailto:luishdezmtz12@gmail.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Send email to Alex Hernández"
+                                >
+                                    luishdezmtz12@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- LinkedIn -->
+                        <div class="link-icons1">
+                            <img
+                                class="bilinkedin-icon1"
+                                loading="lazy"
+                                alt="LinkedIn"
+                                src="{% static 'public/bilinkedin1.svg' %}"
+                            />
+                            <div class="link-titles">
+                                <a
+                                    class="title23"
+                                    href="https://www.linkedin.com/in/alexmtzai"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Alex Hernández LinkedIn profile"
+                                >
+                                    linkedin.com/in/alexmtzai
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </footer>
+    
+    <script>
+        // Add smooth interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animations for interactive elements
+            const interactiveElements = document.querySelectorAll('.phone, .link-icons, .link-icons1');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Add intersection observer for entrance animation
+            const footer = document.querySelector('.rectangle-parent5');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Initial state for animation
+            footer.style.opacity = '0';
+            footer.style.transform = 'translateY(30px)';
+            footer.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            observer.observe(footer);
+        });
+    </script>
+</body>
 </html>
