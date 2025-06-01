@@ -119,13 +119,11 @@
               <p class="subtitle">AI Engineer</p>
             </div>
           </div>
-          {% for x in video %}
           <div class="video-container">
             <video class="presentation-video" controls>
-              <source src="{{x.video.url}}" type="video/mp4">
+              <source src="{% static 'public/videos/Video Presentacion Final.webm' %}" type="video/mp4">
             </video>
           </div>
-          {% endfor %}
         </div>
       </section>
     </div>
