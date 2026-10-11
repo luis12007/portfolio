@@ -421,28 +421,16 @@
 }
 
 /* ===== HIDDEN PROJECTS ===== */
+/* display: none keeps the collapsed projects out of the tab order and away
+   from screen readers. Once shown, display: contents makes them items of
+   .projects-grid, so they get the same gap as the first projects at every
+   breakpoint; they then fade in like the others (.project-animate). */
 .hidden-projects {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
 }
 
 .hidden-projects.show-projects {
-    opacity: 1;
-    max-height: none;
-}
-
-.hidden-project {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    margin-bottom: 8rem;
-}
-
-.hidden-project.animate-in {
-    opacity: 1;
-    transform: translateY(0);
+    display: contents;
 }
 
 /* ===== SHOW MORE BUTTON ===== */
@@ -490,8 +478,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(8px);
     z-index: 10000;
@@ -517,6 +505,7 @@
     max-width: 1100px;
     width: 100%;
     max-height: 90vh;
+    max-height: 90dvh;
     overflow: hidden;
     position: relative;
     transform: scale(0.9) translateY(20px);
@@ -680,18 +669,19 @@
     }
     
     .project-image {
-        height: 400px;
+        height: auto;
+        aspect-ratio: 3 / 2;
     }
 }
 
 @media (max-width: 768px) {
     .projects {
-        padding: 2rem 0.5rem;
+        padding: 2rem 1.25rem;
         gap: 3rem;
     }
     
     .projects-grid {
-        width: 98%;
+        width: 100%;
         gap: 3rem;
     }
     
@@ -716,9 +706,6 @@
         font-size: 1.2rem;
     }
     
-    .project-image {
-        height: 350px;
-    }
     
     .modal-overlay {
         padding: 1rem;
@@ -726,6 +713,7 @@
     
     .modal-container {
         max-height: 85vh;
+        max-height: 85dvh;
     }
     
     .modal-image {
@@ -750,7 +738,7 @@
 
 @media (max-width: 480px) {
     .projects {
-        padding: 1.5rem 0.25rem;
+        padding: 1.5rem 1.25rem;
         gap: 2rem;
     }
     
@@ -784,9 +772,6 @@
         font-size: 0.9rem;
     }
     
-    .project-image {
-        height: 300px;
-    }
     
     .modal-overlay {
         padding: 0.5rem;
@@ -794,6 +779,7 @@
     
     .modal-container {
         max-height: 85vh;
+        max-height: 85dvh;
     }
     
     .modal-image {

@@ -1,50 +1,14 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/about-me.css' %}">
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
-    />
-  </head>
-  <body>
-    <section id="about" class="about">
+    <section id="about" class="about" aria-labelledby="aboutTitle">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title" id="aboutTitle">About Me</h2>
                 <div class="section-line"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
-                        <h3>Luis Alexander Hernandez Martinez</h3>
-                        <p class="about-age">23 years old • Software Engineer • Based in El Salvador</p>
+                        <h3>Luis Alexander Hernández Martínez</h3>
+                        <p class="about-age">24 years old • Software Engineer • Based in El Salvador</p>
                     </div>
                     <div class="about-description">
                         <p>
@@ -87,9 +51,3 @@
             </div>
         </div>
     </section>
-
-    <script>
-        // Animation code removed - no animations needed
-    </script>
-</body>
-</html>

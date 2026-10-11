@@ -1,21 +1,4 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@400;500;700&family=Roboto:wght@500;600&display=swap" rel="stylesheet">
-</head>
-<body>
     <footer class="footer1" role="contentinfo" aria-label="Contact Information">
         <div class="rectangle-parent5">
             <!-- Profile Image Section -->
@@ -23,7 +6,7 @@
                 <img
                     class="group-icon"
                     loading="lazy"
-                    alt="Alex Hernández - AI Engineer Profile Picture"
+                    alt="Alex Martínez, AI Engineer"
                     src="{% static 'public/profile3-removebg.png' %}"
                 />
             </div>
@@ -32,7 +15,7 @@
             <div class="titles-parent">
                 <!-- Title Section -->
                 <div class="titles">
-                    <h2 class="title19">Alex Hernández</h2>
+                    <h2 class="title19">Alex Martínez</h2>
                     <div class="title20">AI Engineer</div>
                 </div>
                 
@@ -43,10 +26,10 @@
                         <img
                             class="phone-call-1-icon"
                             loading="lazy"
-                            alt="Phone"
+                            alt=""
                             src="{% static 'public/phonecall-1@2x.png' %}"
                         />
-                        <span class="title21">(+503) 7752-2702</span>
+                        <a class="title21" href="tel:+50377522702">(+503) 7752-2702</a>
                     </div>
                     
                     <!-- Contact Links -->
@@ -56,18 +39,16 @@
                             <img
                                 class="bienvelope-fill-icon1"
                                 loading="lazy"
-                                alt="Email"
+                                alt=""
                                 src="{% static 'public/bienvelopefill1.svg' %}"
                             />
                             <div class="link-titles">
                                 <a
                                     class="title22"
-                                    href="mailto:luishdezmtz12@gmail.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Send email to Alex Hernández"
+                                    href="mailto:alexmtzai2002@gmail.com"
+                                    aria-label="Send email to Alex Martínez"
                                 >
-                                    luishdezmtz12@gmail.com
+                                    alexmtzai2002@gmail.com
                                 </a>
                             </div>
                         </div>
@@ -77,7 +58,7 @@
                             <img
                                 class="bilinkedin-icon1"
                                 loading="lazy"
-                                alt="LinkedIn"
+                                alt=""
                                 src="{% static 'public/bilinkedin1.svg' %}"
                             />
                             <div class="link-titles">
@@ -86,7 +67,7 @@
                                     href="https://www.linkedin.com/in/alexmtzai"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Visit Alex Hernández LinkedIn profile"
+                                    aria-label="Visit Alex Martínez's LinkedIn profile"
                                 >
                                     linkedin.com/in/alexmtzai
                                 </a>
@@ -132,5 +113,3 @@
             observer.observe(footer);
         });
     </script>
-</body>
-</html>

@@ -1,46 +1,26 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-
     <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>Alex Martínez | AI Engineer</title>
 
     <link rel="stylesheet" href="{% static 'css/projects.css' %}" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/technologies.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/background.css' %}" />
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/presentation.css' %}" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@300;400&family=Nunito:wght@400;500;700&family=Playfair+Display:wght@700&family=Poly&family=Raleway:wght@500&family=Roboto:wght@400;500;600;700&display=swap"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
-    />
-
-
   </head>
   <body>
     <div class="profile">
@@ -62,7 +42,7 @@
               <a class="sobre" href="#Projects-section">Projects</a>
             </div>
             <div class="tab-default">
-              <a class="sobre-presentation" href="{% url 'presentation' %}"
+              <a class="sobre-presentation" href="#presentation" data-open-presentation
                 >Presentation</a
               >
             </div>
@@ -76,7 +56,14 @@
 
           <!-- IMPROVED HAMBURGER BUTTON -->
           <div class="hamburger-container">
-            <button class="hamburger" id="hamburgerBtn">
+            <button
+              type="button"
+              class="hamburger"
+              id="hamburgerBtn"
+              aria-label="Open menu"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+            >
               <div class="hamburger-lines">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
@@ -88,27 +75,15 @@
 
         <div class="footer-icons">
           <div class="icons">
-            <img
-              class="github"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/github.png' %}"
-              onclick="openGitHub()"
-            />
-            <img
-              class="phinstagram-logo-fill-icon"
-              loading="lazy"
-              alt="LinkedIn"
-              src="{% static 'public/bilinkedin.svg' %}"
-              onclick="openLinkedIn()"
-            />
-            <img
-              class="phinstagram-logo-fill-icon"
-              loading="lazy"
-              alt=""
-              src="{% static 'public/bienvelopefill.svg' %}"
-              onclick="openEmail()"
-            />
+            <a class="header-icon-link" href="https://github.com/luis12007" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img class="github" alt="" src="{% static 'public/github.png' %}" />
+            </a>
+            <a class="header-icon-link" href="https://www.linkedin.com/in/alexmtzai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/bilinkedin.svg' %}" />
+            </a>
+            <a class="header-icon-link" href="mailto:alexmtzai2002@gmail.com" aria-label="Email alexmtzai2002@gmail.com">
+              <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/bienvelopefill.svg' %}" />
+            </a>
           </div>
         </div>
       </header>
@@ -117,9 +92,9 @@
       <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
       <!-- MOBILE NAVIGATION MENU -->
-      <nav class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <nav class="mobile-nav" id="mobileNav" aria-label="Site">
+        <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path
               d="M12 4L4 12M4 4L12 12"
               stroke="currentColor"
@@ -132,7 +107,7 @@
         <div class="mobile-nav-links">
           <a href="#Home-section" class="mobile-nav-link">🏠 Home</a>
           <a href="#Projects-section" class="mobile-nav-link">💼 Projects</a>
-          <a href="{% url 'presentation' %}" class="mobile-nav-link"
+          <a href="#presentation" class="mobile-nav-link" data-open-presentation
             >🎯 Presentation</a
           >
           <a href="#Technologies-section" class="mobile-nav-link">⚡ Skills</a>
@@ -161,12 +136,17 @@
                   </div>
                 </div>
                 <div class="buttons">
-                  <button class="button-primary" onclick="openVideo()">
-                    <div class="text1">Video</div>
-                  </button>
-                  <button class="button-secondary" onclick="downloadCV()">
-                    <div class="text2">CV</div>
-                  </button>
+                  <a class="button-primary" href="#presentation" data-open-presentation>
+                    <span class="text1">Video</span>
+                  </a>
+                  <a
+                    class="button-secondary"
+                    href="{% static 'files/Alex Engineer AI CV.pdf' %}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="text2">CV</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -175,8 +155,8 @@
             <div class="image-content">
               <img
                 class="whatsapp-image-2024-12-03-at-1-icon"
-                loading="lazy"
-                alt=""
+                alt="Alex Martínez"
+                fetchpriority="high"
                 src="{% static 'public/profile3.png' %}"
               />
             </div>
@@ -190,7 +170,7 @@
       <div class="projects">
         <!-- Header Section -->
         <header class="projects-header project-animate">
-          <h1 class="projects-title">Projects</h1>
+          <h2 class="projects-title">Projects</h2>
           <p class="projects-description">
             AI solutions, data science, and web design. From optimizing models
             to crafting digital experiences through my own company, explore my
@@ -199,7 +179,7 @@
         </header>
 
         <!-- Projects Grid -->
-        <main class="projects-grid">
+        <div class="projects-grid">
           <!-- Project 1: Text Left, Image Right -->
           <article class="project-item project-animate" data-layout="text-left">
             <div class="project-text">
@@ -464,7 +444,7 @@
               </div>
             </article>
           </div>
-        </main>
+        </div>
 
         <!-- Show More Button -->
         <div class="show-more-container project-animate">
@@ -484,6 +464,9 @@
       </div>
     </section>
 
+    <!-- divider between the projects (and their "Show More" button) and the technologies -->
+    <div class="section-divider" role="separator"></div>
+
     <!-- technologies -->
     <section id="Technologies-section">
       {% include 'technologies.html' %}
@@ -496,8 +479,15 @@
     {% include 'footer.html' %}
 
     <!-- CHATBOT BUBBLE -->
-    <div class="chatbot-bubble" id="chatbotBubble">
-        <svg class="chatbot-icon" viewBox="0 0 24 24" fill="none">
+    <button
+        type="button"
+        class="chatbot-bubble"
+        id="chatbotBubble"
+        aria-label="Chat with Alex's AI assistant"
+        aria-controls="chatbotContainer"
+        aria-expanded="false"
+    >
+        <svg class="chatbot-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <!-- Robot head -->
             <rect x="7" y="6" width="10" height="8" rx="2" fill="currentColor"/>
             <!-- Robot antenna -->
@@ -519,16 +509,16 @@
             <!-- Robot chest panel -->
             <rect x="10" y="16" width="4" height="2" rx="0.5" fill="white" opacity="0.7"/>
         </svg>
-        <div class="chatbot-notification" id="chatbotNotification">1</div>
-    </div>
+        <span class="chatbot-notification" id="chatbotNotification" aria-hidden="true">1</span>
+    </button>
 
     <!-- CHATBOT CONTAINER -->
-    <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-container" id="chatbotContainer" role="dialog" aria-label="Chat with Alex's AI assistant">
         <!-- Chat Header -->
         <div class="chatbot-header">
             <div class="chatbot-header-info">
                 <div class="chatbot-avatar">
-                    <svg viewBox="0 0 24 24" fill="none">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <!-- Robot head -->
                         <rect x="7" y="6" width="10" height="8" rx="2" fill="currentColor"/>
                         <!-- Robot antenna -->
@@ -556,27 +546,27 @@
                     <p>model with Alex information Alpha 1.0 (development)</p>
                 </div>
             </div>
-            <button class="chatbot-close" id="chatbotClose">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <button type="button" class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                     <path d="M18 6L6 18M6 6L18 18"/>
                 </svg>
             </button>
         </div>
 
         <!-- Chat Messages -->
-        <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chatbot-messages" id="chatbotMessages" role="log" aria-live="polite">
             <div class="welcome-message">
                 <h4>👋 Welcome!</h4>
                 <p>I'm here to help you with any questions about Alex's projects and experience.</p>
                 <div class="quick-actions">
-                    <div class="quick-action" onclick="sendQuickMessage('What is Alex background ?')">Background</div>
-                    <div class="quick-action" onclick="sendQuickMessage('What technologies do Alex use?')">Technologies</div>
-                    <div class="quick-action" onclick="sendQuickMessage('How can I contact you?')">Contact Info</div>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage('What is Alex background ?')">Background</button>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage('What technologies do Alex use?')">Technologies</button>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage('How can I contact you?')">Contact Info</button>
                 </div>
             </div>
 
             <!-- Typing Indicator -->
-            <div class="typing-indicator" id="typingIndicator">
+            <div class="typing-indicator" id="typingIndicator" aria-hidden="true">
                 <div class="message-avatar">
                     <svg viewBox="0 0 24 24" fill="none">
                         <!-- Robot head -->
@@ -617,10 +607,12 @@
                     class="chatbot-input" 
                     id="chatbotInput" 
                     placeholder="Type your message..."
+                    aria-label="Your message"
+                    autocomplete="off"
                     maxlength="500"
                 >
-                <button class="chatbot-send" id="chatbotSend">
-                    <svg viewBox="0 0 24 24" fill="none">
+                <button type="button" class="chatbot-send" id="chatbotSend" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z"/>
                     </svg>
                 </button>
@@ -628,11 +620,19 @@
         </div>
     </div>
 
+    {% include 'presentation.html' %}
+
     <!-- GLOBAL MODAL - Outside all sections for proper positioning -->
     <div class="modal-overlay" id="modalOverlay">
-      <div class="modal-container" id="modalContainer">
-        <button class="modal-close" id="modalClose">
-          <svg viewBox="0 0 24 24" fill="none">
+      <div
+        class="modal-container"
+        id="modalContainer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button type="button" class="modal-close" id="modalClose" aria-label="Close project details">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path
               d="M18 6L6 18M6 6L18 18"
               stroke="currentColor"
@@ -658,7 +658,7 @@
           title: "Billing System",
           image: "{% static 'public/videos/Saas Billing project.webm' %}",
           buttonText: "View Live Demo",
-          buttonLink: "https://billing-demo.example.com",
+          buttonLink: "https://cliente-production-e629.up.railway.app/demostration",
           description: `
             <p>I developed a comprehensive full-stack billing system that revolutionizes invoice management and financial tracking. This project showcases my expertise in both frontend and backend development, creating a seamless user experience while maintaining robust functionality.</p>
             
@@ -685,7 +685,7 @@
           title: "RAG Portfolio Assistant",
           image: "{% static 'public/videos/ragvideo.webm' %}",
           buttonText: "Try AI Assistant",
-          buttonLink: "https://your-portfolio.com/ai-chat",
+          buttonAction: "chat",
           description: `
           <p>An intelligent AI assistant trained specifically on my professional portfolio and experience. This project demonstrates my expertise in Retrieval-Augmented Generation (RAG), model optimization, and production deployment of AI systems.</p>
 
@@ -859,8 +859,8 @@
         translator: {
           title: "AI Voice Translation System",
           image: "{% static 'public/videos/ippo.webm' %}",
-          buttonText: "View Development Progress",
-          buttonLink: "https://blog.alexhernandez.dev/voice-translator-progress",
+          buttonText: null,
+          buttonLink: null,
           description: `
     <p><strong>🚧 Work in Progress - Advanced Development Phase</strong></p>
     <p>An ambitious AI-powered voice translation system that transforms Japanese anime episodes into English with authentic voice replication. This project pushes the boundaries of speech recognition, neural machine translation, and voice synthesis technologies.</p>
@@ -892,36 +892,10 @@
     <p>Working on optimizing processing time for full episodes, maintaining audio-visual synchronization, and achieving broadcast-quality voice synthesis that matches professional dubbing standards.</p>
 
     <h3>Expected Completion</h3>
-    <p>Beta version scheduled for Q3 2025. The project represents a significant advancement in automated content localization and demonstrates cutting-edge applications of AI in media processing.</p>
+    <p>A beta version is currently in progress. The project represents a significant advancement in automated content localization and demonstrates cutting-edge applications of AI in media processing.</p>
   `,
         },
       };
-
-      // Wait for DOM to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Scroll animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animate-in");
-            }
-          });
-        }, observerOptions);
-
-        // Observe all elements with project-animate class
-        document.querySelectorAll(".project-animate").forEach((el, index) => {
-          // Add staggered delay for project items
-          if (el.classList.contains("project-item")) {
-            el.style.transitionDelay = `${index * 0.2}s`;
-          }
-          observer.observe(el);
-        });
-      });
 
       // Modal functionality
       function openProjectModal(projectKey) {
@@ -956,10 +930,6 @@
           style="width: 100%; height: auto; border-radius: 8px;"
         >
           <source src="${imageSrc}" type="video/${extension}">
-          <img src="${imageSrc.replace(
-            /\.(mp4|webm|ogg)$/,
-            ".png"
-          )}" alt="${title}" />
         </video>
       `;
           } else {
@@ -968,78 +938,76 @@
           }
         }
 
+        const buttonIcon = `
+          <svg class="modal-button-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+        let actionButton = "";
+        if (project.buttonAction === "chat") {
+          actionButton = `
+        <button type="button" class="modal-action-button" id="modalChatButton">
+          <span>${project.buttonText}</span>${buttonIcon}
+        </button>`;
+        } else if (project.buttonLink) {
+          actionButton = `
+        <a href="${project.buttonLink}" target="_blank" rel="noopener noreferrer" class="modal-action-button">
+          <span>${project.buttonText}</span>${buttonIcon}
+        </a>`;
+        }
+
         modalContent.innerHTML = `
     <div class="modal-image">
       ${createMediaElement(project.image, project.title)}
     </div>
     <div class="modal-text">
-      <h2 class="modal-title">${project.title}</h2>
+      <h2 class="modal-title" id="modalTitle">${project.title}</h2>
       <div class="modal-description">${project.description}</div>
-      <div class="modal-action-container">
-        <a href="${
-          project.buttonLink
-        }" target="_blank" rel="noopener noreferrer" class="modal-action-button">
-          <span>${project.buttonText}</span>
-          <svg class="modal-button-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+      ${actionButton ? `<div class="modal-action-container">${actionButton}</div>` : ""}
     </div>
   `;
 
+        const chatButton = document.getElementById("modalChatButton");
+        if (chatButton) {
+          chatButton.addEventListener("click", (e) => {
+            // Keep the chatbot's outside-click handler from closing it immediately.
+            e.stopPropagation();
+            closeProjectModal();
+            window.chatbot?.openChat();
+          });
+        }
+
+        modalReturnFocus = document.activeElement;
         modalOverlay.classList.add("active");
         document.body.style.overflow = "hidden";
+        focusWhenVisible(document.getElementById("modalClose"));
       }
+
+      // Element focused before the modal opened, to return focus on close.
+      let modalReturnFocus = null;
 
       function closeProjectModal() {
         const modalOverlay = document.getElementById("modalOverlay");
+        if (!modalOverlay.classList.contains("active")) return;
         modalOverlay.classList.remove("active");
         document.body.style.overflow = "";
+        // Drop the content so the autoplaying video stops downloading/playing.
+        document.getElementById("modalContent").innerHTML = "";
+        modalReturnFocus?.focus?.({ preventScroll: true });
+        modalReturnFocus = null;
       }
 
-      // Show more projects functionality
+      // Show more projects functionality: reveal the collapsed projects (they
+      // fade in through revealOnScroll as they enter the viewport) and move
+      // focus to the first one, since the button that had focus disappears.
       function showMoreProjects() {
         const hiddenProjects = document.getElementById("hiddenProjects");
-        const showMoreButton = document.querySelector(".show-more-button");
-        const showMoreContainer = document.querySelector(
-          ".show-more-container"
-        );
-
-        if (hiddenProjects && showMoreButton) {
-          // Show hidden projects with animation
-          hiddenProjects.classList.add("show-projects");
-
-          // Hide the "Show More" button
-          showMoreContainer.style.display = "none";
-
-          // Animate in the new projects
-          const hiddenProjectElements =
-            hiddenProjects.querySelectorAll(".hidden-project");
-          hiddenProjectElements.forEach((project, index) => {
-            setTimeout(() => {
-              project.classList.add("animate-in");
-            }, index * 200);
-          });
-
-          // Re-observe the new projects for scroll animations
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("animate-in");
-                }
-              });
-            },
-            {
-              threshold: 0.1,
-              rootMargin: "0px 0px -50px 0px",
-            }
-          );
-
-          hiddenProjectElements.forEach((el) => {
-            observer.observe(el);
-          });
+        if (!hiddenProjects) return;
+        hiddenProjects.classList.add("show-projects");
+        document.querySelector(".show-more-container").style.display = "none";
+        const firstTitle = hiddenProjects.querySelector(".project-title");
+        if (firstTitle) {
+          firstTitle.tabIndex = -1;
+          firstTitle.focus({ preventScroll: true });
         }
       }
 
@@ -1056,10 +1024,25 @@
             }
           });
 
-        // Close modal on escape key
+        // Escape closes the modal; Tab keeps focus inside it while open.
         document.addEventListener("keydown", (e) => {
+          const overlay = document.getElementById("modalOverlay");
+          if (!overlay.classList.contains("active")) return;
           if (e.key === "Escape") {
             closeProjectModal();
+          } else if (e.key === "Tab") {
+            const focusable = [
+              ...overlay.querySelectorAll("button, a[href], video[controls]"),
+            ];
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
           }
         });
       });
@@ -1070,7 +1053,9 @@
       class Chatbot {
           constructor() {
               this.isOpen = false;
-              this.messageId = 0;
+              this.isWaiting = false;
+              // Conversation sent to the API; the UI-only greeting is not included.
+              this.history = [];
               
               this.bubble = document.getElementById('chatbotBubble');
               this.container = document.getElementById('chatbotContainer');
@@ -1092,8 +1077,9 @@
               
               // Send message
               this.sendBtn.addEventListener('click', () => this.sendMessage());
-              this.input.addEventListener('keypress', (e) => {
-                  if (e.key === 'Enter') this.sendMessage();
+              this.input.addEventListener('keydown', (e) => {
+                  // isComposing: Enter that confirms an IME candidate must not send.
+                  if (e.key === 'Enter' && !e.isComposing) this.sendMessage();
               });
               
               // Input validation
@@ -1123,11 +1109,11 @@
           openChat() {
               this.isOpen = true;
               this.container.classList.add('active');
-              this.input.focus();
+              this.bubble.setAttribute('aria-expanded', 'true');
+              focusWhenVisible(this.input);
               this.hideNotification();
               
-              // Add initial bot message if no messages exist
-              if (this.messages.children.length === 1) { // Only welcome message
+              if (!this.messages.querySelector('.message')) {
                   setTimeout(() => {
                       this.addBotMessage("Hi! I'm Alex's AI assistant. How can I help you today?");
                   }, 500);
@@ -1136,7 +1122,10 @@
           
           closeChat() {
               this.isOpen = false;
+              const hadFocus = this.container.contains(document.activeElement);
               this.container.classList.remove('active');
+              this.bubble.setAttribute('aria-expanded', 'false');
+              if (hadFocus) this.bubble.focus();
               this.hideTyping();
           }
           
@@ -1147,13 +1136,11 @@
           
           sendMessage() {
               const message = this.input.value.trim();
-              if (!message) return;
-              
+              if (!message || this.isWaiting) return;
+
               this.addUserMessage(message);
               this.input.value = '';
               this.validateInput();
-              
-              // Simulate bot response
               this.simulateBotResponse(message);
           }
           
@@ -1186,58 +1173,44 @@
               return messageEl;
           }
           
-          simulateBotResponse(userMessage) {
-    this.showTyping();
-    
-    // Call the RAG API
-    this.generateBotResponse(userMessage)
-        .then(response => {
-            this.hideTyping();
-            this.addBotMessage(response);
-        })
-        .catch(error => {
-            console.error('Bot response error:', error);
-            this.hideTyping();
-            this.addBotMessage("I'm having trouble processing your question right now. Please try again later.");
-        });
-}
-          
-          generateBotResponse(userMessage) {
-    // Return a promise instead of a direct response
-    return this.callRagAPI(userMessage);
-}
-async callRagAPI(query) {
-    try {
-        const response = await fetch('http://174.138.54.64:5000/ask', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-            mode: 'cors', // Explicitly set CORS mode
-            body: JSON.stringify({
-                query: query
-            })
-        });
+          async simulateBotResponse(userMessage) {
+              this.isWaiting = true;
+              this.showTyping();
+              // Last 9 entries: an odd count keeps the slice starting on a user turn.
+              const messages = [...this.history, { role: 'user', content: userMessage }].slice(-9);
+              const answer = await this.callChatAPI(messages);
+              this.hideTyping();
+              this.isWaiting = false;
+              if (answer) {
+                  this.history = [...messages, { role: 'assistant', content: answer }];
+                  this.addBotMessage(answer);
+              }
+          }
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('RAG API Response:', data); // For debugging
-        return data.answer || "I'm sorry, I couldn't process your question right now.";
-    } catch (error) {
-        console.error('RAG API Error:', error);
-        
-        // Handle CORS errors specifically
-        if (error.message.includes('CORS') || error.message.includes('fetch')) {
-            return "I'm having trouble connecting due to network restrictions. Please contact Alex directly.";
-        }
-        
-        return "I'm having trouble connecting to my knowledge base. Please try again later.";
-    }
-}
+          async callChatAPI(messages) {
+              try {
+                  const response = await fetch("{% url 'chat' %}", {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json',
+                          'Accept': 'application/json',
+                          'X-CSRFToken': "{{ csrf_token }}",
+                      },
+                      body: JSON.stringify({ messages })
+                  });
+                  const data = await response.json().catch(() => ({}));
+                  if (response.ok && data.answer) return data.answer;
+                  if (response.status === 429) {
+                      this.addBotMessage("You've sent a lot of messages. Please wait a few minutes and try again.");
+                  } else {
+                      this.addBotMessage("I'm having trouble answering right now. Please try again later or email Alex at alexmtzai2002@gmail.com.");
+                  }
+              } catch (error) {
+                  console.error('Chat API error:', error);
+                  this.addBotMessage("I can't connect right now. Please check your connection or email Alex at alexmtzai2002@gmail.com.");
+              }
+              return null;
+          }
 
 
 

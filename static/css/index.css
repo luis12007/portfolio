@@ -76,8 +76,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     z-index: 9998;
@@ -97,7 +97,7 @@
     top: 0;
     left: -100%; /* Changed from right: -100% to left: -100% */
     width: 280px;
-    height: 100vh;
+    height: 100%;
     background: rgba(217, 221, 230, 0.95);
     backdrop-filter: blur(20px);
     border-right: 1px solid rgba(255, 255, 255, 0.3); /* Changed from border-left to border-right */
@@ -227,9 +227,10 @@
     }
 }
 
-/* Hide the default cursor everywhere */
-
-* {
+/* The native cursor is hidden only where scripts.js enabled the custom one
+   (mouse/trackpad devices); touch screens keep their normal behaviour. */
+.has-custom-cursor,
+.has-custom-cursor * {
     cursor: none;
 }
 
@@ -247,7 +248,13 @@
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    transition: transform 0.12s ease-out, background-color 0.3s ease;
+    opacity: 0;
+    transition: transform 0.12s ease-out, background-color 0.3s ease, opacity 0.2s ease;
+}
+
+/* Shown after the first mouse move, hidden while the pointer is outside the page */
+.custom-cursor.visible {
+    opacity: 1;
 }
 
 /* Click effect */
@@ -311,13 +318,13 @@
     }
 }
 
-/* Ensure cursor is visible on buttons and links */
+/* Keep the custom cursor on interactive elements too */
 
-button,
-a,
-input,
-textarea,
-select {
+.has-custom-cursor button,
+.has-custom-cursor a,
+.has-custom-cursor input,
+.has-custom-cursor textarea,
+.has-custom-cursor select {
     cursor: none !important;
 }
 
@@ -327,8 +334,8 @@ select {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.4);
     /* Fog effect */
     backdrop-filter: blur(5px);
@@ -578,7 +585,7 @@ select {
     }
 }
 
-.frame-parent.floating:hover {
+body.loaded .frame-parent.floating:hover {
     transform: translateX(-50%) translateY(-2px) scale(1.01);
     box-shadow: 
         0 12px 40px rgba(0, 0, 0, 0.15),
@@ -586,13 +593,17 @@ select {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Floating header when scrolling */
-.frame-parent.floating {
+/* Floating header when scrolling. body.loaded is repeated so these rules
+   outrank "body.loaded .frame-parent" (entrance transform/animation). */
+.frame-parent.floating,
+body.loaded .frame-parent.floating {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%) translateY(0) scale(1);
     width: 60%;
+    /* never narrower than its links and icons */
+    min-width: max-content;
     background-color: rgba(217, 221, 230, 0.95);
     backdrop-filter: blur(15px);
     border-radius: 15px;
@@ -615,56 +626,22 @@ select {
     position: relative;
 }
 
-@keyframes elevator {
-    0% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    10% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    25% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    40% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    50% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    75% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    90% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
-}
-
+/* Rotating title: the box is exactly one line tall and clips the slide;
+   static/js/scripts.js drives the rotation and shrinks the font if the
+   longest title would not fit on one line. */
 .ai-engineer {
-    display: inline-block;
+    display: block;
     position: relative;
     overflow: hidden;
-    height: 2.3em;
-    /* Adjust based on your font size */
+    font-size: 30px;
+    line-height: 1.2;
+    height: 1.2em;
 }
 
 .ai-engineer span {
     display: inline-block;
-    position: absolute;
-    width: 100%;
-    text-align: start;
-    animation: elevator 3s infinite;
-    font-size: 30px;
+    white-space: nowrap;
+    will-change: transform, opacity;
 }
 
 .title {
@@ -701,6 +678,12 @@ select {
     font-family: var(--font-roboto);
     color: #d9dde6;
     text-align: left;
+}
+
+/* Video / CV are links styled as buttons */
+.button-primary,
+.button-secondary {
+    text-decoration: none;
 }
 
 .button-primary {
@@ -934,7 +917,7 @@ select {
     width: 100%;
     position: relative;
     background-color: var(--color-gainsboro-200);
-    overflow: hidden;
+    overflow: clip;
     flex-direction: column;
     padding: var(--padding-7xs) var(--padding-22xl) 120px 120px;
     line-height: normal;
@@ -1021,7 +1004,7 @@ body.loaded .title {
 body.loaded .ai-engineer {
     opacity: 1;
     transform: translateX(0);
-    transition-delay: 0.6s;
+    transition-delay: 0.5s;
 }
 
 body.loaded .text {
@@ -1060,19 +1043,19 @@ body.loaded .footer-icons {
     transition-delay: 0.3s;
 }
 
-body.loaded .icons img:nth-child(1) {
+body.loaded .icons a:nth-child(1) img {
     opacity: 1;
     transform: translateY(0) rotate(0);
     transition-delay: 0.4s;
 }
 
-body.loaded .icons img:nth-child(2) {
+body.loaded .icons a:nth-child(2) img {
     opacity: 1;
     transform: translateY(0) rotate(0);
     transition-delay: 0.5s;
 }
 
-body.loaded .icons img:nth-child(3) {
+body.loaded .icons a:nth-child(3) img {
     opacity: 1;
     transform: translateY(0) rotate(0);
     transition-delay: 0.6s;
@@ -1296,8 +1279,8 @@ body.loaded .icons img:nth-child(3) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(135deg, rgba(217, 221, 230, 0.95) 0%, rgba(241, 245, 249, 0.98) 100%);
     backdrop-filter: blur(10px);
     display: flex;
@@ -1471,7 +1454,8 @@ body.loaded .icons img:nth-child(3) {
         padding: 0 0 30px 0;
         margin: 1px 1px 30px 1px;
     }
-    .frame-parent.floating {
+    .frame-parent.floating,
+    body.loaded .frame-parent.floating {
         position: fixed;
         top: 20px;
         left: 50%;
@@ -1513,7 +1497,7 @@ body.loaded .icons img:nth-child(3) {
         width: 100%;
         position: relative;
         background-color: var(--color-gainsboro-200);
-        overflow: hidden;
+        overflow: clip;
         flex-direction: column;
         padding: 30px 30px 30px 30px;
         gap: 0px;
@@ -1526,12 +1510,14 @@ body.loaded .icons img:nth-child(3) {
         padding: 0 0 0 0;
         margin: 50px 0 0 0;
     }
-    .frame-parent.floating {
-        position: sticky;
+    .frame-parent.floating,
+    body.loaded .frame-parent.floating {
+        position: fixed;
         top: 0;
-        left: auto;
+        left: 0;
         transform: none;
         width: 100%;
+        min-width: 0;
         background-color: var(--color-gainsboro-200);
         backdrop-filter: none;
         border-radius: 0;
@@ -1626,7 +1612,7 @@ body.loaded .icons img:nth-child(3) {
 
 @media screen and (max-width: 550px) {
     .ai-engineer {
-        font-size: 40px;
+        font-size: 23px;
     }
     .title {
         font-size: var(--font-size-19xl);
@@ -1653,23 +1639,6 @@ body.loaded .icons img:nth-child(3) {
     .icons {
         gap: 15px;
         margin-left: 70px;
-    }
-    .ai-engineer {
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        height: 0.7em;
-        justify-content: end;
-        justify-items: end;
-        place-items: end;
-    }
-    .ai-engineer span {
-        display: inline-block;
-        position: absolute;
-        width: 100%;
-        text-align: start;
-        animation: elevator 6s infinite;
-        font-size: 23px;
     }
     .image-content-wrapper {
         width: 90%;
@@ -1689,7 +1658,7 @@ body.loaded .icons img:nth-child(3) {
 /* Adjust mobile nav width on very small screens */
 @media screen and (max-width: 480px) {
     .mobile-nav {
-        width: 100vw;
+        width: 100%;
         right: -100vw;
     }
     
@@ -1700,7 +1669,7 @@ body.loaded .icons img:nth-child(3) {
 
 @media screen and (max-width: 450px) {
     .ai-engineer {
-        font-size: 40px;
+        font-size: 23px;
     }
     .title {
         font-size: var(--font-size-19xl);
@@ -1727,23 +1696,6 @@ body.loaded .icons img:nth-child(3) {
     .icons {
         gap: 15px;
         margin-left: 70px;
-    }
-    .ai-engineer {
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        height: 0.7em;
-        justify-content: end;
-        justify-items: end;
-        place-items: end;
-    }
-    .ai-engineer span {
-        display: inline-block;
-        position: absolute;
-        width: 100%;
-        text-align: start;
-        animation: elevator 6s infinite;
-        font-size: 23px;
     }
     .image-content-wrapper {
         width: 90%;
@@ -1772,7 +1724,7 @@ body.loaded .icons img:nth-child(3) {
 
 @media screen and (max-width: 415px) {
     .ai-engineer {
-        font-size: 40px;
+        font-size: 23px;
     }
     .title {
         font-size: var(--font-size-19xl);
@@ -1799,23 +1751,6 @@ body.loaded .icons img:nth-child(3) {
     .icons {
         gap: 15px;
         margin-left: 70px;
-    }
-    .ai-engineer {
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        height: 0.7em;
-        justify-content: end;
-        justify-items: end;
-        place-items: end;
-    }
-    .ai-engineer span {
-        display: inline-block;
-        position: absolute;
-        width: 100%;
-        text-align: start;
-        animation: elevator 6s infinite;
-        font-size: 23px;
     }
     .image-content-wrapper {
         width: 90%;
@@ -1860,6 +1795,9 @@ body.loaded .icons img:nth-child(3) {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 3px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
+            padding: 0;
+            color: inherit;
+            font: inherit;
         }
         
         .chatbot-bubble:hover {
@@ -2298,8 +2236,9 @@ body.loaded .icons img:nth-child(3) {
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             .chatbot-container {
-                width: calc(100vw - 40px);
+                width: calc(100% - 40px);
                 height: calc(100vh - 140px);
+                height: calc(100dvh - 140px);
                 right: 20px;
                 bottom: 90px;
                 border-radius: 16px;
@@ -2316,12 +2255,17 @@ body.loaded .icons img:nth-child(3) {
                 width: 24px;
                 height: 24px;
             }
+
+            .chatbot-input {
+                font-size: 16px;
+            }
         }
         
         @media screen and (max-width: 480px) {
             .chatbot-container {
-                width: calc(100vw - 20px);
+                width: calc(100% - 20px);
                 height: calc(100vh - 120px);
+                height: calc(100dvh - 120px);
                 right: 10px;
                 bottom: 80px;
                 border-radius: 12px;

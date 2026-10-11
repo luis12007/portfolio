@@ -1,0 +1,352 @@
+/* ===== PRESENTATION MODAL =====
+   Replaces the old /presentation/ page: the video on top and the "About Me"
+   section below it, scrolling inside a native <dialog>. Everything is scoped
+   to .presentation-modal so it can't leak into the home page. */
+
+.presentation-modal {
+    --primary-gradient: #354c6b;
+    --heading-color: #354c6b;
+    --text-color: #2d3748;
+    --text-light: #718096;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 12px;
+
+    width: min(1200px, calc(100% - 2rem));
+    max-width: none;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    margin: auto;
+    padding: 0 0 2rem;
+    border: none;
+    border-radius: 24px;
+    background: var(--color-gainsboro-200);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.presentation-modal[open] {
+    animation: presentationIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes presentationIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+}
+
+.presentation-modal::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+/* Close button stays in the corner while the modal scrolls */
+.presentation-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 0;
+}
+
+.presentation-toolbar .modal-close {
+    top: 1rem;
+    right: 1rem;
+}
+
+/* ----- Title + video ----- */
+.presentation-header {
+    text-align: center;
+    padding: 3.5rem 2rem 2.5rem;
+}
+
+.presentation-title {
+    margin: 0 0 1rem;
+    font-size: 3.5rem;
+    line-height: 120%;
+    font-weight: 700;
+    font-family: var(--title-h1);
+    background: linear-gradient(135deg, #354c6b 0%, #2d3748 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.presentation-subtitle {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #718096;
+    letter-spacing: 0.5px;
+    font-family: var(--title-h1);
+}
+
+.presentation-video-wrapper {
+    padding: 0 3rem;
+}
+
+.presentation-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    background: #000;
+}
+
+/* ----- About Me (more information) ----- */
+.presentation-modal .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.presentation-modal .about {
+    padding-top: 5rem;
+}
+
+.presentation-modal .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.presentation-modal .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: var(--heading-color);
+}
+
+.presentation-modal .section-line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.presentation-modal .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.presentation-modal .about-intro {
+    margin-bottom: 2rem;
+}
+
+.presentation-modal .about-intro h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0 0 0.5rem;
+}
+
+.presentation-modal .about-age {
+    margin: 0;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.presentation-modal .about-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+.presentation-modal .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 90px;
+}
+
+.presentation-modal .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.presentation-modal .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.presentation-modal .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.presentation-modal .stat-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ----- Wide screens: text beside the video -----
+   The video column sticks to the top of the modal while the About text next to
+   it scrolls; the stats become one row under the text. */
+@media (min-width: 1280px) {
+    .presentation-modal {
+        width: min(1480px, calc(100% - 3rem));
+    }
+
+    .presentation-body {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 3rem;
+        align-items: start;
+        padding: 0 3rem;
+    }
+
+    .presentation-media {
+        position: sticky;
+        top: 0;
+        padding-bottom: 1rem;
+    }
+
+    .presentation-header {
+        padding: 3rem 0 2rem;
+        text-align: left;
+    }
+
+    .presentation-title {
+        font-size: 3rem;
+    }
+
+    .presentation-video-wrapper,
+    .presentation-modal .container {
+        padding: 0;
+    }
+
+    .presentation-modal .about {
+        padding-top: 3.4rem;
+    }
+
+    .presentation-modal .section-header {
+        text-align: left;
+        margin-bottom: 2rem;
+    }
+
+    .presentation-modal .section-line {
+        margin: 0;
+    }
+
+    .presentation-modal .about-content {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .presentation-modal .about-intro {
+        margin-bottom: 1.25rem;
+    }
+
+    .presentation-modal .about-description p {
+        font-size: 1.02rem;
+        line-height: 1.75;
+        margin-bottom: 1.1rem;
+    }
+
+    .presentation-modal .about-stats {
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .presentation-modal .stat-item {
+        flex: 1;
+        padding: 1.1rem 0.75rem;
+    }
+
+    .presentation-modal .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1024px) {
+    .presentation-modal .about-content {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .presentation-modal .about-stats {
+        gap: 1rem;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .presentation-modal {
+        width: calc(100% - 1rem);
+        max-height: calc(100vh - 1rem);
+        max-height: calc(100dvh - 1rem);
+        border-radius: 18px;
+    }
+
+    .presentation-header {
+        padding: 3.5rem 1.25rem 1.5rem;
+    }
+
+    .presentation-title {
+        font-size: 2.4rem;
+    }
+
+    .presentation-video-wrapper,
+    .presentation-modal .container {
+        padding: 0 1.25rem;
+    }
+
+    .presentation-video {
+        border-radius: 14px;
+    }
+
+    .presentation-modal .about {
+        padding-top: 3rem;
+    }
+
+    .presentation-modal .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .presentation-title {
+        font-size: 2rem;
+    }
+
+    .presentation-modal .section-title {
+        font-size: 1.8rem;
+    }
+
+    .presentation-modal .about-intro h3 {
+        font-size: 1.3rem;
+    }
+
+    .presentation-modal .about-description p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .presentation-modal[open] {
+        animation: none;
+    }
+}

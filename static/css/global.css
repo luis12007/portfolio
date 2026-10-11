@@ -1,6 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     line-height: normal;
+    overflow-x: clip;
+}
+
+/* Header social links: the wrapper is exactly the icon's size. */
+.header-icon-link {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+/* Visible focus ring for keyboard users (mouse clicks don't show it). */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #354c6b;
+    outline-offset: 3px;
 }
 
 :root {
@@ -85,4 +107,58 @@ body {
     --br-21xl: 40px;
     --br-71xl: 90px;
     --br-11xl: 30px;
+}
+/* Anchor targets (nav links) stop below the sticky/floating header. */
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Divider between major home sections: a thin line that fades out at both
+   ends, with a small dot in the middle. The block carries the sections'
+   background so no white strip shows between them. */
+.section-divider {
+    position: relative;
+    height: 2px;
+    box-sizing: content-box;
+    padding: 4.5rem 0 1rem;
+    background-color: #d4d8e4;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: min(80%, 1100px);
+    height: 2px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent 0%, rgba(53, 76, 107, 0.45) 20%, rgba(53, 76, 107, 0.45) 80%, transparent 100%);
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: calc(1rem + 1px);
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #354c6b;
+    box-shadow: 0 0 0 6px #d4d8e4;
+    transform: translate(-50%, 50%);
+}
+
+@media screen and (max-width: 768px) {
+    .section-divider {
+        padding: 3rem 0 0.5rem;
+    }
+
+    .section-divider::before {
+        bottom: 0.5rem;
+        width: 85%;
+    }
+
+    .section-divider::after {
+        bottom: calc(0.5rem + 1px);
+    }
 }

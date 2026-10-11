@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import TodoItem
-# Register your models here.
+
 from .models import Video
-admin.site.register(TodoItem)
-admin.site.register(Video)
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('caption', 'video')

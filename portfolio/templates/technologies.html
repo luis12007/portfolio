@@ -1,50 +1,21 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/technologies.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair Display:wght@700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poly:wght@400&display=swap"
-    />
-  </head>
-  <body>
     <div class="technologies">
       <div class="title-wrapper tech-animate">
-        <h1 class="title6">Technologies</h1>
+        <h2 class="title6">Technologies</h2>
       </div>
-      <main class="frame-main">
-        <section class="frame-section">
-          <div class="group-div tech-animate">
+      <div
+        class="tech-carousel tech-animate"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Technologies"
+      >
+        <button type="button" class="carousel-btn carousel-prev" aria-label="Previous technologies">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="frame-section carousel-track" tabindex="0" aria-label="Technologies, use arrow keys to scroll">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="1 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -62,7 +33,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="2 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -80,7 +51,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="3 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -98,7 +69,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="4 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -116,7 +87,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="5 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -134,7 +105,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="6 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -152,7 +123,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="7 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -170,7 +141,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="8 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -188,7 +159,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="9 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -206,7 +177,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="10 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -224,7 +195,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="11 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -242,7 +213,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="12 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -260,7 +231,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="13 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -278,7 +249,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="14 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -296,7 +267,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="15 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -314,7 +285,7 @@
             </div>
           </div>
 
-          <div class="group-div tech-animate">
+          <div class="group-div" role="group" aria-roledescription="slide" aria-label="16 of 16">
             <div class="rectangle-div"></div>
             <div class="atom-row">
               <img
@@ -331,33 +302,12 @@
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+        <button type="button" class="carousel-btn carousel-next" aria-label="Next technologies">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="carousel-dots" aria-label="Choose technologies page"></div>
+      </div>
     </div>
-
-    <script>
-      // Scroll animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      }, observerOptions);
-
-      // Observe all elements with tech-animate class
-      document.querySelectorAll('.tech-animate').forEach((el, index) => {
-        // Add staggered delay for cards
-        if (el.classList.contains('group-div')) {
-          el.style.transitionDelay = `${index * 0.1}s`;
-        }
-        observer.observe(el);
-      });
-    </script>
-  </body>
-</html>

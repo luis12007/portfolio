@@ -1,0 +1,39 @@
+{% load static %}
+    <!-- PRESENTATION MODAL: the video plus more about Alex -->
+    <dialog class="presentation-modal" id="presentationModal" aria-labelledby="presentationTitle">
+      <div class="presentation-toolbar">
+        <button type="button" class="modal-close" data-close-presentation aria-label="Close presentation">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Side by side on wide screens (video stays in view while the text
+           scrolls), stacked video-then-text otherwise. -->
+      <div class="presentation-body">
+        <div class="presentation-media">
+          <div class="presentation-header">
+            <h2 class="presentation-title" id="presentationTitle">Meet Alex Martínez</h2>
+            <p class="presentation-subtitle">AI Engineer</p>
+          </div>
+
+          <div class="presentation-video-wrapper">
+            <video
+              class="presentation-video"
+              controls
+              playsinline
+              preload="none"
+              aria-label="Presentation video: Meet Alex Martínez"
+            >
+              <source src="{% static 'public/videos/Video Presentacion Final.webm' %}" type="video/webm" />
+              <source src="{% static 'public/videos/Video Presentacion Final (1).mp4' %}" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <div class="presentation-info">
+          {% include 'about-me.html' %}
+        </div>
+      </div>
+    </dialog>
