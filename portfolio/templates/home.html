@@ -21,6 +21,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@300;400&family=Nunito:wght@400;500;700&family=Playfair+Display:wght@700&family=Poly&family=Raleway:wght@500&family=Roboto:wght@400;500;600;700&display=swap"
     />
+    <script>
+      // Hide the hero until its intro animation starts (see "HERO INTRO" in index.css).
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('hero-intro');
+      }
+    </script>
   </head>
   <body>
     <div class="profile">
@@ -64,11 +70,11 @@
               aria-controls="mobileNav"
               aria-expanded="false"
             >
-              <div class="hamburger-lines">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-              </div>
+              <span class="hamburger-lines" aria-hidden="true">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+              </span>
             </button>
           </div>
         </div>
@@ -93,25 +99,61 @@
 
       <!-- MOBILE NAVIGATION MENU -->
       <nav class="mobile-nav" id="mobileNav" aria-label="Site">
-        <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path
-              d="M12 4L4 12M4 4L12 12"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
-        </button>
+        <div class="mobile-nav-header">
+          <div class="mobile-nav-brand">
+            <span class="mobile-nav-name">Alex Martínez</span>
+            <span class="mobile-nav-role">AI Engineer</span>
+          </div>
+          <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
 
+        <p class="mobile-nav-label">Menu</p>
         <div class="mobile-nav-links">
-          <a href="#Home-section" class="mobile-nav-link">🏠 Home</a>
-          <a href="#Projects-section" class="mobile-nav-link">💼 Projects</a>
-          <a href="#presentation" class="mobile-nav-link" data-open-presentation
-            >🎯 Presentation</a
-          >
-          <a href="#Technologies-section" class="mobile-nav-link">⚡ Skills</a>
-          <a href="#Education-section" class="mobile-nav-link">🎓 Education</a>
+          <a href="#Home-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">01</span>
+            <span class="mobile-nav-text">Home</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#Projects-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">02</span>
+            <span class="mobile-nav-text">Projects</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#presentation" class="mobile-nav-link" data-open-presentation>
+            <span class="mobile-nav-num" aria-hidden="true">03</span>
+            <span class="mobile-nav-text">Presentation</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#Technologies-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">04</span>
+            <span class="mobile-nav-text">Skills</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="#Education-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">05</span>
+            <span class="mobile-nav-text">Education</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+        </div>
+
+        <div class="mobile-nav-footer">
+          <p class="mobile-nav-label">Connect</p>
+          <div class="mobile-nav-social">
+            <a href="https://github.com/luis12007" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img alt="" src="{% static 'public/github.png' %}" />
+            </a>
+            <a href="https://www.linkedin.com/in/alexmtzai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img alt="" src="{% static 'public/bilinkedin.svg' %}" />
+            </a>
+            <a href="mailto:alexmtzai2002@gmail.com" aria-label="Email alexmtzai2002@gmail.com">
+              <img alt="" src="{% static 'public/bienvelopefill.svg' %}" />
+            </a>
+          </div>
+          <a class="mobile-nav-mail" href="mailto:alexmtzai2002@gmail.com">alexmtzai2002@gmail.com</a>
         </div>
       </nav>
 

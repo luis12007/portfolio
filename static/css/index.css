@@ -1,201 +1,6 @@
 /* MAKE THE TOP MENU STICKY */
 /* Default sticky header */
 
-/* ===== IMPROVED HAMBURGER MENU STYLES - FIXED VERSION ===== */
-
-/* HAMBURGER BUTTON CONTAINER */
-.hamburger-container {
-    position: relative;
-    display: none; /* Hidden by default, shown on mobile */
-}
-
-/* MAIN HAMBURGER BUTTON */
-.hamburger {
-    background: rgba(47, 72, 88, 0.1);
-    border: 2px solid rgba(47, 72, 88, 0.2);
-    border-radius: 12px;
-    padding: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hamburger:hover {
-    background: rgba(47, 72, 88, 0.15);
-    border-color: rgba(47, 72, 88, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(47, 72, 88, 0.2);
-}
-
-.hamburger:active {
-    transform: translateY(0) scale(0.95);
-}
-
-/* ANIMATED HAMBURGER LINES */
-.hamburger-lines {
-    width: 24px;
-    height: 18px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.hamburger-line {
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-darkslategray);
-    border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: center;
-}
-
-/* Hamburger to X animation */
-.hamburger.active .hamburger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-}
-
-.hamburger.active .hamburger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* MOBILE NAVIGATION OVERLAY */
-.mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
-    z-index: 9998;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.mobile-nav-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* MOBILE NAVIGATION MENU - FIXED VERSION */
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Changed from right: -100% to left: -100% */
-    width: 280px;
-    height: 100%;
-    background: rgba(217, 221, 230, 0.95);
-    backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Changed from border-left to border-right */
-    z-index: 9999;
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Changed from right to left */
-    display: flex;
-    flex-direction: column;
-    padding: 80px 30px 30px;
-}
-
-.mobile-nav.active {
-    left: 0; /* Changed from right: 0 to left: 0 */
-}
-
-/* MOBILE NAV CLOSE BUTTON */
-.mobile-nav-close {
-    position: absolute;
-    top: 20px;
-    left: 20px; /* Changed from right: 20px to left: 20px */
-    background: rgba(47, 72, 88, 0.1);
-    border: 2px solid rgba(47, 72, 88, 0.2);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--color-darkslategray);
-}
-
-.mobile-nav-close:hover {
-    background: rgba(47, 72, 88, 0.2);
-    transform: rotate(90deg);
-}
-
-/* MOBILE NAV LINKS CONTAINER */
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* INDIVIDUAL MOBILE NAV LINKS */
-.mobile-nav-link {
-    text-decoration: none;
-    color: var(--color-darkslategray);
-    font-size: 18px;
-    font-weight: 500;
-    padding: 15px 20px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateX(-20px); /* Changed from translateX(20px) to translateX(-20px) */
-    opacity: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.mobile-nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -100%; /* Changed from left: -100% to right: -100% */
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: right 0.5s ease; /* Changed from left to right */
-}
-
-.mobile-nav-link:hover::before {
-    right: 100%; /* Changed from left: 100% to right: 100% */
-}
-
-.mobile-nav-link:hover {
-    background: rgba(255, 255, 255, 0.5);
-    transform: translateX(0) scale(1.02);
-    box-shadow: 0 4px 12px rgba(47, 72, 88, 0.15);
-}
-
-.mobile-nav-link:active {
-    transform: translateX(0) scale(0.98);
-}
-
-/* STAGGERED ANIMATION FOR LINKS */
-.mobile-nav.active .mobile-nav-link {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.mobile-nav.active .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
-.mobile-nav.active .mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
-.mobile-nav.active .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
-.mobile-nav.active .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
-.mobile-nav.active .mobile-nav-link:nth-child(5) { transition-delay: 0.3s; }
-
 /* ===== REMOVE OLD HAMBURGER STYLES - ENHANCED ===== */
 .tab-Hamburger,
 .hamburger-icon {
@@ -344,8 +149,15 @@
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    animation: fadeOut 2s forwards 1s;
-    /* Fade out after 3 seconds */
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    /* Fallback only: static/js/scripts.js hides it as soon as the page has loaded */
+    animation: fadeOut 0.6s forwards 6s;
+}
+
+.overlay.done {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* Loader animation */
@@ -562,32 +374,15 @@
         transform: translateX(-50%) translateY(0) scale(1);
         opacity: 1;
         backdrop-filter: blur(15px);
-        box-shadow: 
+        box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.12),
             0 2px 8px rgba(0, 0, 0, 0.08);
     }
 }
 
-.frame-parent.floating-exit {
-    animation: slideUpFloat 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes slideUpFloat {
-    0% {
-        transform: translateX(-50%) translateY(0) scale(1);
-        opacity: 1;
-        backdrop-filter: blur(15px);
-    }
-    100% {
-        transform: translateX(-50%) translateY(-100%) scale(0.95);
-        opacity: 0;
-        backdrop-filter: blur(0px);
-    }
-}
-
 body.loaded .frame-parent.floating:hover {
     transform: translateX(-50%) translateY(-2px) scale(1.01);
-    box-shadow: 
+    box-shadow:
         0 12px 40px rgba(0, 0, 0, 0.15),
         0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -607,7 +402,7 @@ body.loaded .frame-parent.floating {
     background-color: rgba(217, 221, 230, 0.95);
     backdrop-filter: blur(15px);
     border-radius: 15px;
-    box-shadow: 
+    box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.12),
         0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -929,13 +724,8 @@ body.loaded .frame-parent.floating {
 
 /* Base animation states - hidden by default */
 .frame-parent,
-.intro-content,
-.image-content-wrapper,
-.button-primary,
-.button-secondary,
 .footer-icons,
-.icons img,
-.mobile-nav-link {
+.icons img {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -946,27 +736,11 @@ body.loaded .frame-parent.floating {
     transform: translateY(-60px);
 }
 
-/* Profile image specific animation */
-.whatsapp-image-2024-12-03-at-1-icon {
-    opacity: 0;
-    transform: scale(0.8) rotate(-10deg);
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* Text elements */
-.title,
-.ai-engineer,
-.text,
 .madelyn-torff {
     opacity: 0;
     transform: translateX(-40px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Buttons specific animation */
-.button-primary,
-.button-secondary {
-    transform: translateY(40px) scale(0.95);
 }
 
 /* Icons animation */
@@ -987,54 +761,6 @@ body.loaded .madelyn-torff {
     opacity: 1;
     transform: translateX(0);
     transition-delay: 0.2s;
-}
-
-body.loaded .intro-content {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.3s;
-}
-
-body.loaded .title {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.5s;
-}
-
-body.loaded .ai-engineer {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.5s;
-}
-
-body.loaded .text {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.7s;
-}
-
-body.loaded .button-primary {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition-delay: 0.9s;
-}
-
-body.loaded .button-secondary {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition-delay: 1.0s;
-}
-
-body.loaded .image-content-wrapper {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.4s;
-}
-
-body.loaded .whatsapp-image-2024-12-03-at-1-icon {
-    opacity: 1;
-    transform: scale(1) rotate(-3deg);
-    transition-delay: 0.8s;
 }
 
 body.loaded .footer-icons {
@@ -1182,36 +908,6 @@ body.loaded .icons a:nth-child(3) img {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== SECTION SCROLL ANIMATIONS ===== */
-
-.section-animate {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.section-animate.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== STAGGERED MOBILE NAV ANIMATIONS ===== */
-
-.mobile-nav.active .mobile-nav-link {
-    animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* ===== ENHANCED IMAGE HOVER EFFECTS ===== */
 
 .whatsapp-image-2024-12-03-at-1-icon:hover {
@@ -1308,9 +1004,9 @@ body.loaded .icons a:nth-child(3) img {
     width: 80px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), 
-                radial-gradient(var(--r1) var(--r2) at bottom, var(--color-darkslategray) 79.5%, #0000 80%), 
-                radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%), 
+    background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%),
+                radial-gradient(var(--r1) var(--r2) at bottom, var(--color-darkslategray) 79.5%, #0000 80%),
+                radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--color-darkslategray) 80%),
                 linear-gradient(135deg, #f1f5f9, #e2e8f0);
     background-size: 50.5% 220%;
     background-position: -100% 0%, 0% 0%, 100% 0%;
@@ -1330,22 +1026,6 @@ body.loaded .icons a:nth-child(3) img {
     50% { transform: scale(1.1); }
 }
 
-/* ===== RESPONSIVE ANIMATION ADJUSTMENTS ===== */
-
-@media screen and (max-width: 768px) {
-    .frame-parent,
-    .intro-content,
-    .image-content-wrapper {
-        transform: translateY(20px);
-    }
-    
-    .title,
-    .ai-engineer,
-    .text {
-        transform: translateX(-20px);
-    }
-}
-
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
     *,
@@ -1356,17 +1036,9 @@ body.loaded .icons a:nth-child(3) img {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     .frame-parent,
-    .intro-content,
-    .image-content-wrapper,
-    .title,
-    .ai-engineer,
-    .text,
-    .button-primary,
-    .button-secondary,
-    .icons img,
-    .whatsapp-image-2024-12-03-at-1-icon {
+    .icons img {
         opacity: 1;
         transform: none;
         transition: none;
@@ -1400,33 +1072,6 @@ body.loaded .icons a:nth-child(3) img {
     transition: transform 0.3s ease;
 }
 
-/* Hamburger enhanced animation */
-.hamburger:hover {
-    background: rgba(47, 72, 88, 0.15);
-    border-color: rgba(47, 72, 88, 0.4);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(47, 72, 88, 0.25);
-}
-
-.hamburger-line {
-    position: relative;
-}
-
-.hamburger-line::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-}
-
-.hamburger:hover .hamburger-line::after {
-    transform: translateX(100%);
-}
 
 @media screen and (max-width: 1400px) {
     .intro-content {
@@ -1475,11 +1120,11 @@ body.loaded .icons a:nth-child(3) img {
     .hamburger-container {
         display: block !important;
     }
-    
+
     .nav {
         display: none !important;
     }
-    
+
     .nav-wrapper {
         width: 25px;
     }
@@ -1526,7 +1171,15 @@ body.loaded .icons a:nth-child(3) img {
         animation: none;
         transition: all 0.3s ease;
     }
-    
+
+    /* The desktop pill's hover lift is centred with translateX(-50%); on this
+       full-width bar that shoved the header (and the hamburger) half off the
+       screen as soon as it was touched or hovered. */
+    body.loaded .frame-parent.floating:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
     /* Force hide old hamburger styles */
     .tab-Hamburger {
         display: none !important;
@@ -1539,7 +1192,7 @@ body.loaded .icons a:nth-child(3) img {
     .hamburger-container {
         display: none !important;
     }
-    
+
     .mobile-nav,
     .mobile-nav-overlay {
         display: none !important;
@@ -1591,23 +1244,6 @@ body.loaded .icons a:nth-child(3) img {
         max-height: 400px;
         margin: 0 20px 0 20px;
     }
-    
-    .mobile-nav:not(.active) {
-        left: -100vw !important; /* Changed from right: -100vw to left: -100vw */
-        transform: translateX(-100%); /* Changed from translateX(100%) to translateX(-100%) */
-    }
-    
-    /* Only show when active */
-    .mobile-nav.active {
-        left: 0 !important; /* Changed from right: 0 to left: 0 */
-        transform: translateX(0);
-    }
-    
-    /* Adjust width for smaller screens */
-    .mobile-nav {
-        width: 90vw;
-        max-width: 320px;
-    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1652,18 +1288,6 @@ body.loaded .icons a:nth-child(3) img {
     .intro-content {
         gap: 0px;
         flex-wrap: wrap;
-    }
-}
-
-/* Adjust mobile nav width on very small screens */
-@media screen and (max-width: 480px) {
-    .mobile-nav {
-        width: 100%;
-        right: -100vw;
-    }
-    
-    .mobile-nav.active {
-        right: 0;
     }
 }
 
@@ -1776,7 +1400,7 @@ body.loaded .icons a:nth-child(3) img {
 }
 
 /* ===== CHATBOT STYLES ===== */
-        
+
         /* Chatbot Bubble - Fixed Position */
         .chatbot-bubble {
             position: fixed;
@@ -1799,17 +1423,17 @@ body.loaded .icons a:nth-child(3) img {
             color: inherit;
             font: inherit;
         }
-        
+
         .chatbot-bubble:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 12px 35px rgba(53, 76, 107, 0.4);
             border-color: rgba(255, 255, 255, 0.4);
         }
-        
+
         .chatbot-bubble:active {
             transform: translateY(-1px) scale(0.98);
         }
-        
+
         /* Robot Icon */
         .chatbot-icon {
             width: 28px;
@@ -1817,11 +1441,11 @@ body.loaded .icons a:nth-child(3) img {
             fill: white;
             transition: transform 0.3s ease;
         }
-        
+
         .chatbot-bubble:hover .chatbot-icon {
             transform: rotate(5deg) scale(1.1);
         }
-        
+
         /* Notification Badge */
         .chatbot-notification {
             position: absolute;
@@ -1843,18 +1467,18 @@ body.loaded .icons a:nth-child(3) img {
             transform: scale(0);
             transition: all 0.3s ease;
         }
-        
+
         .chatbot-notification.show {
             opacity: 1;
             transform: scale(1);
         }
-        
+
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-        
+
         /* Chat Container */
         .chatbot-container {
             position: fixed;
@@ -1876,13 +1500,13 @@ body.loaded .icons a:nth-child(3) img {
             flex-direction: column;
             overflow: hidden;
         }
-        
+
         .chatbot-container.active {
             opacity: 1;
             visibility: visible;
             transform: translateY(0) scale(1);
         }
-        
+
         /* Chat Header */
         .chatbot-header {
             background: linear-gradient(135deg, #354c6b 0%, #4a6384 100%);
@@ -1893,13 +1517,13 @@ body.loaded .icons a:nth-child(3) img {
             justify-content: space-between;
             border-radius: 20px 20px 0 0;
         }
-        
+
         .chatbot-header-info {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .chatbot-avatar {
             width: 40px;
             height: 40px;
@@ -1910,27 +1534,27 @@ body.loaded .icons a:nth-child(3) img {
             justify-content: center;
             backdrop-filter: blur(10px);
         }
-        
+
         .chatbot-avatar svg {
             width: 20px;
             height: 20px;
             fill: white;
         }
-        
+
         .chatbot-header-text h3 {
             margin: 0;
             font-size: 16px;
             font-weight: 700;
             font-family: var(--font-comfortaa, 'Comfortaa', cursive);
         }
-        
+
         .chatbot-header-text p {
             margin: 2px 0 0 0;
             font-size: 12px;
             opacity: 0.8;
             font-family: var(--font-nunito, 'Nunito', sans-serif);
         }
-        
+
         .chatbot-close {
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -1944,18 +1568,18 @@ body.loaded .icons a:nth-child(3) img {
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-        
+
         .chatbot-close:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
         }
-        
+
         .chatbot-close svg {
             width: 16px;
             height: 16px;
             stroke: white;
         }
-        
+
         /* Chat Messages */
         .chatbot-messages {
             flex: 1;
@@ -1966,25 +1590,25 @@ body.loaded .icons a:nth-child(3) img {
             gap: 16px;
             background: rgba(249, 250, 251, 0.5);
         }
-        
+
         .chatbot-messages::-webkit-scrollbar {
             width: 6px;
         }
-        
+
         .chatbot-messages::-webkit-scrollbar-track {
             background: rgba(0, 0, 0, 0.05);
             border-radius: 3px;
         }
-        
+
         .chatbot-messages::-webkit-scrollbar-thumb {
             background: rgba(53, 76, 107, 0.3);
             border-radius: 3px;
         }
-        
+
         .chatbot-messages::-webkit-scrollbar-thumb:hover {
             background: rgba(53, 76, 107, 0.5);
         }
-        
+
         /* Message Bubble */
         .message {
             display: flex;
@@ -1993,16 +1617,16 @@ body.loaded .icons a:nth-child(3) img {
             max-width: 85%;
             animation: messageSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .message.user {
             align-self: flex-end;
             flex-direction: row-reverse;
         }
-        
+
         .message.bot {
             align-self: flex-start;
         }
-        
+
         .message-avatar {
             width: 28px;
             height: 28px;
@@ -2012,21 +1636,21 @@ body.loaded .icons a:nth-child(3) img {
             justify-content: center;
             flex-shrink: 0;
         }
-        
+
         .message.bot .message-avatar {
             background: linear-gradient(135deg, #354c6b 0%, #4a6384 100%);
         }
-        
+
         .message.user .message-avatar {
             background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
         }
-        
+
         .message-avatar svg {
             width: 14px;
             height: 14px;
             fill: white;
         }
-        
+
         .message-content {
             background: white;
             padding: 12px 16px;
@@ -2038,21 +1662,21 @@ body.loaded .icons a:nth-child(3) img {
             color: #354c6b;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .message.user .message-content {
             background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
             color: white;
             border-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .message.bot .message-content {
             border-top-left-radius: 6px;
         }
-        
+
         .message.user .message-content {
             border-top-right-radius: 6px;
         }
-        
+
         @keyframes messageSlideIn {
             0% {
                 opacity: 0;
@@ -2063,7 +1687,7 @@ body.loaded .icons a:nth-child(3) img {
                 transform: translateY(0) scale(1);
             }
         }
-        
+
         /* Typing Indicator */
         .typing-indicator {
             display: flex;
@@ -2073,12 +1697,12 @@ body.loaded .icons a:nth-child(3) img {
             transform: translateY(10px);
             transition: all 0.3s ease;
         }
-        
+
         .typing-indicator.show {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .typing-dots {
             display: flex;
             gap: 4px;
@@ -2088,7 +1712,7 @@ body.loaded .icons a:nth-child(3) img {
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .typing-dot {
             width: 8px;
             height: 8px;
@@ -2096,11 +1720,11 @@ body.loaded .icons a:nth-child(3) img {
             border-radius: 50%;
             animation: typingBounce 1.4s infinite ease-in-out;
         }
-        
+
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
         .typing-dot:nth-child(2) { animation-delay: -0.16s; }
         .typing-dot:nth-child(3) { animation-delay: 0s; }
-        
+
         @keyframes typingBounce {
             0%, 80%, 100% {
                 transform: scale(0.8);
@@ -2111,7 +1735,7 @@ body.loaded .icons a:nth-child(3) img {
                 opacity: 1;
             }
         }
-        
+
         /* Chat Input */
         .chatbot-input-container {
             padding: 20px;
@@ -2120,7 +1744,7 @@ body.loaded .icons a:nth-child(3) img {
             border-top: 1px solid rgba(0, 0, 0, 0.05);
             border-radius: 0 0 20px 20px;
         }
-        
+
         .chatbot-input-wrapper {
             display: flex;
             align-items: center;
@@ -2132,12 +1756,12 @@ body.loaded .icons a:nth-child(3) img {
             border: 1px solid rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-        
+
         .chatbot-input-wrapper:focus-within {
             border-color: #354c6b;
             box-shadow: 0 4px 12px rgba(53, 76, 107, 0.2);
         }
-        
+
         .chatbot-input {
             flex: 1;
             border: none;
@@ -2148,11 +1772,11 @@ body.loaded .icons a:nth-child(3) img {
             color: #354c6b;
             background: transparent;
         }
-        
+
         .chatbot-input::placeholder {
             color: rgba(53, 76, 107, 0.5);
         }
-        
+
         .chatbot-send {
             background: linear-gradient(135deg, #354c6b 0%, #4a6384 100%);
             border: none;
@@ -2166,26 +1790,26 @@ body.loaded .icons a:nth-child(3) img {
             transition: all 0.3s ease;
             opacity: 0.6;
         }
-        
+
         .chatbot-send:hover {
             transform: scale(1.05);
             opacity: 1;
         }
-        
+
         .chatbot-send:active {
             transform: scale(0.95);
         }
-        
+
         .chatbot-send.enabled {
             opacity: 1;
         }
-        
+
         .chatbot-send svg {
             width: 16px;
             height: 16px;
             fill: white;
         }
-        
+
         /* Welcome Message */
         .welcome-message {
             text-align: center;
@@ -2193,20 +1817,20 @@ body.loaded .icons a:nth-child(3) img {
             color: rgba(53, 76, 107, 0.7);
             font-family: var(--font-nunito, 'Nunito', sans-serif);
         }
-        
+
         .welcome-message h4 {
             margin: 0 0 8px 0;
             font-size: 16px;
             font-weight: 700;
             color: #354c6b;
         }
-        
+
         .welcome-message p {
             margin: 0;
             font-size: 13px;
             line-height: 1.4;
         }
-        
+
         /* Quick Actions */
         .quick-actions {
             display: flex;
@@ -2214,7 +1838,7 @@ body.loaded .icons a:nth-child(3) img {
             gap: 8px;
             margin-top: 12px;
         }
-        
+
         .quick-action {
             background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(53, 76, 107, 0.2);
@@ -2226,13 +1850,13 @@ body.loaded .icons a:nth-child(3) img {
             font-family: var(--font-nunito, 'Nunito', sans-serif);
             color: #354c6b;
         }
-        
+
         .quick-action:hover {
             background: #354c6b;
             color: white;
             transform: translateY(-1px);
         }
-        
+
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             .chatbot-container {
@@ -2243,14 +1867,14 @@ body.loaded .icons a:nth-child(3) img {
                 bottom: 90px;
                 border-radius: 16px;
             }
-            
+
             .chatbot-bubble {
                 bottom: 20px;
                 right: 20px;
                 width: 56px;
                 height: 56px;
             }
-            
+
             .chatbot-icon {
                 width: 24px;
                 height: 24px;
@@ -2260,7 +1884,7 @@ body.loaded .icons a:nth-child(3) img {
                 font-size: 16px;
             }
         }
-        
+
         @media screen and (max-width: 480px) {
             .chatbot-container {
                 width: calc(100% - 20px);
@@ -2270,20 +1894,564 @@ body.loaded .icons a:nth-child(3) img {
                 bottom: 80px;
                 border-radius: 12px;
             }
-            
+
             .chatbot-header {
                 padding: 16px;
                 border-radius: 12px 12px 0 0;
             }
-            
+
             .chatbot-messages {
                 padding: 16px;
             }
-            
+
             .chatbot-input-container {
                 padding: 16px;
                 border-radius: 0 0 12px 12px;
             }
         }
 
-        
+
+
+/* ===== HERO INTRO =====
+   Plays once, when the loading overlay leaves (body.loaded): the photo opens
+   from a circle, the rotating title wipes in, the name rises letter by letter
+   (static/js/scripts.js splits it into .char spans), then the text and the
+   buttons follow. Only the first screen is animated. */
+
+@keyframes heroPhotoIn {
+    from {
+        opacity: 0;
+        clip-path: circle(0% at 50% 50%);
+        transform: scale(1.12) rotate(-3deg);
+    }
+    to {
+        opacity: 1;
+        clip-path: circle(75% at 50% 50%);
+        transform: scale(1) rotate(-3deg);
+    }
+}
+
+@keyframes heroHalo {
+    from {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heroWipe {
+    from {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: none;
+    }
+}
+
+@keyframes heroChar {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(0.55em) rotate(6deg);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: none;
+    }
+}
+
+@keyframes heroRise {
+    from {
+        opacity: 0;
+        filter: blur(6px);
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: none;
+    }
+}
+
+@keyframes heroPop {
+    0% {
+        opacity: 0;
+        transform: translateY(24px) scale(0.92);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.title .word {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.title .char {
+    display: inline-block;
+}
+
+/* Hidden until the intro starts. html.hero-intro is set by a tiny script in
+   <head> (only when motion is allowed), so nothing flashes before this runs;
+   the name stays hidden until scripts.js has split it into letters. */
+.hero-intro .title:not([data-split]),
+.hero-intro body:not(.loaded) .whatsapp-image-2024-12-03-at-1-icon,
+.hero-intro body:not(.loaded) .image-content::after,
+.hero-intro body:not(.loaded) .ai-engineer,
+.hero-intro body:not(.loaded) .title .char,
+.hero-intro body:not(.loaded) .text,
+.hero-intro body:not(.loaded) .button-primary,
+.hero-intro body:not(.loaded) .button-secondary {
+    opacity: 0;
+}
+
+/* Soft halo that grows behind the photo */
+.image-content::after {
+    content: '';
+    position: absolute;
+    inset: -4%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(53, 76, 107, 0.16) 0%, rgba(53, 76, 107, 0) 68%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-intro body.loaded .image-content::after {
+    animation: heroHalo 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.hero-intro body.loaded .whatsapp-image-2024-12-03-at-1-icon {
+    animation: heroPhotoIn 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.hero-intro body.loaded .ai-engineer {
+    animation: heroWipe 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.3s both;
+}
+
+.hero-intro body.loaded .title .char {
+    animation: heroChar 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(0.55s + var(--i, 0) * 45ms);
+}
+
+.hero-intro body.loaded .text {
+    animation: heroRise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.15s both;
+}
+
+.hero-intro body.loaded .button-primary {
+    animation: heroPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.45s both;
+}
+
+.hero-intro body.loaded .button-secondary {
+    animation: heroPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.58s both;
+}
+
+/* After the intro the elements go back to their normal hover transitions */
+.hero-intro body.intro-done .whatsapp-image-2024-12-03-at-1-icon,
+.hero-intro body.intro-done .ai-engineer,
+.hero-intro body.intro-done .title .char,
+.hero-intro body.intro-done .text,
+.hero-intro body.intro-done .button-primary,
+.hero-intro body.intro-done .button-secondary {
+    animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image-content::after {
+        animation: none !important;
+    }
+}
+
+/* ===== MOBILE MENU: hamburger button + sidebar =====
+   Same surfaces as the rest of the site: frosted light panels, slate
+   (#354c6b) accents, Playfair for the name. Shown at <= 1050px. */
+
+.hamburger-container {
+    position: relative;
+    display: none;
+}
+
+.hamburger,
+.mobile-nav-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(236, 239, 245, 0.65) 100%);
+    border: 1px solid rgba(53, 76, 107, 0.12);
+    box-shadow:
+        0 6px 18px rgba(53, 76, 107, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    color: #354c6b;
+    cursor: pointer;
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.hamburger {
+    width: 48px;
+    height: 48px;
+}
+
+.hamburger:hover,
+.mobile-nav-close:hover {
+    border-color: rgba(53, 76, 107, 0.22);
+    box-shadow:
+        0 10px 24px rgba(53, 76, 107, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.hamburger:hover {
+    transform: translateY(-2px);
+}
+
+.hamburger:active {
+    transform: scale(0.95);
+}
+
+.hamburger:focus-visible,
+.mobile-nav-close:focus-visible,
+.mobile-nav-link:focus-visible,
+.mobile-nav-social a:focus-visible,
+.mobile-nav-mail:focus-visible {
+    outline: 2px solid #354c6b;
+    outline-offset: 3px;
+}
+
+/* Three right-aligned lines of different length; they even out on hover
+   and turn into an X while the menu is open. */
+.hamburger-lines {
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 16px;
+}
+
+.hamburger-line {
+    position: absolute;
+    right: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: #354c6b;
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s ease;
+}
+
+.hamburger-line:nth-child(1) {
+    top: 0;
+    width: 100%;
+}
+
+.hamburger-line:nth-child(2) {
+    top: 7px;
+    width: 62%;
+}
+
+.hamburger-line:nth-child(3) {
+    top: 14px;
+    width: 82%;
+}
+
+.hamburger:hover .hamburger-line {
+    width: 100%;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    width: 100%;
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(8px);
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    width: 100%;
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 38, 54, 0.42);
+    backdrop-filter: blur(6px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    width: min(340px, 86vw);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 26px 22px 24px;
+    background: linear-gradient(160deg, #f3f5f9 0%, #e2e6ee 100%);
+    border-radius: 0 24px 24px 0;
+    box-shadow: 18px 0 50px rgba(28, 38, 54, 0.2);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    font-family: var(--font-nunito), sans-serif;
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.45s ease;
+}
+
+.mobile-nav.active {
+    transform: none;
+    visibility: visible;
+}
+
+.mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(53, 76, 107, 0.1);
+}
+
+.mobile-nav-name {
+    display: block;
+    font-family: var(--title-h1), serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #354c6b;
+}
+
+.mobile-nav-role {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b7d96;
+}
+
+.mobile-nav-close {
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+}
+
+.mobile-nav-close:hover {
+    transform: rotate(90deg);
+}
+
+.mobile-nav-label {
+    margin: 22px 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a99ae;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Links slide in one after another (--d) when the menu opens; "translate"
+   is used for that so hover can still use "transform". */
+.mobile-nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: #2d3e57;
+    font-size: 17px;
+    font-weight: 600;
+    opacity: 0;
+    translate: -18px 0;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.4s ease var(--d, 0s),
+        translate 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s);
+}
+
+.mobile-nav.active .mobile-nav-link {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.mobile-nav.active .mobile-nav-link:nth-child(1) { --d: 0.12s; }
+.mobile-nav.active .mobile-nav-link:nth-child(2) { --d: 0.17s; }
+.mobile-nav.active .mobile-nav-link:nth-child(3) { --d: 0.22s; }
+.mobile-nav.active .mobile-nav-link:nth-child(4) { --d: 0.27s; }
+.mobile-nav.active .mobile-nav-link:nth-child(5) { --d: 0.32s; }
+
+.mobile-nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    border-radius: 0 3px 3px 0;
+    background: #354c6b;
+    transform: translateY(-50%);
+    transition: height 0.25s ease;
+}
+
+.mobile-nav-link:hover {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(53, 76, 107, 0.1);
+    box-shadow: 0 6px 16px rgba(53, 76, 107, 0.08);
+}
+
+.mobile-nav-link:hover::before {
+    height: 22px;
+}
+
+.mobile-nav-num {
+    min-width: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    color: #8a99ae;
+    transition: color 0.25s ease;
+}
+
+.mobile-nav-text {
+    flex: 1;
+}
+
+.mobile-nav-arrow {
+    width: 16px;
+    height: 16px;
+    color: #354c6b;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-nav-link:hover .mobile-nav-num {
+    color: #354c6b;
+}
+
+.mobile-nav-link:hover .mobile-nav-arrow {
+    opacity: 1;
+    transform: none;
+}
+
+.mobile-nav-footer {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.mobile-nav-footer .mobile-nav-label {
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid rgba(53, 76, 107, 0.1);
+}
+
+.mobile-nav-social {
+    display: flex;
+    gap: 10px;
+}
+
+.mobile-nav-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(53, 76, 107, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mobile-nav-social a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(53, 76, 107, 0.14);
+}
+
+.mobile-nav-social img {
+    width: 22px;
+    height: 22px;
+}
+
+.mobile-nav-mail {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 14px;
+    color: #4a5f7d;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.mobile-nav-mail:hover {
+    color: #354c6b;
+    text-decoration: underline;
+}
+
+/* Very narrow phones: the photo's fixed 340px (<= 415px rules) is wider than
+   the screen, which widened the hero column and pushed the text off the edge;
+   the header icons' fixed 70px offset did the same to the email icon. */
+@media screen and (max-width: 380px) {
+    .whatsapp-image-2024-12-03-at-1-icon,
+    .profile-picture,
+    .image-content-wrapper,
+    .image-content {
+        width: calc(100vw - 50px);
+        height: calc(100vw - 50px);
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .footer-icons {
+        gap: 0;
+    }
+
+    .icons {
+        gap: 10px;
+        margin-left: 0;
+    }
+}

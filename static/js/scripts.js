@@ -1,6 +1,6 @@
 // Rotating title under the hero ("AI Engineer" -> "ML Engineer" -> ...).
 // One JS loop owns both the motion and the text swap, so they can't drift
-// apart; it starts once the loading overlay has gone.
+// apart; it starts once the hero intro animation has finished.
 const TITLES = [
     "AI Engineer",
     "ML Engineer",
@@ -11,7 +11,6 @@ const TITLES = [
 ];
 const TITLE_HOLD_MS = 2600;
 const TITLE_MOVE_MS = 450;
-const TITLE_START_MS = 3000; // matches the overlay fade-out in index.css
 
 function initTitleRotator() {
     const box = document.querySelector('.ai-engineer');
@@ -63,7 +62,9 @@ function initTitleRotator() {
         cancelAnimationFrame(resizeFrame);
         resizeFrame = requestAnimationFrame(fit);
     });
-    setTimeout(next, TITLE_START_MS + TITLE_HOLD_MS);
+    const start = () => setTimeout(next, TITLE_HOLD_MS);
+    if (document.body.classList.contains('intro-done')) start();
+    else document.addEventListener('hero:intro-done', start, { once: true });
 }
 
 document.addEventListener('DOMContentLoaded', initTitleRotator);
@@ -123,7 +124,6 @@ document.addEventListener('DOMContentLoaded', initCustomCursor);
 document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     setupScrollAnimations();
-    setupIntersectionObserver();
     revealOnScroll(document.querySelectorAll('.tech-animate, .project-animate'));
     setupMobileNavAnimations();
     setupEnhancedInteractions();
@@ -132,40 +132,69 @@ document.addEventListener('DOMContentLoaded', function() {
     initCertificateRecords();
 });
 
-// Initialize loading animations
-function initializeAnimations() {
-    // Add loaded class after a short delay to trigger animations
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-        
-        // Trigger staggered animations for sections
-        setTimeout(() => {
-            animateSections();
-        }, 500);
-        
-    }, 100);
+// Loading overlay + hero intro. The overlay leaves once the page (and its
+// fonts) have loaded, never later than INTRO_MAX_WAIT_MS; that adds
+// body.loaded, which starts the hero intro in index.css ("HERO INTRO").
+const INTRO_MIN_WAIT_MS = 700;   // keep the loader from just flashing
+const INTRO_MAX_WAIT_MS = 3000;  // slow network: start anyway
+const INTRO_DURATION_MS = 2400;  // the last hero animation (CV button) ends here
 
-    // Remove loading overlay after animations complete
-    setTimeout(() => {
+function initializeAnimations() {
+    const body = document.body;
+    // html.hero-intro comes from the inline script in <head> (motion allowed)
+    const reducedMotion = !document.documentElement.classList.contains('hero-intro');
+    if (!reducedMotion) splitHeroTitle();
+
+    const startedAt = performance.now();
+    let revealed = false;
+    const reveal = () => {
+        if (revealed) return;
+        revealed = true;
         const overlay = document.querySelector('.overlay');
         if (overlay) {
-            overlay.style.opacity = '0';
-            overlay.style.visibility = 'hidden';
-            setTimeout(() => {
-                overlay.remove();
-            }, 500);
+            overlay.classList.add('done');
+            setTimeout(() => overlay.remove(), 700);
         }
-    }, 2500);
+        body.classList.add('loaded');
+        setTimeout(() => {
+            body.classList.add('intro-done');
+            document.dispatchEvent(new Event('hero:intro-done'));
+        }, reducedMotion ? 0 : INTRO_DURATION_MS);
+    };
+
+    const pageLoaded = document.readyState === 'complete'
+        ? Promise.resolve()
+        : new Promise((resolve) => window.addEventListener('load', resolve, { once: true }));
+    const fontsLoaded = document.fonts ? document.fonts.ready : Promise.resolve();
+    Promise.all([pageLoaded, fontsLoaded]).then(() => {
+        setTimeout(reveal, Math.max(0, INTRO_MIN_WAIT_MS - (performance.now() - startedAt)));
+    });
+    setTimeout(reveal, INTRO_MAX_WAIT_MS);
 }
 
-// Animate sections with staggered timing
-function animateSections() {
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section, index) => {
-        section.classList.add('section-animate');
-        setTimeout(() => {
-            section.classList.add('in-view');
-        }, index * 200);
+// Wrap each letter of the hero name in a span so it can rise in on its own
+// (staggered by --i). Words stay unbreakable; screen readers get the plain name.
+function splitHeroTitle() {
+    const title = document.querySelector('.title');
+    if (!title || title.dataset.split) return;
+    const text = title.textContent.trim();
+    title.dataset.split = 'true';
+    title.setAttribute('aria-label', text);
+    title.textContent = '';
+    let index = 0;
+    text.split(/\s+/).forEach((word, i) => {
+        if (i) title.append(' ');
+        const wordEl = document.createElement('span');
+        wordEl.className = 'word';
+        wordEl.setAttribute('aria-hidden', 'true');
+        for (const letter of word) {
+            const char = document.createElement('span');
+            char.className = 'char';
+            char.textContent = letter;
+            char.style.setProperty('--i', index++);
+            wordEl.append(char);
+        }
+        title.append(wordEl);
     });
 }
 
@@ -219,40 +248,6 @@ function setupScrollAnimations() {
     update();
 }
 
-// Intersection Observer for scroll animations
-function setupIntersectionObserver() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                
-                // Add specific animations based on element type
-                if (entry.target.classList.contains('button-primary') || 
-                    entry.target.classList.contains('button-secondary')) {
-                    setTimeout(() => {
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                        entry.target.style.opacity = '1';
-                    }, 100);
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements that should animate on scroll
-    const animateElements = document.querySelectorAll(
-        '.button-primary, .button-secondary, .icons img, section'
-    );
-    
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-}
-
 // Focuses an element inside a panel that is fading in. Its visibility is
 // still "hidden" on the transition's first frame, which makes focus() a no-op,
 // so retry for a few frames until it takes.
@@ -282,7 +277,7 @@ function revealOnScroll(elements, stagger = 0.1) {
     elements.forEach((el) => observer.observe(el));
 }
 
-// Enhanced mobile navigation animations
+// Mobile menu: hamburger button + sidebar (the link stagger is CSS)
 function setupMobileNavAnimations() {
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileNav = document.getElementById('mobileNav');
@@ -294,7 +289,6 @@ function setupMobileNavAnimations() {
         // While closed the menu sits off-screen; inert keeps its links out of
         // the tab order and away from screen readers.
         mobileNav.inert = true;
-        let linkTimers = [];
 
         // Open mobile nav
         hamburgerBtn.addEventListener('click', () => {
@@ -304,11 +298,6 @@ function setupMobileNavAnimations() {
             mobileNav.inert = false;
             mobileNavOverlay.classList.add('active');
             
-            // Animate links with stagger
-            linkTimers = [...mobileNavLinks].map((link, index) => setTimeout(() => {
-                link.style.opacity = '1';
-                link.style.transform = 'translateX(0)';
-            }, index * 100));
             
             // Prevent body scroll
             document.body.style.overflow = 'hidden';
@@ -324,12 +313,6 @@ function setupMobileNavAnimations() {
             mobileNav.inert = true;
             mobileNavOverlay.classList.remove('active');
             
-            // Reset links (and drop any stagger still pending)
-            linkTimers.forEach(clearTimeout);
-            mobileNavLinks.forEach(link => {
-                link.style.opacity = '0';
-                link.style.transform = 'translateX(-20px)';
-            });
             
             // Restore body scroll
             document.body.style.overflow = '';
