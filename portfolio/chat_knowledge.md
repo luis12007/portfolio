@@ -5,7 +5,7 @@
 - Specializes in Artificial Intelligence; passionate about turning innovative ideas into functional products, optimizing AI models, and building high-quality products that deliver real value.
 - Studied Software Engineering (Bachelor's) at UCA (Universidad Centroamericana "José Simeón Cañas") in El Salvador; graduated in August 2025. Starting an M.Sc. in Artificial Intelligence at IU International University of Applied Sciences (Germany) in April 2027, expected to finish in April 2029.
 - Previously worked as an AI Engineer at TELUS (details of the role not published yet); he no longer works there.
-- Currently looking for an AI engineering job in Germany while pursuing his M.Sc. in Artificial Intelligence at IU International University of Applied Sciences.
+- Open to work: currently looking for an AI engineering job in Germany, and about to start his M.Sc. in Artificial Intelligence at IU International University of Applied Sciences (April 2027).
 - Founded his own software company in El Salvador, MySoftwareSV, that builds digital solutions for clients; the portfolio projects other than the TELUS role and the Omdena healthcare project were built there.
 - 3+ years of experience, 15+ completed projects.
 - Experience spans web development, SaaS products, ERP systems, CRM solutions, desktop applications, REST APIs, and mobile applications.

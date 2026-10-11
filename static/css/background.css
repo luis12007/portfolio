@@ -97,18 +97,6 @@
     flex-shrink: 0;
 }
 
-/* Text logo for institutions without an image */
-.item-logo-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-darkslategray);
-    color: white;
-    font-family: var(--title-h1);
-    font-size: 40px;
-    font-weight: 700;
-}
-
 .item-content {
     flex: 1;
     min-width: 0;
@@ -408,10 +396,6 @@
     .item-logo {
         width: 72px;
         height: 72px;
-    }
-
-    .item-logo-text {
-        font-size: 28px;
     }
 
     .item-title {
