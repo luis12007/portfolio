@@ -668,7 +668,7 @@
 }
 
 /* ===== WORK vs. COMPANY PROJECTS =====
-   The TELUS role is a highlighted card at the top; everything after the
+   The TELUS work experience is a highlighted card at the top; everything after the
    "Built at MySoftwareSV" label is from Alex's own company. Each project
    names who it was built for (.project-org). */
 
@@ -706,21 +706,8 @@
     box-shadow: 0 6px 16px rgba(53, 76, 107, 0.28);
 }
 
-/* green "current role" dot with a soft pulse */
 .project-org-featured::before {
-    background: #6fd3a8;
-    opacity: 1;
-    animation: currentRolePulse 2.4s ease-out infinite;
-}
-
-@keyframes currentRolePulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(111, 211, 168, 0.55);
-    }
-    70%,
-    100% {
-        box-shadow: 0 0 0 7px rgba(111, 211, 168, 0);
-    }
+    opacity: 0.8;
 }
 
 .project-featured {
@@ -842,12 +829,6 @@
     .project-org {
         font-size: 0.7rem;
         padding: 0.35rem 0.8rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .project-org-featured::before {
-        animation: none;
     }
 }
 
