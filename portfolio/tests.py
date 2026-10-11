@@ -1,4 +1,5 @@
 import json
+import re
 from types import SimpleNamespace
 from unittest import mock
 
@@ -55,6 +56,22 @@ class PageTests(TestCase):
         # each card has either a verification link or a certificate record
         self.assertEqual(html.count('class="item-btn cert-btn"'), cards)
         self.assertIn('M.Sc. Artificial Intelligence', html)
+
+    def test_projects_order_and_owner(self):
+        html = self.client.get(reverse('home')).content.decode()
+        titles = re.findall(r'<h2 class="project-title">\s*(.*?)\s*</h2>', html)
+        self.assertEqual(titles[:3], [
+            'AI Engineer at TELUS', 'SaaS Billing System', 'AI Language Learning App',
+        ])
+        self.assertEqual(len(titles), 8)
+        # the TELUS role is the highlighted card; the company projects follow the label
+        self.assertEqual(html.count('project-featured'), 1)
+        self.assertLess(html.index('AI Engineer at TELUS'), html.index('class="projects-group-label"'))
+        self.assertLess(html.index('class="projects-group-label"'), html.index('SaaS Billing System'))
+        self.assertEqual(html.count('<span class="project-org">MySoftwareSV</span>'), 6)
+        self.assertIn('https://vocabulary-app-production-34bb.up.railway.app/', html)
+        for removed in ('Voice Translation', 'anime', 'ippo'):
+            self.assertNotIn(removed, html)
 
     def test_single_contact_email(self):
         html = self.client.get(reverse('home')).content.decode()

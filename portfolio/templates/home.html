@@ -214,17 +214,64 @@
         <header class="projects-header project-animate">
           <h2 class="projects-title">Projects</h2>
           <p class="projects-description">
-            AI solutions, data science, and web design. From optimizing models
-            to crafting digital experiences through my own company, explore my
-            work and innovations.
+            My work as an AI Engineer at TELUS, and the AI products, data
+            science and web solutions I build through my own company,
+            MySoftwareSV.
           </p>
         </header>
 
         <!-- Projects Grid -->
         <div class="projects-grid">
-          <!-- Project 1: Text Left, Image Right -->
-          <article class="project-item project-animate" data-layout="text-left">
+          <!-- Work: TELUS (highlighted) -->
+          <article
+            class="project-item project-animate project-featured"
+            data-layout="text-left"
+          >
             <div class="project-text">
+              <span class="project-org project-org-featured">TELUS · Current role</span>
+              <h2 class="project-title">AI Engineer at TELUS</h2>
+              <!-- PLACEHOLDER: replace with the real role summary -->
+              <p class="project-description">
+                AI engineering work at TELUS: building and improving AI solutions in
+                production. Full project details coming soon.
+              </p>
+              <button
+                class="project-button"
+                onclick="openProjectModal('telus')"
+              >
+                <span>View Role</span>
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- PLACEHOLDER: swap for a real project image -->
+            <div class="project-image project-placeholder" aria-hidden="true">
+              <span class="placeholder-mark">TELUS</span>
+              <span class="placeholder-note">AI Engineer · Project preview coming soon</span>
+            </div>
+          </article>
+
+          <!-- Company projects: MySoftwareSV -->
+          <p class="projects-group-label">
+            <span>Built at <strong>MySoftwareSV</strong>, my own software company</span>
+          </p>
+
+          <article
+            class="project-item project-animate"
+            data-layout="image-left"
+          >
+            <div class="project-image">
+              <img src="{% static 'public/DTE.png' %}" alt="Billing System" />
+            </div>
+            <div class="project-text">
+              <span class="project-org">MySoftwareSV</span>
               <h2 class="project-title">SaaS Billing System</h2>
               <p class="project-description">
                 I developed a full-stack billing system using React and a REST
@@ -248,58 +295,25 @@
                 </svg>
               </button>
             </div>
-            <div class="project-image">
-              <img src="{% static 'public/DTE.png' %}" alt="Billing System" />
-            </div>
           </article>
 
-          <!-- Project 2: Image Left, Text Right -->
           <article
             class="project-item project-animate"
-            data-layout="image-left"
+            data-layout="text-left"
           >
-            <div class="project-image">
-              <img
-                src="{% static 'public/rag.png' %}"
-                alt="RAG Portfolio Assistant"
-              />
-            </div>
             <div class="project-text">
-              <h2 class="project-title">RAG Portfolio Assistant</h2>
+              <span class="project-org">MySoftwareSV</span>
+              <h2 class="project-title">AI Language Learning App</h2>
               <p class="project-description">
-                An intelligent AI assistant trained on my portfolio data using
-                LangChain and RAG architecture. Features a quantized LLM
-                optimized for CPU execution, deployed 24/7 on DigitalOcean with
-                smart filtering to answer only portfolio-related questions.
-              </p>
-              <button class="project-button" onclick="openProjectModal('rag')">
-                <span>View Project</span>
-                <svg class="button-icon" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M7 17L17 7M17 7H7M17 7V17"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-          </article>
-
-          <!-- Project 3: Text Left, Image Right -->
-          <article class="project-item project-animate" data-layout="text-left">
-            <div class="project-text">
-              <h2 class="project-title">Open-Source AI for Healthcare</h2>
-              <p class="project-description">
-                Contributed to an Omdena project developing a model to predict
-                diseases based on symptoms, focusing on illnesses prevalent in
-                Africa. Worked on data collection, modeling, EDA, training, and
-                result visualization.
+                A personalized, Quizlet-style app for learning languages (Spanish,
+                English and German), integrated with AI: it generates an image for
+                every word, fact-checks translations and handles voice, so you can
+                practice listening, reading aloud and real conversations with an AI
+                tutor that corrects you as you speak.
               </p>
               <button
                 class="project-button"
-                onclick="openProjectModal('healthcare')"
+                onclick="openProjectModal('vocabulary')"
               >
                 <span>View Project</span>
                 <svg class="button-icon" viewBox="0 0 24 24" fill="none">
@@ -313,17 +327,87 @@
                 </svg>
               </button>
             </div>
-            <div class="project-image">
+            <div class="project-image project-image-contain">
               <img
-                src="{% static 'public/omdena_medical.jpg' %}"
-                alt="Healthcare AI"
+                src="{% static 'public/vocabulary-app.webp' %}"
+                alt="AI Language Learning App: the Writing practice settings"
               />
             </div>
           </article>
 
-          <!-- Hidden Projects - Initially Hidden -->
+          <!-- Hidden projects: shown by "Show More Projects" -->
           <div id="hiddenProjects" class="hidden-projects">
-            <!-- Project 4: Image Left, Text Right -->
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="image-left"
+            >
+              <div class="project-image">
+                <img
+                  src="{% static 'public/rag.png' %}"
+                  alt="RAG Portfolio Assistant"
+                />
+              </div>
+              <div class="project-text">
+                <span class="project-org">MySoftwareSV</span>
+                <h2 class="project-title">RAG Portfolio Assistant</h2>
+                <p class="project-description">
+                  An intelligent AI assistant trained on my portfolio data using
+                  LangChain and RAG architecture. Features a quantized LLM
+                  optimized for CPU execution, deployed 24/7 on DigitalOcean with
+                  smart filtering to answer only portfolio-related questions.
+                </p>
+                <button class="project-button" onclick="openProjectModal('rag')">
+                  <span>View Project</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="project-item project-animate hidden-project"
+              data-layout="text-left"
+            >
+              <div class="project-text">
+                <span class="project-org">Omdena · Open source</span>
+                <h2 class="project-title">Open-Source AI for Healthcare</h2>
+                <p class="project-description">
+                  Contributed to an Omdena project developing a model to predict
+                  diseases based on symptoms, focusing on illnesses prevalent in
+                  Africa. Worked on data collection, modeling, EDA, training, and
+                  result visualization.
+                </p>
+                <button
+                  class="project-button"
+                  onclick="openProjectModal('healthcare')"
+                >
+                  <span>View Project</span>
+                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="project-image">
+                <img
+                  src="{% static 'public/omdena_medical.jpg' %}"
+                  alt="Healthcare AI"
+                />
+              </div>
+            </article>
+
             <article
               class="project-item project-animate hidden-project"
               data-layout="image-left"
@@ -335,6 +419,7 @@
                 />
               </div>
               <div class="project-text">
+                <span class="project-org">MySoftwareSV</span>
                 <h2 class="project-title">Judge Gymnasts App</h2>
                 <p class="project-description">
                   A comprehensive cross-platform application for gymnastics
@@ -360,12 +445,12 @@
               </div>
             </article>
 
-            <!-- Project 5: Text Left, Image Right -->
             <article
               class="project-item project-animate hidden-project"
               data-layout="text-left"
             >
               <div class="project-text">
+                <span class="project-org">MySoftwareSV</span>
                 <h2 class="project-title">Enterprise Digital Billing API</h2>
                 <p class="project-description">
                   A Java Spring Boot enterprise API that integrates digital
@@ -398,7 +483,6 @@
               </div>
             </article>
 
-            <!-- Project 6: Image Left, Text Right -->
             <article
               class="project-item project-animate hidden-project"
               data-layout="image-left"
@@ -410,6 +494,7 @@
                 />
               </div>
               <div class="project-text">
+                <span class="project-org">MySoftwareSV</span>
                 <h2 class="project-title">Multi-Branch ERP System</h2>
                 <p class="project-description">
                   A comprehensive ERP solution for small businesses built with
@@ -432,57 +517,6 @@
                     />
                   </svg>
                 </button>
-              </div>
-            </article>
-
-            <!-- Project 7: Work in Progress - Text Left, Image Right -->
-            <article
-              class="project-item project-animate hidden-project"
-              data-layout="text-left"
-            >
-              <div class="project-text">
-                <h2 class="project-title">
-                  AI Voice Translation System
-                  <span class="wip-badge">Work in Progress</span>
-                </h2>
-                <p class="project-description">
-                  An advanced AI system that translates Japanese anime episodes
-                  to English with authentic voice actor replication. Uses voice
-                  recognition, sequence-to-sequence AI translation, and voice
-                  synthesis to create fully dubbed episodes with original
-                  English voice actors.
-                </p>
-                <button
-                  class="project-button wip-button"
-                  onclick="openProjectModal('translator')"
-                >
-                  <span>View Progress</span>
-                  <svg class="button-icon" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="project-image wip-image">
-                <img
-                  src="{% static 'public/ippo.webp' %}"
-                  alt="AI Voice Translation System"
-                />
-                <div class="wip-overlay">
-                  <div class="wip-animation">
-                    <div class="loading-dots">
-                      <div class="dot"></div>
-                      <div class="dot"></div>
-                      <div class="dot"></div>
-                    </div>
-                    <span class="wip-text">In Development</span>
-                  </div>
-                </div>
               </div>
             </article>
           </div>
@@ -585,7 +619,7 @@
                 </div>
                 <div class="chatbot-header-text">
                     <h3>RAG LLM Assistant</h3>
-                    <p>model with Alex information Alpha 1.0 (development)</p>
+                    <p>Ask me anything about Alex</p>
                 </div>
             </div>
             <button type="button" class="chatbot-close" id="chatbotClose" aria-label="Close chat">
@@ -696,6 +730,60 @@
     <script>
       // Project data for modals
       const projectData = {
+        telus: {
+          // PLACEHOLDER: replace with the real role details (and an image/video path).
+          title: "AI Engineer at TELUS",
+          image: null,
+          placeholder: "TELUS",
+          buttonText: null,
+          buttonLink: null,
+          description: `
+            <p><strong>Current role.</strong> I work as an AI Engineer at TELUS. Full details about this role are coming soon.</p>
+
+            <h3>Role</h3>
+            <p>Placeholder: a short summary of the team, the product and your responsibilities.</p>
+
+            <h3>What I Work On</h3>
+            <ul>
+              <li>Placeholder: main project or system</li>
+              <li>Placeholder: models, tools and stack</li>
+              <li>Placeholder: a result or metric worth highlighting</li>
+            </ul>
+
+            <h3>Impact</h3>
+            <p>Placeholder: the impact of your work.</p>
+          `,
+        },
+        vocabulary: {
+          title: "AI Language Learning App",
+          image: "{% static 'public/vocabulary-app.webp' %}",
+          imageFit: "contain",
+          buttonText: "Open the App",
+          buttonLink: "https://vocabulary-app-production-34bb.up.railway.app/",
+          description: `
+            <p>A personalized, Quizlet-style app for learning languages, built for the way I study Spanish, English and German. Every word becomes a card with its translations, an AI-generated image and a progress score, and the app turns your own word list into games, reading, listening and conversation practice.</p>
+
+            <h3>AI Integration</h3>
+            <ul>
+              <li><strong>Image generation:</strong> each word gets an AI-generated image so it is easier to remember</li>
+              <li><strong>Fact check:</strong> translations are checked by AI before they are saved</li>
+              <li><strong>Voice:</strong> words are read out loud, and the app listens to you through the microphone</li>
+              <li><strong>AI-written reading texts:</strong> a new text every time, scored by an AI coach as you read it aloud</li>
+              <li><strong>Conversation tutor:</strong> talk with an AI tutor who answers out loud, gently corrects your mistakes and grades you at the end</li>
+            </ul>
+
+            <h3>Learning Modes</h3>
+            <ul>
+              <li><strong>Learn:</strong> flashcards, then matching, then a test, with the same words in one session</li>
+              <li><strong>Writing:</strong> type the translation, with letter-by-letter feedback and German article checks</li>
+              <li><strong>Reading, Listening and Speaking:</strong> practice with your own words</li>
+              <li>Difficulty grows with every mistake, and a word counts as learned after 4 different days without a miss</li>
+            </ul>
+
+            <h3>Languages and Profiles</h3>
+            <p>Supports Spanish ↔ English, English ↔ German and all three together, with separate profiles, shared or private word lists, starred and hard words, and levels from A1 to B2 for conversations.</p>
+          `,
+        },
         billing: {
           title: "Billing System",
           image: "{% static 'public/videos/Saas Billing project.webm' %}",
@@ -898,45 +986,6 @@
                <p>This ERP system has streamlined operations for the client business, reducing administrative overhead by 50% and improving inventory accuracy by 95%. The multi-branch coordination has eliminated stock discrepancies and improved overall operational efficiency.</p>
              `,
         },
-        translator: {
-          title: "AI Voice Translation System",
-          image: "{% static 'public/videos/ippo.webm' %}",
-          buttonText: null,
-          buttonLink: null,
-          description: `
-    <p><strong>🚧 Work in Progress - Advanced Development Phase</strong></p>
-    <p>An ambitious AI-powered voice translation system that transforms Japanese anime episodes into English with authentic voice replication. This project pushes the boundaries of speech recognition, neural machine translation, and voice synthesis technologies.</p>
-
-    <h3>Development Status</h3>
-    <ul>
-      <li>✅ Voice recognition pipeline (Japanese) (100%)</li>
-      <li>✅ Speech-to-text conversion framework (95%)</li>
-      <li>🔄 AI sequence-to-sequence translation model (85%)</li>
-      <li>🔄 Text-to-speech synthesis engine (80%)</li>
-      <li>🔄 Voice cloning and replication system (70%)</li>
-      <li>⏳ Real-time audio processing optimization (60%)</li>
-      <li>⏳ Episode-length content processing (45%)</li>
-    </ul>
-
-    <h3>Technical Pipeline</h3>
-    <p>The system follows a sophisticated four-stage pipeline: Japanese voice recognition extracts speech from anime episodes, converts it to text, applies AI-powered sequence-to-sequence translation to English, and finally synthesizes the English text using cloned voices of the original English voice actors.</p>
-
-    <h3>AI Model Architecture</h3>
-    <p>Utilizing advanced transformer models for translation accuracy, custom voice cloning algorithms trained on English voice actor datasets, and optimized speech synthesis that maintains emotional context and timing synchronization with the original audio.</p>
-
-    <h3>Voice Replication Innovation</h3>
-    <p>The most challenging aspect involves training voice synthesis models on existing English dubs to replicate the authentic voices of professional voice actors, ensuring the final output maintains the original character personalities and emotional delivery.</p>
-
-    <h3>Target Application</h3>
-    <p>The end goal is to process complete anime episodes, replacing Japanese dialogue with natural-sounding English while preserving background music, sound effects, and the original timing. This could revolutionize how international content is localized.</p>
-
-    <h3>Current Challenges</h3>
-    <p>Working on optimizing processing time for full episodes, maintaining audio-visual synchronization, and achieving broadcast-quality voice synthesis that matches professional dubbing standards.</p>
-
-    <h3>Expected Completion</h3>
-    <p>A beta version is currently in progress. The project represents a significant advancement in automated content localization and demonstrates cutting-edge applications of AI in media processing.</p>
-  `,
-        },
       };
 
       // Modal functionality
@@ -954,6 +1003,13 @@
 
         // Function to create media element based on file type
         function createMediaElement(imageSrc, title) {
+          if (!imageSrc) {
+            return `
+        <div class="project-placeholder modal-placeholder" aria-hidden="true">
+          <span class="placeholder-mark">${project.placeholder || title}</span>
+          <span class="placeholder-note">Project preview coming soon</span>
+        </div>`;
+          }
           const extension = getFileExtension(imageSrc);
 
           if (
@@ -998,7 +1054,7 @@
         }
 
         modalContent.innerHTML = `
-    <div class="modal-image">
+    <div class="modal-image${project.imageFit === "contain" ? " modal-image-contain" : ""}">
       ${createMediaElement(project.image, project.title)}
     </div>
     <div class="modal-text">

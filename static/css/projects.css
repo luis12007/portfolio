@@ -1,135 +1,3 @@
-/* ===== WORK IN PROGRESS STYLES ===== */
-.wip-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 500;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    margin-left: 1rem;
-    position: relative;
-    animation: wipPulse 2s ease-in-out infinite;
-}
-
-@keyframes wipPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.wip-button {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
-}
-
-.wip-button:hover {
-    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-}
-
-.wip-image {
-    position: relative;
-}
-
-.wip-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.wip-image:hover .wip-overlay {
-    opacity: 1;
-}
-
-.wip-animation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    color: white;
-}
-
-.wip-text {
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-/* Loading dots animation */
-.loading-dots {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background: #ff6b6b;
-    border-radius: 50%;
-    animation: dotBounce 1.4s ease-in-out infinite both;
-}
-
-.dot:nth-child(1) { animation-delay: -0.32s; }
-.dot:nth-child(2) { animation-delay: -0.16s; }
-
-@keyframes dotBounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
-}
-
-/* Progress bar animation */
-.progress-bar {
-    width: 120px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    width: 75%;
-    height: 100%;
-    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-    border-radius: 3px;
-    animation: progressPulse 2s ease-in-out infinite;
-}
-
-@keyframes progressPulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
-    .wip-badge {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.6rem;
-        margin-left: 0.5rem;
-        display: block;
-        margin-top: 0.5rem;
-        width: fit-content;
-    }
-    
-    .wip-text {
-        font-size: 1rem;
-    }
-    
-    .progress-bar {
-        width: 100px;
-    }
-}
-
-/* ===== WORK IN PROGRESS STYLES ===== */
-
 /* ===== SCROLL ANIMATIONS ===== */
 .project-animate {
     opacity: 0;
@@ -203,13 +71,13 @@
        margin-top: 2rem;
        padding-top: 1.5rem;
    }
-   
+
    .modal-action-button {
        padding: 0.9rem 2rem;
        font-size: 1rem;
        gap: 0.6rem;
    }
-   
+
    .modal-button-icon {
        width: 18px;
        height: 18px;
@@ -221,13 +89,13 @@
        margin-top: 1.5rem;
        padding-top: 1rem;
    }
-   
+
    .modal-action-button {
        padding: 0.8rem 1.5rem;
        font-size: 0.95rem;
        gap: 0.5rem;
    }
-   
+
    .modal-button-icon {
        width: 16px;
        height: 16px;
@@ -634,40 +502,40 @@
     .projects {
         padding: 3rem 1rem;
     }
-    
+
     .projects-grid {
         width: 95%;
         gap: 4rem;
     }
-    
+
     .projects-title {
         font-size: 4rem;
     }
-    
+
     .projects-description {
         font-size: 1.3rem;
     }
-    
+
     .project-item {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .project-item[data-layout="text-left"],
     .project-item[data-layout="image-left"] {
-        grid-template-areas: 
+        grid-template-areas:
             "text"
             "image";
     }
-    
+
     .project-text {
         padding: 0;
     }
-    
+
     .project-title {
         font-size: 2.5rem;
     }
-    
+
     .project-image {
         height: auto;
         aspect-ratio: 3 / 2;
@@ -679,51 +547,51 @@
         padding: 2rem 1.25rem;
         gap: 3rem;
     }
-    
+
     .projects-grid {
         width: 100%;
         gap: 3rem;
     }
-    
+
     .projects-title {
         font-size: 3rem;
     }
-    
+
     .projects-description {
         font-size: 1.1rem;
         margin: 0 auto;
     }
-    
+
     .project-text {
         padding: 0;
     }
-    
+
     .project-title {
         font-size: 2.2rem;
     }
-    
+
     .project-description {
         font-size: 1.2rem;
     }
-    
-    
+
+
     .modal-overlay {
         padding: 1rem;
     }
-    
+
     .modal-container {
         max-height: 85vh;
         max-height: 85dvh;
     }
-    
+
     .modal-image {
         height: 350px;
     }
-    
+
     .modal-text {
         padding: 1.5rem;
     }
-    
+
     .modal-title {
         font-size: 2rem;
     }
@@ -741,60 +609,257 @@
         padding: 1.5rem 1.25rem;
         gap: 2rem;
     }
-    
+
     .projects-grid {
         width: 100%;
         gap: 2rem;
     }
-    
+
     .projects-title {
         font-size: 2.5rem;
     }
-    
+
     .projects-description {
         font-size: 1rem;
     }
-    
+
     .project-text {
         padding: 0;
     }
-    
+
     .project-title {
         font-size: 1.5rem;
     }
-    
+
     .project-description {
         font-size: 0.9rem;
     }
-    
+
     .project-button {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
-    
-    
+
+
     .modal-overlay {
         padding: 0.5rem;
     }
-    
+
     .modal-container {
         max-height: 85vh;
         max-height: 85dvh;
     }
-    
+
     .modal-image {
         height: 300px;
     }
-    
+
     .modal-text {
         padding: 1rem;
     }
-    
+
     .modal-title {
         font-size: 1.8rem;
     }
-    
+
     .modal-description {
         font-size: 0.9rem;
     }
+}
+
+/* ===== WORK vs. COMPANY PROJECTS =====
+   The TELUS role is a highlighted card at the top; everything after the
+   "Built at MySoftwareSV" label is from Alex's own company. Each project
+   names who it was built for (.project-org). */
+
+.project-org {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: fit-content;
+    margin-bottom: -0.5rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(53, 76, 107, 0.14);
+    background: rgba(255, 255, 255, 0.45);
+    color: #354c6b;
+    font-family: var(--font-nunito), sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.project-org::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.55;
+}
+
+.project-org-featured {
+    border-color: transparent;
+    background: linear-gradient(135deg, #354c6b 0%, #2d3748 100%);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(53, 76, 107, 0.28);
+}
+
+/* green "current role" dot with a soft pulse */
+.project-org-featured::before {
+    background: #6fd3a8;
+    opacity: 1;
+    animation: currentRolePulse 2.4s ease-out infinite;
+}
+
+@keyframes currentRolePulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(111, 211, 168, 0.55);
+    }
+    70%,
+    100% {
+        box-shadow: 0 0 0 7px rgba(111, 211, 168, 0);
+    }
+}
+
+.project-featured {
+    box-sizing: border-box;
+    padding: 3rem;
+    border-radius: 32px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.72) 0%, rgba(232, 236, 243, 0.55) 100%);
+    border: 1px solid rgba(53, 76, 107, 0.14);
+    box-shadow:
+        0 30px 70px rgba(53, 76, 107, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Placeholder panel (TELUS card and its modal) until real media is added */
+.project-placeholder {
+    position: relative;
+    flex-direction: column;
+    gap: 0.9rem;
+    text-align: center;
+    color: #fff;
+    background:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.12) 1px, transparent 0) 0 0 / 22px 22px,
+        radial-gradient(circle at 75% 20%, rgba(111, 211, 168, 0.18), transparent 45%),
+        linear-gradient(145deg, #354c6b 0%, #2d3748 100%);
+    border: none;
+}
+
+.placeholder-mark {
+    font-family: var(--title-h1), serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1;
+}
+
+.placeholder-note {
+    font-family: var(--font-nunito), sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    opacity: 0.75;
+    padding: 0 1.5rem;
+}
+
+.modal-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* "Built at MySoftwareSV" divider; the negative margins pull it into the
+   grid's large gap so it sits between the TELUS card and the projects. */
+.projects-group-label {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: -6rem 0 -5rem;
+    color: #5f7190;
+    font-family: var(--font-nunito), sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+}
+
+.projects-group-label::before,
+.projects-group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(53, 76, 107, 0.3), transparent);
+}
+
+.projects-group-label strong {
+    color: #354c6b;
+}
+
+@media (max-width: 1024px) {
+    .project-featured {
+        padding: 2rem;
+    }
+
+    .projects-group-label {
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-featured {
+        padding: 1.5rem;
+        border-radius: 24px;
+    }
+
+    /* stacked: a short rule above the centred text */
+    .projects-group-label {
+        flex-direction: column;
+        gap: 0.9rem;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .projects-group-label::before {
+        flex: none;
+        width: 70px;
+        height: 2px;
+        border-radius: 2px;
+        background: rgba(53, 76, 107, 0.35);
+    }
+
+    .projects-group-label::after {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-featured {
+        padding: 1.1rem;
+    }
+
+    .project-org {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-org-featured::before {
+        animation: none;
+    }
+}
+
+/* Wide screenshots shown whole (not cropped) on a white panel */
+.project-image-contain,
+.modal-image-contain {
+    background: #fff;
+}
+
+.project-image-contain img,
+.modal-image-contain img {
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: 1.25rem;
 }
