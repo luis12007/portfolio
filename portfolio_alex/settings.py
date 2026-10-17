@@ -122,4 +122,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY', '')
 CLAUDE_MODEL = os.environ.get('CLAUDE_MODEL', 'claude-opus-5-5')
 # (messages, seconds) per visitor IP for the chatbot endpoint.
-CHAT_RATE_LIMIT = (20, 600)
+CHAT_RATE_LIMIT = (5, 60)

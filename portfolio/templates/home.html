@@ -214,7 +214,7 @@
         <header class="projects-header project-animate">
           <h2 class="projects-title">Projects</h2>
           <p class="projects-description">
-            My work as an AI Engineer at TELUS, and the AI products, data
+            My work as an AI Engineer Lead at TELUS, and the AI products, data
             science and web solutions I build through my own company,
             MySoftwareSV.
           </p>
@@ -224,7 +224,7 @@
         <aside class="open-to-work project-animate" aria-label="Open to work">
           <span class="otw-badge"><span class="otw-dot" aria-hidden="true"></span>Open to work</span>
           <div class="otw-text">
-            <p class="otw-title">Looking for an AI Engineering role in Germany</p>
+            <p class="otw-title">Looking for an AI Engineering role in Essen or Cologne, Germany</p>
             <p class="otw-sub">
               About to start my M.Sc. in Artificial Intelligence at IU
               International University of Applied Sciences (April 2027).
@@ -255,11 +255,15 @@
           >
             <div class="project-text">
               <span class="project-org">TELUS · Work experience</span>
-              <h2 class="project-title">AI Engineer at TELUS</h2>
-              <!-- PLACEHOLDER: replace with the real role summary -->
+              <h2 class="project-title">AI Engineer Lead at TELUS</h2>
               <p class="project-description">
-                I worked as an AI Engineer at TELUS, building and improving AI
-                solutions in production. Full project details coming soon.
+                I joined as an AI Engineer and was quickly promoted to lead,
+                coordinating a team of up to 15 AI engineers and delivering 2
+                AI-first projects that are still running today. I built the
+                team's workflow (CI/CD, best practices, documentation and
+                security compliance), benchmarked self-hosted LLMs against
+                API models, and developed MCP servers and APIs on GCP to
+                connect the client's tools to the LLM.
               </p>
               <button
                 class="project-button"
@@ -277,16 +281,19 @@
                 </svg>
               </button>
             </div>
-            <!-- PLACEHOLDER: swap for a real project image -->
-            <div class="project-image project-placeholder" aria-hidden="true">
-              <span class="placeholder-mark">TELUS</span>
-              <span class="placeholder-note">AI Engineer · Project preview coming soon</span>
+            <div class="project-image">
+              <img
+                src="{% static 'public/telus ai engineer photo.jpg' %}"
+                alt="Alex Martínez with the AI engineering team at TELUS"
+                loading="lazy"
+                style="object-position: center 30%"
+              />
             </div>
           </article>
 
           <!-- Company projects: MySoftwareSV -->
           <p class="projects-group-label">
-            <span>Built at <strong>MySoftwareSV</strong>, my own software company</span>
+            <span>Built at <strong>MySoftwareSV</strong>, my own software company, and on my own</span>
           </p>
 
           <article
@@ -328,14 +335,14 @@
             data-layout="text-left"
           >
             <div class="project-text">
-              <span class="project-org">MySoftwareSV</span>
+              <span class="project-org">Personal project · Prototype</span>
               <h2 class="project-title">AI Language Learning App</h2>
               <p class="project-description">
-                A personalized, Quizlet-style app for learning languages (Spanish,
-                English and German), integrated with AI: it generates an image for
-                every word, fact-checks translations and handles voice, so you can
-                practice listening, reading aloud and real conversations with an AI
-                tutor that corrects you as you speak.
+                A prototype built in a short time to show how easily a new
+                application can be connected to AI APIs to gain new features. It is
+                my personal tool for learning Spanish, English and German, with AI
+                image generation, fact-checked translations, and voice practice with
+                an AI tutor that corrects you as you speak.
               </p>
               <button
                 class="project-button"
@@ -757,41 +764,67 @@
       // Project data for modals
       const projectData = {
         telus: {
-          // PLACEHOLDER: replace with the real role details (and an image/video path).
-          title: "AI Engineer at TELUS",
-          image: null,
-          placeholder: "TELUS",
+          title: "AI Engineer Lead at TELUS",
+          image: "{% static 'public/telus ai engineer photo.jpg' %}",
+          imagePosition: "center 30%",
           buttonText: "View References on LinkedIn",
-          // PLACEHOLDER: confirm the link once the recommendations are on LinkedIn.
           buttonLink: "https://www.linkedin.com/in/alexmtzai/details/recommendations/",
           description: `
-            <p><strong>Work experience.</strong> I worked as an AI Engineer at TELUS. Full details about this role are coming soon.</p>
+            <p><strong>Work experience.</strong> I joined TELUS as an AI Engineer working on LLM solutions for a client, and was quickly promoted to AI Engineer Lead. The role combined hands-on engineering with team leadership, product discovery and close work with the client.</p>
 
-            <h3>Role</h3>
-            <p>Placeholder: a short summary of the team, the product and your responsibilities.</p>
+            <p><strong>Result:</strong> I completed 2 AI-first projects that are still running today.</p>
 
-            <h3>What I Worked On</h3>
+            <h3>AI Engineering</h3>
             <ul>
-              <li>Placeholder: main project or system</li>
-              <li>Placeholder: models, tools and stack</li>
-              <li>Placeholder: a result or metric worth highlighting</li>
+              <li>Prompt engineering and LLM configuration through APIs</li>
+              <li>Built new internal tools that the team used in its daily work</li>
+              <li>Added new features to the team's tools and to the LLM configuration</li>
             </ul>
 
-            <h3>Impact</h3>
-            <p>Placeholder: the impact of your work.</p>
+            <h3>Team Leadership</h3>
+            <p>As AI Engineer Lead, I coordinated a team of 15 AI engineers. Later the team was reduced to 10 people (3 leads and 7 AI engineers):</p>
+            <ul>
+              <li>Tracked the team's work, unblocked engineers and connected them with the right people</li>
+              <li>Ran knowledge transfer sessions, 101 trainings, and catch-up sessions on project news and new technologies</li>
+              <li>Reported project status and progress to senior leadership</li>
+            </ul>
+
+            <h3>Team Workflow</h3>
+            <p>I designed the team's entire way of working from scratch: CI/CD procedures, best practices, documentation and security compliance.</p>
+
+            <h3>Product Discovery</h3>
+            <p>I worked with the Product Owner to map new features and requirements, and helped him understand the business, since I was working closely with the client every day.</p>
+
+            <h3>LLM Evaluation: API vs. Self-Hosted</h3>
+            <p>I ran tests to evaluate moving from API-based LLMs to self-hosted, on-premise models. Another team handled the deployments, and I worked with them in the loop, measuring hallucination, RAG consumption, speed, accuracy and cost with custom formulas and DeepEval, then reporting each finding.</p>
+
+            <h3>Integrations and MCP Servers</h3>
+            <p>Once the foundations of the project were in place, I also took on supporting the integrations development team, drawing on my software engineering background:</p>
+            <ul>
+              <li>Built new integrations with the client's systems, end to end: requirements, development, adaptation, connection and testing in production</li>
+              <li>Developed several MCP servers and APIs from scratch, hosted on our own GCP infrastructure, so the LLM could connect to every tool it needed</li>
+              <li>Set up monitoring and alerting with Dynatrace and PagerDuty for effective on-call response to incidents</li>
+            </ul>
+
+            <h3>Filling the Gaps</h3>
+            <p>Because I knew the data sources, the people and the status of the project, I was the go-to person for whatever was blocked: troubleshooting a data source, unblocking AI engineers, adjusting MCP servers or the chatbot's LLM configuration, and bringing business and project knowledge to meetings.</p>
+
+            <h3>What I Learned</h3>
+            <p>A challenging project where I learned a great deal, above all about the work itself, adaptability, resilience, and delivering under tight deadlines.</p>
 
             <h3>References</h3>
-            <p>Recommendations from the people I worked with at TELUS are on my LinkedIn profile.</p>
+            <p>Recommendations from my team are on my LinkedIn profile. I left the role when I moved to Germany, where I am looking for my next AI engineering position in Essen or Cologne while starting my M.Sc. in Artificial Intelligence.</p>
           `,
         },
         vocabulary: {
           title: "AI Language Learning App",
-          image: "{% static 'public/vocabulary-app.webp' %}",
-          imageFit: "contain",
+          image: "{% static 'public/videos/Recording 2026-10-18 003754.mp4' %}",
           buttonText: "Open the App",
           buttonLink: "https://vocabulary-app-production-34bb.up.railway.app/",
           description: `
-            <p>A personalized, Quizlet-style app for learning languages, built for the way I study Spanish, English and German. Every word becomes a card with its translations, an AI-generated image and a progress score, and the app turns your own word list into games, reading, listening and conversation practice.</p>
+            <p><strong>Personal project · Prototype.</strong> I built this prototype in a short time to show how easily a new application can be connected to AI APIs and given new features. It is the tool I use myself to learn languages.</p>
+
+            <p>A personalized, Quizlet-style app built for the way I study Spanish, English and German. Every word becomes a card with its translations, an AI-generated image and a progress score, and the app turns your own word list into games, reading, listening and conversation practice.</p>
 
             <h3>AI Integration</h3>
             <ul>
@@ -1062,7 +1095,8 @@
       `;
           } else {
             // Create img element for png, jpg, gif, webp, etc.
-            return `<img src="${imageSrc}" alt="${title}" />`;
+            const position = project.imagePosition ? ` style="object-position: ${project.imagePosition}"` : "";
+            return `<img src="${imageSrc}" alt="${title}"${position} />`;
           }
         }
 
@@ -1329,7 +1363,7 @@
                   const data = await response.json().catch(() => ({}));
                   if (response.ok && data.answer) return data.answer;
                   if (response.status === 429) {
-                      this.addBotMessage("You've sent a lot of messages. Please wait a few minutes and try again.");
+                      this.addBotMessage("You've sent a lot of messages. Please wait a minute and try again.");
                   } else {
                       this.addBotMessage("I'm having trouble answering right now. Please try again later or email Alex at alexmtzai2002@gmail.com.");
                   }

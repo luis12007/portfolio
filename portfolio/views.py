@@ -102,7 +102,7 @@ def chat(request):
         logger.error('ANTHROPIC_API_KEY is not set; the chatbot is disabled.')
         return JsonResponse({'error': 'The assistant is not configured.'}, status=503)
     if _rate_limited(request):
-        return JsonResponse({'error': 'Too many messages. Please wait a few minutes.'}, status=429)
+        return JsonResponse({'error': 'Too many messages. Please wait a minute.'}, status=429)
 
     params = {
         'model': settings.CLAUDE_MODEL,

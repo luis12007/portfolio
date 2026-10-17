@@ -169,6 +169,48 @@
     color: #2d3748;
 }
 
+/* Where each technology was used */
+.tech-uses {
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-family: var(--font-inter);
+    color: #4a5568;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-uses li {
+    position: relative;
+    padding-left: 1.1rem;
+}
+
+.tech-uses li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #354c6b;
+}
+
+.tech-uses strong {
+    color: #354c6b;
+    font-weight: 700;
+}
+
+.group-div:hover .tech-uses {
+    color: #2d3748;
+}
+
 .title-row {
     align-self: stretch;
     display: flex;

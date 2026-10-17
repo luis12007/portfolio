@@ -61,15 +61,15 @@ class PageTests(TestCase):
         html = self.client.get(reverse('home')).content.decode()
         titles = re.findall(r'<h2 class="project-title">\s*(.*?)\s*</h2>', html)
         self.assertEqual(titles[:3], [
-            'AI Engineer at TELUS', 'SaaS Billing System', 'AI Language Learning App',
+            'AI Engineer Lead at TELUS', 'SaaS Billing System', 'AI Language Learning App',
         ])
         self.assertEqual(len(titles), 8)
         # "open to work" is the highlight; TELUS comes first, then the company projects
         self.assertIn('class="open-to-work', html)
-        self.assertLess(html.index('class="open-to-work'), html.index('<h2 class="project-title">AI Engineer at TELUS'))
-        self.assertLess(html.index('<h2 class="project-title">AI Engineer at TELUS'), html.index('class="projects-group-label"'))
+        self.assertLess(html.index('class="open-to-work'), html.index('<h2 class="project-title">AI Engineer Lead at TELUS'))
+        self.assertLess(html.index('<h2 class="project-title">AI Engineer Lead at TELUS'), html.index('class="projects-group-label"'))
         self.assertLess(html.index('class="projects-group-label"'), html.index('SaaS Billing System'))
-        self.assertEqual(html.count('<span class="project-org">MySoftwareSV</span>'), 6)
+        self.assertEqual(html.count('<span class="project-org">MySoftwareSV</span>'), 5)
         self.assertIn('https://vocabulary-app-production-34bb.up.railway.app/', html)
         for removed in ('Voice Translation', 'anime', 'ippo'):
             self.assertNotIn(removed, html)
