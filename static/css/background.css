@@ -179,16 +179,6 @@
     transform: translateY(0) scale(0.98);
 }
 
-.item-btn .btn-icon {
-    font-size: 18px;
-    opacity: 0.9;
-    transition: transform 0.3s ease;
-}
-
-.item-btn:hover .btn-icon {
-    transform: scale(1.1);
-}
-
 /* ===== CERTIFICATE GRID ===== */
 .cert-grid {
     list-style: none;
