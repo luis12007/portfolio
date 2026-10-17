@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tech-carousel').forEach(initCarousel);
     initPresentationModal();
     initCertificateRecords();
+    initContactModal();
 });
 
 // Loading overlay + hero intro. The overlay leaves once the page (and its
@@ -513,6 +514,66 @@ function initPresentationModal() {
         });
     });
     if (location.hash === '#presentation') open();
+}
+
+// The email and phone icons open a modal to copy either one; without JS the
+// links still work as mailto:/tel:.
+function initContactModal() {
+    const dialog = document.getElementById('contactModal');
+    if (!dialog) return;
+    const status = dialog.querySelector('.contact-status');
+    const buttons = dialog.querySelectorAll('[data-copy]');
+    const reset = () => {
+        status.textContent = '';
+        buttons.forEach((button) => {
+            button.textContent = 'Copy';
+            button.classList.remove('copied');
+        });
+    };
+
+    setupDialog(dialog, reset);
+    dialog.querySelector('[data-close-contact]').addEventListener('click', () => dialog.close());
+
+    const copyText = async (text) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch {
+            // Older browsers or a non-secure context: copy through a hidden field.
+            const field = document.createElement('textarea');
+            field.value = text;
+            field.setAttribute('readonly', '');
+            field.style.position = 'fixed';
+            field.style.opacity = '0';
+            dialog.appendChild(field);
+            field.select();
+            const ok = document.execCommand('copy');
+            field.remove();
+            return ok;
+        }
+    };
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', async () => {
+            const ok = await copyText(button.dataset.copy);
+            reset();
+            if (ok) {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                status.textContent = `${button.dataset.copy} copied to the clipboard.`;
+            } else {
+                status.textContent = 'Could not copy. Please select the text and copy it.';
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-open-contact]').forEach((trigger) => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            openDialog(dialog);
+            dialog.querySelector(`[data-contact="${trigger.dataset.openContact}"]`)?.focus();
+        });
+    });
 }
 
 // "View Certificate" buttons for documents that aren't published online open

@@ -74,6 +74,15 @@ class PageTests(TestCase):
         for removed in ('Voice Translation', 'anime', 'ippo'):
             self.assertNotIn(removed, html)
 
+    def test_contact_modal_copies_email_and_phone(self):
+        html = self.client.get(reverse('home')).content.decode()
+        self.assertIn('id="contactModal"', html)
+        self.assertIn('data-copy="alexmtzai2002@gmail.com"', html)
+        self.assertIn('data-copy="+49 171 4758416"', html)
+        # the header and the mobile menu each have an email and a phone icon
+        self.assertEqual(html.count('data-open-contact="email"'), 2)
+        self.assertEqual(html.count('data-open-contact="phone"'), 2)
+
     def test_single_contact_email(self):
         html = self.client.get(reverse('home')).content.decode()
         self.assertIn('alexmtzai2002@gmail.com', html)
