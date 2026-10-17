@@ -378,12 +378,12 @@ function setupEnhancedInteractions() {
     const profileImage = document.querySelector('.whatsapp-image-2024-12-03-at-1-icon');
     if (profileImage) {
         profileImage.addEventListener('mouseenter', () => {
-            profileImage.style.transform = 'scale(1.05) rotate(0deg)';
+            profileImage.style.transform = 'scale(1.05) rotate(-3deg)';
             profileImage.style.filter = 'brightness(1.1) saturate(1.1)';
         });
         
         profileImage.addEventListener('mouseleave', () => {
-            profileImage.style.transform = 'scale(1) rotate(-3deg)';
+            profileImage.style.transform = 'scale(1) rotate(0deg)';
             profileImage.style.filter = 'brightness(1) saturate(1)';
         });
     }

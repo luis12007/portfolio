@@ -682,7 +682,7 @@ body.loaded .frame-parent.floating {
     height: 600px;
     object-fit: cover;
     z-index: 1;
-    transform: rotate(-3deg);
+    transform: rotate(0deg);
 }
 
 .image-content {
@@ -943,7 +943,7 @@ body.loaded .icons a:nth-child(4) img {
 /* ===== ENHANCED IMAGE HOVER EFFECTS ===== */
 
 .whatsapp-image-2024-12-03-at-1-icon:hover {
-    transform: scale(1.05) rotate(0deg);
+    transform: scale(1.05) rotate(-3deg);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     filter: brightness(1.1) saturate(1.1);
 }
@@ -1913,12 +1913,12 @@ body.loaded .icons a:nth-child(4) img {
     from {
         opacity: 0;
         clip-path: circle(0% at 50% 50%);
-        transform: scale(1.12) rotate(-3deg);
+        transform: scale(1.12) rotate(0deg);
     }
     to {
         opacity: 1;
         clip-path: circle(75% at 50% 50%);
-        transform: scale(1) rotate(-3deg);
+        transform: scale(1) rotate(0deg);
     }
 }
 
