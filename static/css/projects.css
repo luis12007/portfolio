@@ -946,3 +946,8 @@
         animation: none;
     }
 }
+
+/* The image opens the project, like its "View" button */
+.projects-grid .project-image {
+    cursor: pointer;
+}

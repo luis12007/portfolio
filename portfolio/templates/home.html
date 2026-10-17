@@ -1215,6 +1215,12 @@
         document
           .getElementById("modalClose")
           .addEventListener("click", closeProjectModal);
+        // Clicking a project's image does the same as its "View" button.
+        document.querySelector(".projects-grid")?.addEventListener("click", (e) => {
+          const image = e.target.closest(".project-image");
+          if (!image) return;
+          image.closest(".project-item")?.querySelector(".project-button")?.click();
+        });
         document
           .getElementById("modalOverlay")
           .addEventListener("click", (e) => {
