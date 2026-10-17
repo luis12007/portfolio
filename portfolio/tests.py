@@ -79,8 +79,8 @@ class PageTests(TestCase):
         self.assertIn('id="contactModal"', html)
         self.assertIn('data-copy="alexmtzai2002@gmail.com"', html)
         self.assertIn('data-copy="+49 171 4758416"', html)
-        # the header and the mobile menu each have an email and a phone icon
-        self.assertEqual(html.count('data-open-contact="email"'), 2)
+        # header and mobile menu icons, plus the open-to-work Contact Me button
+        self.assertEqual(html.count('data-open-contact="email"'), 3)
         self.assertEqual(html.count('data-open-contact="phone"'), 2)
 
     def test_single_contact_email(self):
