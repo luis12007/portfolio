@@ -19,7 +19,7 @@
 - Phone: +49 171 4758416
 - His CV can be downloaded with the "CV" button at the top of the portfolio home page; a video presentation opens from the "Video" button or the "Presentation" link in the menu.
 - The portfolio can be read in English or German with the EN/DE switch in the header (or in the mobile menu).
-- The video presentation was generated with AI: motion graphics made with the Claude API, a video avatar made with InfiniteTalk (MeiGen-AI), Alex's own voice for the English audio and ElevenLabs for the German version.
+- The video presentation was generated with AI: motion graphics made with the Claude API, a video avatar made with InfiniteTalk (MeiGen-AI) using the Wan2.1-I2V-14B-480P model, Alex's own voice for the English audio and ElevenLabs for the German version.
 
 # Projects
 

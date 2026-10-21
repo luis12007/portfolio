@@ -151,6 +151,7 @@ const DE = {
     'This video was generated with artificial intelligence': 'Dieses Video wurde mit künstlicher Intelligenz erstellt',
     'Motion graphics': 'Motion Graphics',
     'Video avatar': 'Video-Avatar',
+    'InfiniteTalk (MeiGen-AI) with the Wan2.1-I2V-14B-480P model': 'InfiniteTalk (MeiGen-AI) mit dem Modell Wan2.1-I2V-14B-480P',
     'Audio': 'Audio',
     'native voice; German version with ElevenLabs': 'eigene Stimme; deutsche Fassung mit ElevenLabs',
     'About Me': 'Über mich',
