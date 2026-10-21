@@ -94,6 +94,10 @@
             <a class="header-icon-link" href="tel:+491714758416" data-open-contact="phone" aria-label="Phone: +49 171 4758416, opens contact details">
               <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/biphonefill.svg' %}" />
             </a>
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" class="lang-option" data-set-lang="en" lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+              <button type="button" class="lang-option" data-set-lang="de" lang="de" aria-pressed="false" aria-label="Switch to German">DE</button>
+            </div>
           </div>
         </div>
       </header>
@@ -161,6 +165,11 @@
             </a>
           </div>
           <a class="mobile-nav-mail" href="mailto:alexmtzai2002@gmail.com">alexmtzai2002@gmail.com</a>
+          <p class="mobile-nav-label">Language</p>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-option" data-set-lang="en" lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+            <button type="button" class="lang-option" data-set-lang="de" lang="de" aria-pressed="false" aria-label="Switch to German">DE</button>
+          </div>
         </div>
       </nav>
 
@@ -676,9 +685,9 @@
                 <h4>👋 Welcome!</h4>
                 <p>I'm here to help you with any questions about Alex's projects and experience.</p>
                 <div class="quick-actions">
-                    <button type="button" class="quick-action" onclick="sendQuickMessage('What is Alex background ?')">Background</button>
-                    <button type="button" class="quick-action" onclick="sendQuickMessage('What technologies do Alex use?')">Technologies</button>
-                    <button type="button" class="quick-action" onclick="sendQuickMessage('How can I contact you?')">Contact Info</button>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage(i18n.t('What is Alex background ?'))">Background</button>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage(i18n.t('What technologies do Alex use?'))">Technologies</button>
+                    <button type="button" class="quick-action" onclick="sendQuickMessage(i18n.t('How can I contact you?'))">Contact Info</button>
                 </div>
             </div>
 
@@ -796,6 +805,7 @@
     </div>
 
     <!-- Load scripts.js ONLY - remove duplicate JavaScript -->
+    <script src="{% static 'js/i18n.js' %}"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
 
     <script>
@@ -1089,10 +1099,286 @@
         },
       };
 
+      // German versions of the modal texts; anything missing falls back to projectData.
+      const projectDataDe = {
+        telus: {
+          title: "AI Engineer Lead bei TELUS",
+          buttonText: "Empfehlungen auf LinkedIn ansehen",
+          description: `
+            <p><strong>Berufserfahrung.</strong> Ich kam als AI Engineer zu TELUS und arbeitete an LLM-Lösungen für einen Kunden. Kurz darauf wurde ich zum AI Engineer Lead befördert. Die Rolle verband praktische Entwicklungsarbeit mit Teamführung, Product Discovery und enger Zusammenarbeit mit dem Kunden.</p>
+
+            <p><strong>Ergebnis:</strong> Ich habe 2 AI-first-Projekte abgeschlossen, die bis heute laufen.</p>
+
+            <h3>AI Engineering</h3>
+            <ul>
+              <li>Prompt Engineering und LLM-Konfiguration über APIs</li>
+              <li>Neue interne Tools entwickelt, die das Team täglich nutzte</li>
+              <li>Neue Funktionen für die Tools des Teams und die LLM-Konfiguration ergänzt</li>
+            </ul>
+
+            <h3>Teamführung</h3>
+            <p>Als AI Engineer Lead koordinierte ich ein Team von 15 AI Engineers. Später wurde das Team auf 10 Personen verkleinert (3 Leads und 7 AI Engineers):</p>
+            <ul>
+              <li>Die Arbeit des Teams verfolgt, Blocker gelöst und Engineers mit den richtigen Ansprechpartnern verbunden</li>
+              <li>Wissenstransfer-Sessions, 101-Schulungen und Updates zu Projektneuigkeiten und neuen Technologien durchgeführt</li>
+              <li>Projektstatus und Fortschritt an das Senior Management berichtet</li>
+            </ul>
+
+            <h3>Team-Workflow</h3>
+            <p>Ich habe die gesamte Arbeitsweise des Teams von Grund auf entworfen: CI/CD-Prozesse, Best Practices, Dokumentation und Security-Compliance.</p>
+
+            <h3>Product Discovery</h3>
+            <p>Gemeinsam mit dem Product Owner habe ich neue Funktionen und Anforderungen erarbeitet und ihm geholfen, das Geschäft zu verstehen, da ich täglich eng mit dem Kunden zusammenarbeitete.</p>
+
+            <h3>LLM-Evaluierung: API vs. selbst gehostet</h3>
+            <p>Ich habe Tests durchgeführt, um den Wechsel von API-basierten LLMs zu selbst gehosteten On-Premise-Modellen zu bewerten. Ein anderes Team übernahm die Deployments, und ich arbeitete eng mit ihm zusammen: Ich habe Halluzinationen, RAG-Nutzung, Geschwindigkeit, Genauigkeit und Kosten mit eigenen Formeln und DeepEval gemessen und jedes Ergebnis berichtet.</p>
+
+            <h3>Integrationen und MCP-Server</h3>
+            <p>Als die Grundlagen des Projekts standen, unterstützte ich zusätzlich das Integrationsteam und brachte dabei meine Erfahrung als Softwareentwickler ein:</p>
+            <ul>
+              <li>Neue Integrationen mit den Systemen des Kunden umgesetzt, von Anfang bis Ende: Anforderungen, Entwicklung, Anpassung, Anbindung und Tests in Produktion</li>
+              <li>Mehrere MCP-Server und APIs von Grund auf entwickelt und auf unserer eigenen GCP-Infrastruktur gehostet, damit das LLM sich mit allen benötigten Tools verbinden konnte</li>
+              <li>Monitoring und Alerting mit Dynatrace und PagerDuty eingerichtet, für eine wirksame Rufbereitschaft bei Störungen</li>
+            </ul>
+
+            <h3>Lücken schließen</h3>
+            <p>Weil ich die Datenquellen, die Menschen und den Projektstand kannte, war ich die erste Anlaufstelle, wenn etwas blockiert war: Fehlersuche in einer Datenquelle, AI Engineers entblocken, MCP-Server oder die LLM-Konfiguration des Chatbots anpassen und Geschäfts- und Projektwissen in Meetings einbringen.</p>
+
+            <h3>Was ich gelernt habe</h3>
+            <p>Ein herausforderndes Projekt, bei dem ich sehr viel gelernt habe, vor allem über die Arbeit selbst, Anpassungsfähigkeit, Resilienz und Lieferung unter engen Deadlines.</p>
+
+            <h3>Referenzen</h3>
+            <p>Empfehlungen aus meinem Team findest du auf meinem LinkedIn-Profil. Ich habe die Rolle verlassen, als ich nach Deutschland gezogen bin. Hier suche ich meine nächste Stelle als AI Engineer in Essen oder Köln und beginne meinen M.Sc. in Artificial Intelligence.</p>
+          `,
+        },
+        vocabulary: {
+          title: "KI-Sprachlern-App",
+          buttonText: "App öffnen",
+          description: `
+            <p><strong>Eigenes Projekt · Prototyp.</strong> Ich habe diesen Prototyp in kurzer Zeit gebaut, um zu zeigen, wie einfach sich eine neue Anwendung mit KI-APIs verbinden und um neue Funktionen erweitern lässt. Ich nutze das Tool selbst, um Sprachen zu lernen.</p>
+
+            <p>Eine personalisierte App im Stil von Quizlet, gebaut für die Art, wie ich Spanisch, Englisch und Deutsch lerne. Jedes Wort wird zu einer Karte mit Übersetzungen, einem KI-generierten Bild und einem Fortschrittswert, und die App macht aus deiner eigenen Wortliste Spiele, Lese-, Hör- und Gesprächsübungen.</p>
+
+            <h3>KI-Integration</h3>
+            <ul>
+              <li><strong>Bildgenerierung:</strong> Jedes Wort bekommt ein KI-generiertes Bild, damit man es sich leichter merkt</li>
+              <li><strong>Faktencheck:</strong> Übersetzungen werden vor dem Speichern von der KI geprüft</li>
+              <li><strong>Sprache:</strong> Wörter werden vorgelesen, und die App hört dir über das Mikrofon zu</li>
+              <li><strong>KI-generierte Lesetexte:</strong> jedes Mal ein neuer Text, den ein KI-Coach bewertet, während du ihn laut vorliest</li>
+              <li><strong>Gesprächs-Tutor:</strong> Sprich mit einem KI-Tutor, der laut antwortet, deine Fehler behutsam korrigiert und dich am Ende bewertet</li>
+            </ul>
+
+            <h3>Lernmodi</h3>
+            <ul>
+              <li><strong>Lernen:</strong> Karteikarten, dann Zuordnen, dann ein Test, mit denselben Wörtern in einer Sitzung</li>
+              <li><strong>Schreiben:</strong> Übersetzung eintippen, mit Feedback Buchstabe für Buchstabe und Prüfung der deutschen Artikel</li>
+              <li><strong>Lesen, Hören und Sprechen:</strong> Übungen mit deinen eigenen Wörtern</li>
+              <li>Die Schwierigkeit steigt mit jedem Fehler, und ein Wort gilt als gelernt, wenn du es an 4 verschiedenen Tagen fehlerfrei kannst</li>
+            </ul>
+
+            <h3>Sprachen und Profile</h3>
+            <p>Unterstützt Spanisch ↔ Englisch, Englisch ↔ Deutsch und alle drei zusammen, mit getrennten Profilen, geteilten oder privaten Wortlisten, markierten und schwierigen Wörtern sowie Niveaus von A1 bis B2 für Gespräche.</p>
+          `,
+        },
+        billing: {
+          title: "Abrechnungssystem",
+          buttonText: "Live-Demo ansehen",
+          description: `
+            <p>Ich habe ein umfassendes Full-Stack-Abrechnungssystem entwickelt, das die Verwaltung von Rechnungen und die Finanzübersicht grundlegend vereinfacht. Das Projekt zeigt meine Erfahrung im Frontend und im Backend: eine reibungslose Benutzererfahrung bei zuverlässiger Funktionalität.</p>
+
+            <h3>Technische Umsetzung</h3>
+            <p>Das Frontend habe ich mit React gebaut: eine moderne, responsive Oberfläche mit intuitiver Navigation und Echtzeit-Updates. Das Backend ist eine eigene REST-API, die die gesamte Geschäftslogik, die Datenvalidierung und die sichere Kommunikation zwischen den Systemkomponenten übernimmt.</p>
+
+            <h3>Wichtige Funktionen</h3>
+            <ul>
+              <li>Automatische Erstellung und Verwaltung von Rechnungen</li>
+              <li>Zahlungsverfolgung und Benachrichtigungen in Echtzeit</li>
+              <li>Integration mehrerer APIs für erweiterte Funktionen</li>
+              <li>Umsetzung staatlicher Compliance-Vorgaben</li>
+              <li>Sichere Authentifizierung und Autorisierung</li>
+            </ul>
+
+            <h3>Deployment und Infrastruktur</h3>
+            <p>Das System läuft auf meiner eigenen Webserver-Infrastruktur, mit voller Kontrolle über Sicherheit, Performance und Compliance. Ich habe Sicherheitsmaßnahmen, regelmäßige Backups und Monitoring eingerichtet, um eine Verfügbarkeit von 99,9 % sicherzustellen.</p>
+
+            <h3>Wirkung</h3>
+            <p>Das Abrechnungssystem hat die Finanzprozesse mehrerer Kunden vereinfacht, die Bearbeitungszeit von Rechnungen um 60 % verkürzt und die Genauigkeit der Zahlungsverfolgung verbessert. Dank der Einhaltung staatlicher Standards erfüllen Unternehmen die gesetzlichen Anforderungen mühelos.</p>
+          `,
+        },
+        rag: {
+          title: "RAG-Portfolio-Assistent",
+          buttonText: "KI-Assistenten testen",
+          description: `
+            <p>Ein intelligenter KI-Assistent, der speziell auf mein Portfolio und meine Erfahrung trainiert wurde. Das Projekt zeigt meine Erfahrung mit Retrieval-Augmented Generation (RAG), Modelloptimierung und dem produktiven Betrieb von KI-Systemen.</p>
+
+            <h3>Technische Architektur</h3>
+            <p>Gebaut mit dem LangChain-Framework, das Sprachmodelle nahtlos mit Vektordatenbanken verbindet. Ich habe eine vollständige RAG-Pipeline umgesetzt, die meine Portfolio-Daten (Projekte, Erfahrung, Skills und Erfolge) vektorisiert, um präzise, kontextbezogene Antworten zu meinem beruflichen Hintergrund zu liefern.</p>
+
+            <h3>Modelloptimierung</h3>
+            <ul>
+              <li>Selbst quantisiertes LLM, optimiert für reine CPU-Ausführung</li>
+              <li>Betrieb auf einer DigitalOcean-Serverinfrastruktur</li>
+              <li>Rund um die Uhr verfügbar mit automatischer Skalierung</li>
+              <li>Intelligente Filterung relevanter Anfragen</li>
+              <li>Vektor-Ähnlichkeitssuche für präzises Information Retrieval</li>
+              <li>Kontextbewusste Antwortgenerierung</li>
+            </ul>
+
+            <h3>Datenverarbeitung und Vektorisierung</h3>
+            <p>Mit den Document Loaders und Text Splitters von LangChain habe ich meine Portfolio-Inhalte verarbeitet und semantische Embeddings erzeugt, die ein präzises Abrufen von Informationen ermöglichen. Das System bleibt beim Wissen über meine Projekte, Skills und meinen beruflichen Weg stets aktuell.</p>
+
+            <h3>Produktionsfunktionen</h3>
+            <p>Robuste Filtermechanismen stellen sicher, dass der Assistent nur auf Fragen zum Portfolio antwortet. Das System umfasst Rate Limiting, Fehlerbehandlung und Logging für einen zuverlässigen Betrieb.</p>
+
+            <h3>Wirkung und Innovation</h3>
+            <p>Der RAG-Assistent liefert rund um die Uhr sofortige, präzise Antworten zu meinem beruflichen Hintergrund, steigert die Interaktion und zeigt den praktischen Einsatz von KI. Er beweist, dass ich optimierte KI-Lösungen auch in ressourcenbeschränkten Umgebungen mit hoher Performance betreiben kann.</p>
+          `,
+        },
+        healthcare: {
+          title: "Open-Source-KI für das Gesundheitswesen",
+          buttonText: "Projekt auf Streamlit ansehen",
+          description: `
+            <p>Ein gemeinschaftliches Open-Source-Projekt mit Omdena, das KI-Lösungen für Herausforderungen im Gesundheitswesen in Afrika entwickelt. Das Projekt zeigt, dass ich in vielfältigen, internationalen Teams arbeiten und zu Initiativen mit gesellschaftlicher Wirkung beitragen kann.</p>
+
+            <h3>Projektumfang und Ziele</h3>
+            <p>Unser Team entwickelte ein Machine-Learning-Modell, das Krankheiten anhand einer Symptomanalyse vorhersagt, speziell für in afrikanischen Gemeinschaften verbreitete Krankheiten. Ziel war ein zugängliches Diagnosewerkzeug, das medizinisches Personal in ressourcenarmen Regionen unterstützt.</p>
+
+            <h3>Meine Beiträge</h3>
+            <ul>
+              <li>Datenerhebung aus mehreren afrikanischen Gesundheitsdatenbanken</li>
+              <li>Umfassende explorative Datenanalyse (EDA)</li>
+              <li>Feature Engineering und Datenvorverarbeitung</li>
+              <li>Modellentwicklung mit Ensemble-Methoden</li>
+              <li>Visualisierung und Interpretation der Ergebnisse</li>
+              <li>Dokumentation und Wissensaustausch</li>
+            </ul>
+
+            <h3>Technische Umsetzung</h3>
+            <p>Ich habe Machine-Learning-Verfahren wie Random Forest, Gradient Boosting und neuronale Netze eingesetzt, um ein robustes Vorhersagemodell zu erstellen. Dazu gehörten umfangreiche Datenbereinigung, der Umgang mit fehlenden Werten und der Ausgleich von Klassenungleichgewichten, wie sie in medizinischen Datensätzen häufig sind.</p>
+
+            <h3>Data-Science-Methodik</h3>
+            <p>Ich habe sorgfältige Data-Science-Praktiken angewandt, darunter Kreuzvalidierung, Hyperparameter-Tuning und Signifikanztests, und aussagekräftige Visualisierungen erstellt, um die Ergebnisse technischen wie nicht-technischen Stakeholdern zu vermitteln.</p>
+
+            <h3>Zusammenarbeit und Wirkung</h3>
+            <p>Ich arbeitete mit einem vielfältigen Team von über 50 Data Scientists aus aller Welt und beteiligte mich an Code-Reviews, Team-Meetings und Wissensaustausch. Das finale Modell erreichte eine Genauigkeit von 84 % bei der Krankheitsvorhersage und kann die Diagnostik in unterversorgten Gemeinschaften verbessern.</p>
+
+            <h3>Open-Source-Beitrag</h3>
+            <p>Code, Dokumentation und Ergebnisse sind öffentlich verfügbar, damit andere Forschende und Gesundheitsorganisationen auf unserer Arbeit aufbauen können. Das Projekt zeigt mein Engagement für KI zum Gemeinwohl und für kollaborative Entwicklung.</p>
+          `,
+        },
+        gymnastics: {
+          title: "App für Kampfrichter im Turnen",
+          buttonText: "Repository auf GitHub ansehen",
+          description: `
+            <p>Eine umfassende plattformübergreifende Anwendung speziell für Kampfrichter im Turnen, gebaut mit React Native und Expo. Das Projekt zeigt meine Erfahrung in der Mobile-Entwicklung, im responsiven Design und in der Entwicklung spezialisierter Werkzeuge für den professionellen Einsatz im Web, auf Android und auf iOS.</p>
+
+            <h3>Plattformübergreifende Architektur</h3>
+            <p>Entwickelt mit React Native und dem Expo-Framework, damit die App auf allen Plattformen reibungslos funktioniert. Sie bietet im Browser, auf Android und auf iOS dieselbe Performance und Benutzererfahrung, mit einem responsiven Design für verschiedene Bildschirmgrößen.</p>
+
+            <h3>Kernfunktionen</h3>
+            <ul>
+              <li>Eigenes Authentifizierungssystem mit sicherer Benutzerverwaltung</li>
+              <li>Erweiterte Dateiverwaltung und -organisation</li>
+              <li>Spezielle Rechner für die MAG- und WAG-Wertung (Boden und Sprung)</li>
+              <li>Interaktives digitales Whiteboard für Notizen und Skizzen</li>
+              <li>PDF-Export für offizielle Unterlagen</li>
+              <li>Responsive Oberfläche, optimiert für Tablets und Smartphones</li>
+            </ul>
+
+            <h3>Technische Umsetzung</h3>
+            <p>Gebaut mit React Native und Expo, mit Zugriff auf native Gerätefunktionen bei hoher Wiederverwendbarkeit des Codes über alle Plattformen. Ich habe eine sichere Authentifizierung, effiziente Dateiverarbeitung und die komplexen Wertungsalgorithmen der Kampfrichterregeln umgesetzt.</p>
+
+            <h3>Turnspezifische Funktionen</h3>
+            <p>Die App enthält präzise Rechner für das Gerätturnen der Männer (MAG) und der Frauen (WAG) mit eigenen Modulen für die Wertung am Boden und am Sprung. Die Werkzeuge folgen den offiziellen Wertungsrichtlinien der FIG (Internationaler Turnerbund).</p>
+
+            <h3>Geplante KI-Integration</h3>
+            <p>Das nächste große Update bringt KI-generierte Wettkampfzusammenfassungen, die Leistungsdaten automatisch analysieren und ausführliche Berichte erstellen. Das vereinfacht das Werten weiter und liefert Trainern und Athleten wertvolle Erkenntnisse.</p>
+
+            <h3>Wirkung in der Praxis</h3>
+            <p>Die App digitalisiert den bisher papierbasierten Ablauf beim Werten, reduziert Wertungsfehler und bietet sofortigen Zugriff auf Wettkampfdaten. Kampfrichter arbeiten effizienter und halten zugleich höchste Standards bei Genauigkeit und Professionalität ein.</p>
+          `,
+        },
+        enterprise: {
+          title: "Enterprise-API für digitale Rechnungsstellung",
+          buttonText: "API-Dokumentation ansehen",
+          description: `
+            <p>Ein robustes API-Modul auf Enterprise-Niveau, gebaut mit Java Spring Boot, mit dem große Unternehmen digitale Rechnungsstellung in ihre bestehenden Systeme integrieren können. Das Projekt zeigt meine Erfahrung mit Enterprise-Architektur, Systemintegration und staatlichen Compliance-Anforderungen.</p>
+
+            <h3>Enterprise-Integrationsarchitektur</h3>
+            <p>Als modulare Erweiterung meines SaaS-Abrechnungsdienstes konzipiert, verbindet die API bestehende Unternehmenssysteme mit den staatlich vorgeschriebenen Anforderungen an die digitale Rechnungsstellung. Die Architektur ermöglicht eine nahtlose Integration, ohne laufende Geschäftsprozesse zu stören.</p>
+
+            <h3>Technische Infrastruktur</h3>
+            <ul>
+              <li>Java-Spring-Boot-Backend mit eigenem Token-Authentifizierungssystem</li>
+              <li>NGINX-Proxyserver für Lastverteilung und Sicherheit</li>
+              <li>Multi-Server-Architektur mit AWS-Cloud-Integration</li>
+              <li>SMTP-Server-Integration für automatische E-Mail-Benachrichtigungen</li>
+              <li>Direkte Anbindung an staatliche APIs für die Compliance</li>
+              <li>Umfassendes Logging und Monitoring</li>
+            </ul>
+
+            <h3>Systemintegration und Skalierbarkeit</h3>
+            <p>Die API verbindet mehrere Server, darunter lokale Infrastruktur, AWS-Clouddienste und staatliche Systeme. Mit fortgeschrittenen NGINX-Proxy-Konfigurationen bewältigt sie hohe Last und sorgt für zuverlässige Kommunikation zwischen den Systemkomponenten.</p>
+
+            <h3>Innovative Problemlösungen</h3>
+            <p>Ich habe erhebliche technische Hürden gemeistert, darunter gesperrte SMTP-Ports bei kommerziellen Webdiensten, durch alternative Zustellwege für E-Mails und Failover-Systeme. Für eingeschränkte Netzwerkumgebungen habe ich kreative Lösungen für zuverlässige Kommunikationskanäle entwickelt.</p>
+
+            <h3>Dokumentation und Compliance</h3>
+            <p>Ich habe eine umfassende Systemdokumentation erstellt, mit API-Spezifikationen, Integrationsleitfäden und Handbüchern zur Fehlerbehebung. Das System führt detaillierte Audit-Logs, um staatliche Compliance-Anforderungen zu erfüllen und Monitoring und Debugging zu erleichtern.</p>
+
+            <h3>Lernen und Weiterentwicklung</h3>
+            <p>Dieses Projekt hat meine Erfahrung mit Enterprise-Architektur, Serveranbindung, skalierbarem Design und komplexer Problemlösung deutlich erweitert. Ich habe tiefe Einblicke in staatliche Integrationsanforderungen und die Gestaltung von Enterprise-Systemen gewonnen.</p>
+
+            <h3>Geschäftlicher Nutzen</h3>
+            <p>Große Unternehmen können die staatlichen Vorgaben zur digitalen Rechnungsstellung erfüllen und dabei ihre bestehenden Abläufe beibehalten. Die API hat bereits Tausende digitaler Rechnungen verarbeitet und den Compliance-Aufwand der Kundenunternehmen um 70 % gesenkt.</p>
+          `,
+        },
+        erp: {
+          title: "ERP-System für mehrere Filialen",
+          buttonText: "Repository auf GitHub ansehen",
+          description: `
+            <p>Ein umfassendes ERP-System (Enterprise Resource Planning), speziell für kleine Unternehmen in El Salvador. Gebaut mit C# .NET in Visual Studio Code und einer Cloud-SQL-Datenbank, vereint es alle wichtigen Geschäftsprozesse auf einer Plattform.</p>
+
+            <h3>Zentrale Geschäftsmodule</h3>
+            <p>Das ERP-System deckt den gesamten Geschäftsablauf ab, vom Kassenbetrieb bis zur strategischen Business Intelligence. Die Module greifen nahtlos ineinander und können bei Bedarf trotzdem unabhängig voneinander arbeiten.</p>
+
+            <h3>Kassensystem und Transaktionen</h3>
+            <ul>
+              <li>Intuitive Kassenoberfläche für einen schnellen Kundenservice</li>
+              <li>Erstellung und Verwaltung von Belegen in Echtzeit</li>
+              <li>Unterstützung und Abwicklung mehrerer Zahlungsarten</li>
+              <li>Automatischer Belegdruck mit digitaler Sicherung</li>
+              <li>Täglicher Kassenabschluss und Berichte</li>
+            </ul>
+
+            <h3>Filialübergreifende Lagerverwaltung</h3>
+            <p>Eine fortschrittliche Lagerverwaltung, die den Bestand in drei Filialen gleichzeitig verfolgt. Mit Bestandsaktualisierung in Echtzeit, automatischen Warnungen bei niedrigem Bestand, Umlagerungen zwischen Filialen und einem umfassenden Produktkatalog mit Barcode-Unterstützung.</p>
+
+            <h3>Personalverwaltung</h3>
+            <p>Ein vollständiges Personalmodul für Benutzerverwaltung, Mitarbeiterverwaltung, Lohnabrechnung und Zugriffskontrolle. Das System übernimmt Dienstpläne, Leistungsverfolgung und die automatische Lohnberechnung auf Basis von Arbeitsstunden und Leistungskennzahlen.</p>
+
+            <h3>Zutaten- und Rezeptverwaltung</h3>
+            <p>Ein spezielles Modul, das Lagerartikel mit ihren Zutaten verknüpft. Besonders wertvoll für Restaurants und Gastronomiebetriebe: Es verfolgt den Zutatenverbrauch, berechnet Kosten und standardisiert Rezepte.</p>
+
+            <h3>Business Intelligence und Analysen</h3>
+            <p>Das integrierte BI-Modul liefert umfassende Verkaufskennzahlen, Performance-Dashboards und strategische Erkenntnisse, darunter Trendanalysen, Margenberechnungen, Filialvergleiche und vorausschauende Analysen für die Bestandsplanung.</p>
+
+            <h3>Technische Architektur</h3>
+            <p>Gebaut mit dem C#-.NET-Framework in Visual Studio Code, für hohe Performance und gute Wartbarkeit. Die cloudbasierte SQL-Datenbank bietet Skalierbarkeit, automatische Backups und sicheren Zugriff von mehreren Standorten bei konsistenten Daten in allen Filialen.</p>
+
+            <h3>Geschäftlicher Nutzen</h3>
+            <p>Das ERP-System hat die Abläufe des Kunden vereinfacht, den Verwaltungsaufwand um 50 % reduziert und die Bestandsgenauigkeit um 95 % verbessert. Die filialübergreifende Koordination hat Bestandsabweichungen beseitigt und die Effizienz insgesamt gesteigert.</p>
+          `,
+        },
+      };
+
       // Modal functionality
       function openProjectModal(projectKey) {
-        const project = projectData[projectKey];
-        if (!project) return;
+        if (!projectData[projectKey]) return;
+        const project = {
+          ...projectData[projectKey],
+          ...(i18n.lang === "de" ? projectDataDe[projectKey] : {}),
+        };
 
         const modalOverlay = document.getElementById("modalOverlay");
         const modalContent = document.getElementById("modalContent");
@@ -1108,7 +1394,7 @@
             return `
         <div class="project-placeholder modal-placeholder" aria-hidden="true">
           <span class="placeholder-mark">${project.placeholder || title}</span>
-          <span class="placeholder-note">Project preview coming soon</span>
+          <span class="placeholder-note">${i18n.t("Project preview coming soon")}</span>
         </div>`;
           }
           const extension = getFileExtension(imageSrc);
@@ -1321,7 +1607,7 @@
               
               if (!this.messages.querySelector('.message')) {
                   setTimeout(() => {
-                      this.addBotMessage("Hi! I'm Alex's AI assistant. How can I help you today?");
+                      this.addBotMessage(i18n.t("Hi! I'm Alex's AI assistant. How can I help you today?"));
                   }, 500);
               }
           }
@@ -1407,13 +1693,13 @@
                   const data = await response.json().catch(() => ({}));
                   if (response.ok && data.answer) return data.answer;
                   if (response.status === 429) {
-                      this.addBotMessage("You've sent a lot of messages. Please wait a minute and try again.");
+                      this.addBotMessage(i18n.t("You've sent a lot of messages. Please wait a minute and try again."));
                   } else {
-                      this.addBotMessage("I'm having trouble answering right now. Please try again later or email Alex at alexmtzai2002@gmail.com.");
+                      this.addBotMessage(i18n.t("I'm having trouble answering right now. Please try again later or email Alex at alexmtzai2002@gmail.com."));
                   }
               } catch (error) {
                   console.error('Chat API error:', error);
-                  this.addBotMessage("I can't connect right now. Please check your connection or email Alex at alexmtzai2002@gmail.com.");
+                  this.addBotMessage(i18n.t("I can't connect right now. Please check your connection or email Alex at alexmtzai2002@gmail.com."));
               }
               return null;
           }

@@ -100,6 +100,51 @@
     background: #000;
 }
 
+/* ----- "Generated with AI" note under the video ----- */
+.presentation-ai-note {
+    margin: 1.25rem 3rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(53, 76, 107, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.ai-note-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.ai-note-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.ai-note-list {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ai-note-label {
+    display: inline-block;
+    min-width: 8.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
 /* ----- About Me (more information) ----- */
 .presentation-modal .container {
     max-width: 1200px;
@@ -235,6 +280,10 @@
         padding: 0;
     }
 
+    .presentation-ai-note {
+        margin: 1.25rem 0 0;
+    }
+
     .presentation-modal .about {
         padding-top: 3.4rem;
     }
@@ -311,6 +360,15 @@
     .presentation-video-wrapper,
     .presentation-modal .container {
         padding: 0 1.25rem;
+    }
+
+    .presentation-ai-note {
+        margin: 1rem 1.25rem 0;
+    }
+
+    .ai-note-label {
+        display: block;
+        min-width: 0;
     }
 
     .presentation-video {

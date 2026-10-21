@@ -18,6 +18,8 @@
 - GitHub: https://github.com/luis12007
 - Phone: +49 171 4758416
 - His CV can be downloaded with the "CV" button at the top of the portfolio home page; a video presentation opens from the "Video" button or the "Presentation" link in the menu.
+- The portfolio can be read in English or German with the EN/DE switch in the header (or in the mobile menu).
+- The video presentation was generated with AI: motion graphics made with the Claude API, a video avatar made with InfiniteTalk (MeiGen-AI), Alex's own voice for the English audio and ElevenLabs for the German version.
 
 # Projects
 
@@ -63,6 +65,7 @@ ERP for small businesses in El Salvador built with C# .NET and a cloud SQL datab
 - AI/ML: TensorFlow (NLP, computer vision, time series), PyTorch (custom models, data pipelines), Keras (transfer learning, deployment), scikit-learn (classical ML, feature engineering, hyperparameter tuning, ensembles), LangChain and RAG, model quantization and optimization.
 - Data: Pandas (wrangling, time series, large datasets), Matplotlib and Seaborn (visualization, reporting).
 - Languages and frameworks: Python (AI/ML, automation, backend), React, React Native/Expo, Django, Java Spring Boot (JPA/Hibernate, security, microservices), C# .NET.
+- Cloud GPUs: rents GPU servers on a VPS in the cloud to train and run (inference) AI models; used them for the AI video and the chatbot of this portfolio and for the products at MySoftwareSV.
 - Cloud and DevOps: AWS (EC2, S3), Google Cloud (Vertex AI, BigQuery, Cloud Functions, hosting MCP servers and APIs), DigitalOcean, Docker and Docker Compose, Jenkins and CI/CD process design, Linux administration and scripting, NGINX, observability and alerting with Dynatrace and PagerDuty, security compliance.
 
 # Education and certificates

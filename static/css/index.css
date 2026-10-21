@@ -2446,3 +2446,57 @@ body.loaded .icons a:nth-child(4) img {
         margin-left: 0;
     }
 }
+
+/* ===== LANGUAGE SWITCH (EN / DE) =====
+   In the header next to the contact icons, and in the mobile menu. On narrow
+   phones the header has no room for it, so only the menu shows it there. */
+.lang-switch {
+    display: inline-flex;
+    align-self: center;
+    padding: 3px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(53, 76, 107, 0.15);
+}
+
+.lang-option {
+    min-width: 36px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #4a5f7d;
+    font: 700 13px/1 var(--font-nunito, sans-serif);
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-option:hover {
+    color: #354c6b;
+}
+
+.lang-option[aria-pressed="true"] {
+    background: #354c6b;
+    color: #fff;
+}
+
+.lang-option:focus-visible {
+    outline: 2px solid #354c6b;
+    outline-offset: 2px;
+}
+
+.mobile-nav-footer .lang-switch {
+    align-self: flex-start;
+}
+
+.mobile-nav-footer .lang-option {
+    min-width: 48px;
+    padding: 10px 14px;
+}
+
+@media screen and (max-width: 550px) {
+    .icons .lang-switch {
+        display: none;
+    }
+}

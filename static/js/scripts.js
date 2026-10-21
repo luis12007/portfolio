@@ -9,6 +9,15 @@ const TITLES = [
     "Data Scientist",
     "AI Developer",
 ];
+const TITLES_DE = [
+    "AI Engineer",
+    "ML Engineer",
+    "KI-Enthusiast",
+    "Spezialist für Modelloptimierung",
+    "Data Scientist",
+    "KI-Entwickler",
+];
+const titles = () => (window.i18n?.lang === 'de' ? TITLES_DE : TITLES);
 const TITLE_HOLD_MS = 2600;
 const TITLE_MOVE_MS = 450;
 
@@ -18,14 +27,14 @@ function initTitleRotator() {
     if (!span) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let index = Math.max(0, TITLES.indexOf(span.textContent.trim()));
+    let index = Math.max(0, titles().indexOf(span.textContent.trim()));
 
     // Shrink the font just enough for the longest title to stay on one line.
     const fit = () => {
         box.style.fontSize = '';
         const current = span.textContent;
         let widest = 0;
-        for (const title of TITLES) {
+        for (const title of titles()) {
             span.textContent = title;
             widest = Math.max(widest, span.getBoundingClientRect().width);
         }
@@ -47,8 +56,8 @@ function initTitleRotator() {
         if (!document.hidden) {
             const animate = !reducedMotion.matches && typeof span.animate === 'function';
             if (animate) await move('0', '-100%');
-            index = (index + 1) % TITLES.length;
-            span.textContent = TITLES[index];
+            index = (index + 1) % titles().length;
+            span.textContent = titles()[index];
             if (animate) await move('100%', '0');
             span.getAnimations?.().forEach((a) => a.cancel());
         }
@@ -61,6 +70,10 @@ function initTitleRotator() {
     window.addEventListener('resize', () => {
         cancelAnimationFrame(resizeFrame);
         resizeFrame = requestAnimationFrame(fit);
+    });
+    document.addEventListener('i18n:change', () => {
+        span.textContent = titles()[index];
+        fit();
     });
     const start = () => setTimeout(next, TITLE_HOLD_MS);
     if (document.body.classList.contains('intro-done')) start();
@@ -490,6 +503,21 @@ function initPresentationModal() {
     if (!dialog) return;
     const video = dialog.querySelector('video');
 
+    // The video has an English and a German (ElevenLabs) set of <source>s;
+    // only the page language's set stays in the element.
+    const sources = [...video.querySelectorAll('source[data-lang]')];
+    let videoLang = null;
+    const syncVideoLanguage = () => {
+        if (videoLang === i18n.lang) return;
+        videoLang = i18n.lang;
+        video.pause();
+        video.replaceChildren(...sources.filter((source) => source.dataset.lang === videoLang));
+        video.poster = video.dataset[`poster${videoLang === 'de' ? 'De' : 'En'}`];
+        if (video.preload !== 'none') video.load();
+    };
+    syncVideoLanguage();
+    document.addEventListener('i18n:change', syncVideoLanguage);
+
     const open = () => {
         // The video only starts downloading once someone opens the modal.
         if (video.preload === 'none') {
@@ -526,12 +554,13 @@ function initContactModal() {
     const reset = () => {
         status.textContent = '';
         buttons.forEach((button) => {
-            button.textContent = 'Copy';
+            button.textContent = i18n.t('Copy');
             button.classList.remove('copied');
         });
     };
 
     setupDialog(dialog, reset);
+    document.addEventListener('i18n:change', reset);
     dialog.querySelector('[data-close-contact]').addEventListener('click', () => dialog.close());
 
     const copyText = async (text) => {
@@ -558,11 +587,11 @@ function initContactModal() {
             const ok = await copyText(button.dataset.copy);
             reset();
             if (ok) {
-                button.textContent = 'Copied!';
+                button.textContent = i18n.t('Copied!');
                 button.classList.add('copied');
-                status.textContent = `${button.dataset.copy} copied to the clipboard.`;
+                status.textContent = i18n.t(`${button.dataset.copy} copied to the clipboard.`);
             } else {
-                status.textContent = 'Could not copy. Please select the text and copy it.';
+                status.textContent = i18n.t('Could not copy. Please select the text and copy it.');
             }
         });
     });
@@ -587,7 +616,8 @@ function initCertificateRecords() {
         button.addEventListener('click', () => {
             for (const field of ['kind', 'title', 'issuer', 'date']) {
                 dialog.querySelectorAll(`[data-field="${field}"]`).forEach((el) => {
-                    el.textContent = button.dataset[field];
+                    // Kind and date are translated; titles and issuers are names.
+                    el.textContent = ['kind', 'date'].includes(field) ? i18n.t(button.dataset[field]) : button.dataset[field];
                 });
             }
             openDialog(dialog);
@@ -664,7 +694,7 @@ function initCarousel(root) {
                 const dot = document.createElement('button');
                 dot.type = 'button';
                 dot.className = 'carousel-dot';
-                dot.setAttribute('aria-label', `Go to page ${page + 1} of ${pages}`);
+                dot.setAttribute('aria-label', i18n.t(`Go to page ${page + 1} of ${pages}`));
                 dot.addEventListener('click', () => { goTo(page * perView()); restart(); });
                 dotsBox.appendChild(dot);
                 return dot;
@@ -694,5 +724,8 @@ function initCarousel(root) {
         frame = requestAnimationFrame(updateDots);
     }, { passive: true });
     window.addEventListener('resize', throttle(buildDots, 150));
+    document.addEventListener('i18n:change', () => {
+        dots.forEach((dot, page) => dot.setAttribute('aria-label', i18n.t(`Go to page ${page + 1} of ${pageCount}`)));
+    });
     buildDots();
 }
