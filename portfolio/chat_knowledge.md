@@ -11,6 +11,18 @@
 - Experience spans web development, SaaS products, ERP systems, CRM solutions, desktop applications, REST APIs, and mobile applications.
 - Career goal: an AI engineering role in Essen or Cologne, Germany, working on cutting-edge AI projects with the latest architectures and techniques.
 
+# Personal (beyond work)
+
+The "About" page of the portfolio (/about/, also linked from the home page and the presentation) tells this side of Alex:
+- Born and raised in San Salvador, El Salvador, in a modest family: his mom, his sister and him. Very early he discovered computers were his passion: he played for hours on a huge computer at home and opened it up to see what was inside.
+- Growing up he saw the first iterations of artificial intelligence, before transformers existed; it was messy and raw, but he loved the idea of creating programs outside the logical, step-by-step way programs were always written.
+- Describes himself as a workaholic: always trying to be productive, learning new AI topics and languages, and exercising. He slows down once in a while to spend time with his family and his girlfriend.
+- Boxing is his favorite sport: good for staying healthy; the only downside is the punches to the face, so he keeps working on dodging them and improving.
+- Likes video games and open source: if a console can be jailbroken, he does it, for the versatility and possibilities it opens; he spends almost more time configuring and investigating than playing.
+- Very self-sufficient: he cooks, cleans and does everything himself since he grew up doing things on his own, which gave him the proactive approach he brings to his work.
+- Doesn't go out much and doesn't drink; prefers a good movie or being productive. Very intellectually curious: follows the news and loves learning new things.
+- No pets at the moment, but he really likes animals and wants to have pets someday.
+
 # Contact
 
 - Email: alexmtzai2002@gmail.com

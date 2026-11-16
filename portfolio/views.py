@@ -41,6 +41,11 @@ def home(request):
     return render(request, 'home.html')
 
 
+def about(request):
+    # "About me" beyond the code: origins, mindset, hobbies and where Alex is heading.
+    return render(request, 'about.html')
+
+
 def presentation(request):
     # The presentation is now a modal on the home page; keep old links working.
     return redirect(f"{reverse('home')}#presentation", permanent=True)

@@ -1,0 +1,23 @@
+{% load static %}
+    <!-- Card between the Education section and the footer: leads to /about/ -->
+    <aside class="about-teaser project-animate" aria-labelledby="aboutTeaserTitle">
+      <div class="about-teaser-photo" aria-hidden="true">
+        <!-- Placeholder: swap for a personal photo -->
+        <img src="{% static 'public/headshot.png' %}" alt="" loading="lazy" />
+      </div>
+      <div class="about-teaser-text">
+        <span class="ab-eyebrow">Beyond the code</span>
+        <h2 class="about-teaser-title" id="aboutTeaserTitle">There's more to me than models and code</h2>
+        <p class="about-teaser-sub">
+          Where I come from, what I do off the clock, how I think, and where I'm heading.
+        </p>
+      </div>
+      <div class="about-teaser-actions">
+        <a class="project-button" href="{% url 'about' %}">
+          <span>About me</span>
+          <svg class="button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </aside>

@@ -313,7 +313,8 @@
 }
 
 .nav-wrapper {
-    width: 560px;
+    /* fits the six links (Home ... About) on one line */
+    width: 620px;
     flex-direction: column;
     justify-content: flex-start;
     padding: 10px var(--padding-mini) 0 0;
@@ -1103,6 +1104,38 @@ body.loaded .icons a:nth-child(4) img {
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
         animation: slideDownFloat 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+}
+
+/* Narrow desktops: the six links only fit with a tighter gap and a smaller
+   "Presentation"; otherwise the last link slides under the GitHub icon. */
+@media screen and (min-width: 1051px) and (max-width: 1250px) {
+    .frame-parent {
+        gap: 14px;
+        padding: 10px;
+    }
+
+    .nav-wrapper {
+        width: auto;
+        padding-right: 0;
+        font-size: 16px;
+    }
+
+    .nav {
+        gap: 10px;
+    }
+
+    .sobre-presentation {
+        font-size: 20px;
+    }
+
+    /* the icon block must not shrink, or its row spills over the links */
+    .footer-icons {
+        flex-shrink: 0;
+    }
+
+    .icons {
+        gap: 10px;
     }
 }
 

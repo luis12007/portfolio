@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
     <link rel="stylesheet" href="{% static 'css/presentation.css' %}" />
     <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,6 +59,9 @@
             </div>
             <div class="tab-default">
               <a class="sobre" href="#Education-section">Education</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'about' %}">About</a>
             </div>
           </div>
 
@@ -144,6 +148,11 @@
           <a href="#Education-section" class="mobile-nav-link">
             <span class="mobile-nav-num" aria-hidden="true">05</span>
             <span class="mobile-nav-text">Education</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'about' %}" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">06</span>
+            <span class="mobile-nav-text">About</span>
             <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </a>
         </div>
@@ -600,6 +609,11 @@
 
     <!-- background -->
     <section id="Education-section">{% include 'background.html' %}</section>
+
+    <!-- about me (beyond the code): teaser card that leads to /about/ -->
+    <section id="About-section" class="about-teaser-section">
+      {% include 'about-teaser.html' %}
+    </section>
 
     <!-- footer -->
     {% include 'footer.html' %}

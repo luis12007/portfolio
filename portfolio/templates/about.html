@@ -1,0 +1,656 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>About Alex Martínez | AI Engineer</title>
+    <meta
+      name="description"
+      content="Beyond the code: where Alex Martínez comes from, how he thinks, what he does off the clock and where he is heading."
+    />
+
+    <!-- projects.css: scroll reveal (.project-animate) and the project buttons;
+         index.css: header, loader, custom cursor, mobile menu and language switch -->
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@300;400&family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Poly&family=Raleway:wght@500&family=Roboto:wght@400;500;600;700&display=swap"
+    />
+    <script>
+      // Hide the hero until its intro animation starts (see "HERO INTRO" in index.css).
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('hero-intro');
+      }
+    </script>
+  </head>
+  <body class="about-body">
+    <div class="profile about-top">
+      <div class="overlay">
+        <div class="loader"></div>
+      </div>
+
+      <header class="frame-parent">
+        <div class="madelyn-torff-wrapper">
+          <b class="madelyn-torff"><a href="{% url 'home' %}">AIex engineer</a></b>
+        </div>
+
+        <div class="nav-wrapper">
+          <div class="nav">
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'home' %}">Home</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'home' %}#Projects-section">Projects</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre-presentation" href="{% url 'home' %}#presentation">Presentation</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'home' %}#Technologies-section">Skills</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'home' %}#Education-section">Education</a>
+            </div>
+            <div class="tab-default">
+              <a class="sobre" href="{% url 'about' %}" aria-current="page">About</a>
+            </div>
+          </div>
+
+          <div class="hamburger-container">
+            <button
+              type="button"
+              class="hamburger"
+              id="hamburgerBtn"
+              aria-label="Open menu"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+            >
+              <span class="hamburger-lines" aria-hidden="true">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-icons">
+          <div class="icons">
+            <a class="header-icon-link" href="https://github.com/luis12007" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img class="github" alt="" src="{% static 'public/github.png' %}" />
+            </a>
+            <a class="header-icon-link" href="https://www.linkedin.com/in/alexmtzai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/bilinkedin.svg' %}" />
+            </a>
+            <a class="header-icon-link" href="mailto:alexmtzai2002@gmail.com" data-open-contact="email" aria-label="Email: alexmtzai2002@gmail.com, opens contact details">
+              <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/bienvelopefill.svg' %}" />
+            </a>
+            <a class="header-icon-link" href="tel:+491714758416" data-open-contact="phone" aria-label="Phone: +49 171 4758416, opens contact details">
+              <img class="phinstagram-logo-fill-icon" alt="" src="{% static 'public/biphonefill.svg' %}" />
+            </a>
+            <div class="lang-switch" role="group" aria-label="Language">
+              <button type="button" class="lang-option" data-set-lang="en" lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+              <button type="button" class="lang-option" data-set-lang="de" lang="de" aria-pressed="false" aria-label="Switch to German">DE</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MOBILE NAVIGATION OVERLAY -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+      <!-- MOBILE NAVIGATION MENU -->
+      <nav class="mobile-nav" id="mobileNav" aria-label="Site">
+        <div class="mobile-nav-header">
+          <div class="mobile-nav-brand">
+            <span class="mobile-nav-name">Alex Martínez</span>
+            <span class="mobile-nav-role">AI Engineer</span>
+          </div>
+          <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+
+        <p class="mobile-nav-label">Menu</p>
+        <div class="mobile-nav-links">
+          <a href="{% url 'home' %}" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">01</span>
+            <span class="mobile-nav-text">Home</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'home' %}#Projects-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">02</span>
+            <span class="mobile-nav-text">Projects</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'home' %}#presentation" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">03</span>
+            <span class="mobile-nav-text">Presentation</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'home' %}#Technologies-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">04</span>
+            <span class="mobile-nav-text">Skills</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'home' %}#Education-section" class="mobile-nav-link">
+            <span class="mobile-nav-num" aria-hidden="true">05</span>
+            <span class="mobile-nav-text">Education</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+          <a href="{% url 'about' %}" class="mobile-nav-link" aria-current="page">
+            <span class="mobile-nav-num" aria-hidden="true">06</span>
+            <span class="mobile-nav-text">About</span>
+            <svg class="mobile-nav-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </a>
+        </div>
+
+        <div class="mobile-nav-footer">
+          <p class="mobile-nav-label">Connect</p>
+          <div class="mobile-nav-social">
+            <a href="https://github.com/luis12007" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <img alt="" src="{% static 'public/github.png' %}" />
+            </a>
+            <a href="https://www.linkedin.com/in/alexmtzai/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img alt="" src="{% static 'public/bilinkedin.svg' %}" />
+            </a>
+            <a href="mailto:alexmtzai2002@gmail.com" data-open-contact="email" aria-label="Email: alexmtzai2002@gmail.com, opens contact details">
+              <img alt="" src="{% static 'public/bienvelopefill.svg' %}" />
+            </a>
+            <a href="tel:+491714758416" data-open-contact="phone" aria-label="Phone: +49 171 4758416, opens contact details">
+              <img alt="" src="{% static 'public/biphonefill.svg' %}" />
+            </a>
+          </div>
+          <a class="mobile-nav-mail" href="mailto:alexmtzai2002@gmail.com">alexmtzai2002@gmail.com</a>
+          <p class="mobile-nav-label">Language</p>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-option" data-set-lang="en" lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+            <button type="button" class="lang-option" data-set-lang="de" lang="de" aria-pressed="false" aria-label="Switch to German">DE</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- HERO -->
+      <section class="about-hero" id="About-hero">
+        <div class="ab-hero-text">
+          <span class="ab-eyebrow">Beyond the code</span>
+          <!-- .title: scripts.js splits it into letters for the intro -->
+          <h1 class="title ab-name">Luis Alexander Hernández Martínez</h1>
+          <p class="ab-lead">
+            Alex for short. I was born in San Salvador, El Salvador, into a modest family:
+            my mom, my sister and me. This page is about everything that doesn't fit on a
+            CV: where I come from, what moves me, and where I'm heading.
+          </p>
+          <ul class="ab-chips" aria-label="Quick facts">
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">📍</span><span>San Salvador → Germany</span></li>
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🥊</span><span>Boxing</span></li>
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🎮</span><span>Console modding</span></li>
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🧠</span><span>Always learning</span></li>
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🐾</span><span>Future pet owner</span></li>
+          </ul>
+          <div class="ab-hero-actions">
+            <a class="project-button" href="#Origins-section">
+              <span>My story</span>
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="project-button project-button-outline" href="{% url 'home' %}#Projects-section">
+              <span>See my projects</span>
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="ab-hero-visual" data-tilt="5">
+          <div class="ab-hero-halo" aria-hidden="true"></div>
+          <div class="ab-hero-photo">
+            <!-- Placeholder: swap for a personal photo (static/public/...) -->
+            <img src="{% static 'public/headshot.png' %}" alt="Alex Martínez" fetchpriority="high" />
+          </div>
+          <div class="ab-float ab-float-1" aria-hidden="true">
+            <span class="ab-float-emoji">🇸🇻</span>
+            <span>
+              <span class="ab-float-label">Born in</span>
+              <span class="ab-float-value">San Salvador</span>
+            </span>
+          </div>
+          <div class="ab-float ab-float-2" aria-hidden="true">
+            <span class="ab-float-emoji">🥊</span>
+            <span>
+              <span class="ab-float-label">Favorite sport</span>
+              <span class="ab-float-value">Boxing</span>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ab-ticker" aria-hidden="true">
+      <div class="ab-ticker-track">
+        <ul class="ab-ticker-list">
+          <li>Born in San Salvador</li>
+          <li>AI Engineer</li>
+          <li>Boxing</li>
+          <li>Open source</li>
+          <li>Console modding</li>
+          <li>Self-taught cook</li>
+          <li>Movie nights</li>
+          <li>Always learning</li>
+          <li>Family first</li>
+          <li>Future pet owner</li>
+        </ul>
+        <ul class="ab-ticker-list">
+          <li>Born in San Salvador</li>
+          <li>AI Engineer</li>
+          <li>Boxing</li>
+          <li>Open source</li>
+          <li>Console modding</li>
+          <li>Self-taught cook</li>
+          <li>Movie nights</li>
+          <li>Always learning</li>
+          <li>Family first</li>
+          <li>Future pet owner</li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="about-main">
+      <!-- ORIGINS -->
+      <section class="ab-section" id="Origins-section">
+        <div class="ab-story project-animate" data-layout="image-left">
+          <figure class="ab-photo" data-tilt="6">
+            <!-- Placeholder: swap for a childhood / San Salvador photo -->
+            <div class="ab-photo-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <circle cx="9" cy="10" r="2" />
+                <path d="M21 16l-5-5-8 8" />
+              </svg>
+              <span class="ab-photo-mark">Childhood</span>
+              <span class="ab-photo-note">Photo placeholder</span>
+            </div>
+            <figcaption class="ab-photo-tag">San Salvador, El Salvador</figcaption>
+          </figure>
+          <div class="ab-story-text">
+            <span class="ab-eyebrow">Origins</span>
+            <h2 class="ab-title">A giant computer and a screwdriver</h2>
+            <p>
+              I grew up in San Salvador in a modest home with my mom and my sister. Very
+              early on I discovered that computers were my passion: I remember a huge
+              computer at home that I used to play on for hours. I was never satisfied with
+              just using it, so I opened it up to see what was inside.
+            </p>
+            <p>
+              That curiosity never left. Growing up with little meant learning to do
+              everything myself: cook, clean, fix things, figure things out. I became very
+              self-sufficient, and that turned into the proactive approach I bring to my
+              work every day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE SPARK -->
+      <section class="ab-section" id="Spark-section">
+        <div class="ab-story project-animate" data-layout="text-left">
+          <div class="ab-story-text">
+            <span class="ab-eyebrow">The spark</span>
+            <h2 class="ab-title">Programs that weren't programmed</h2>
+            <p>
+              While I was growing up I saw the first iterations of artificial intelligence,
+              long before transformers were a thing. It was messy and raw, but I fell in
+              love with the idea of creating programs outside the logical, step-by-step way
+              we had always written them.
+            </p>
+            <p>
+              Today that early fascination is my profession. I build AI products, optimize
+              models and keep up with every new technique that comes out, because the field
+              still feels as exciting as it did back then.
+            </p>
+          </div>
+          <figure class="ab-photo" data-tilt="6">
+            <!-- Placeholder: swap for a photo of you at work / a screen with a model -->
+            <div class="ab-photo-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" />
+                <path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" />
+              </svg>
+              <span class="ab-photo-mark">First experiments</span>
+              <span class="ab-photo-note">Photo placeholder</span>
+            </div>
+            <figcaption class="ab-photo-tag">Early AI, before transformers</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- MINDSET -->
+      <section class="ab-section" id="Mindset-section">
+        <div class="ab-section-head centered project-animate">
+          <span class="ab-eyebrow">Mindset</span>
+          <h2 class="ab-title">How I'm wired</h2>
+          <p class="ab-intro">A few things that explain how I work and how I live.</p>
+        </div>
+
+        <div class="ab-cards">
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">01</span>
+            </div>
+            <h3>Workaholic, by choice</h3>
+            <p>
+              I'm always trying to be productive: learning new AI topics, picking up
+              languages, training. Staying busy is how I stay happy.
+            </p>
+          </article>
+
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a4 4 0 0 0 5 5L22 9l-3-3-2.3.3z" />
+                  <path d="M11 13L3 21" />
+                  <path d="M14.7 6.3L7 14" />
+                  <path d="M3 21l2.5-2.5" />
+                  <path d="M10 11l3 3" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">02</span>
+            </div>
+            <h3>Self-sufficient</h3>
+            <p>
+              I grew up doing everything on my own, so I don't wait for someone else to
+              solve a problem. I investigate, I try, I ship.
+            </p>
+          </article>
+
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6" />
+                  <path d="M10 22h4" />
+                  <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">03</span>
+            </div>
+            <h3>Intellectually curious</h3>
+            <p>
+              I'm stoked about learning new things. I follow the news, dig into papers and
+              tools, and ask why until I understand.
+            </p>
+          </article>
+
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">04</span>
+            </div>
+            <h3>Slow down on purpose</h3>
+            <p>
+              Once in a while I step back from work to spend time with my family and my
+              girlfriend. Those moments matter as much as the work.
+            </p>
+          </article>
+
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <path d="M9 22V12h6v10" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">05</span>
+            </div>
+            <h3>A quiet life</h3>
+            <p>
+              I don't go out much and I don't drink. I'd rather spend an evening with a good
+              movie, or building something.
+            </p>
+          </article>
+
+          <article class="ab-card ab-surface project-animate">
+            <div class="ab-card-top">
+              <span class="ab-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 17l6-6 4 4 8-8" />
+                  <path d="M14 7h7v7" />
+                </svg>
+              </span>
+              <span class="ab-card-num" aria-hidden="true">06</span>
+            </div>
+            <h3>Always improving</h3>
+            <p>
+              Whether it's a model, a console or my footwork in the ring, I keep measuring,
+              tweaking and getting a little better every time.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOBBIES -->
+      <section class="ab-section" id="Hobbies-section">
+        <div class="ab-section-head project-animate">
+          <span class="ab-eyebrow">Off the clock</span>
+          <h2 class="ab-title">What I do when I'm not working</h2>
+          <p class="ab-intro">Mostly things I can tinker with, improve or learn from.</p>
+        </div>
+
+        <div class="ab-bento">
+          <article class="ab-tile ab-tile-lg ab-surface project-animate">
+            <figure class="ab-photo" data-tilt="4">
+              <!-- Placeholder: swap for a boxing photo -->
+              <div class="ab-photo-placeholder" aria-hidden="true">
+                <span class="ab-photo-mark">Boxing</span>
+                <span class="ab-photo-note">Photo placeholder</span>
+              </div>
+            </figure>
+            <div class="ab-tile-body">
+              <span class="ab-tile-kicker">Favorite sport</span>
+              <h3>Boxing</h3>
+              <p>
+                Boxing keeps me healthy and sharp. The only downside is the punches to the
+                face, so I spend my time learning to dodge them and improving round after
+                round to take as few as possible.
+              </p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-md ab-surface project-animate">
+            <figure class="ab-photo" data-tilt="4">
+              <!-- Placeholder: swap for a photo of your consoles / setup -->
+              <div class="ab-photo-placeholder" aria-hidden="true">
+                <span class="ab-photo-mark">Consoles</span>
+                <span class="ab-photo-note">Photo placeholder</span>
+              </div>
+            </figure>
+            <div class="ab-tile-body">
+              <span class="ab-tile-kicker">Video games &amp; open source</span>
+              <h3>If a console can be jailbroken, I'll do it</h3>
+              <p>
+                I love the versatility and the possibilities that open source opens up.
+                Honestly, I spend more time configuring and investigating than actually
+                playing, but that is the exciting part.
+              </p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🏋️</span>
+              <h3>Training</h3>
+              <p>Exercise is part of being productive, not a break from it.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">📚</span>
+              <h3>AI &amp; languages</h3>
+              <p>New papers and tools, plus Spanish, English and German. Learning is my default state.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🎬</span>
+              <h3>Movie nights</h3>
+              <p>A good movie at home beats a night out for me, every time.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🐶</span>
+              <h3>Future pets</h3>
+              <p>No pets for the moment, but someday. I really like animals.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTION -->
+      <section class="ab-section" id="Projection-section">
+        <div class="ab-section-head project-animate">
+          <span class="ab-eyebrow">Projection</span>
+          <h2 class="ab-title">Where I'm heading</h2>
+          <p class="ab-intro">The plan is simple: keep building, keep learning, keep improving.</p>
+        </div>
+
+        <ol class="ab-path">
+          <li class="ab-step project-animate" data-state="now">
+            <span class="ab-step-dot" aria-hidden="true"></span>
+            <div class="ab-step-card ab-surface">
+              <span class="ab-step-when">Now</span>
+              <h3>Settled in Germany and open to work</h3>
+              <p>
+                Looking for an AI Engineering role in Essen or Cologne where I can keep
+                building AI products that people actually use.
+              </p>
+            </div>
+          </li>
+          <li class="ab-step project-animate" data-state="next">
+            <span class="ab-step-dot" aria-hidden="true"></span>
+            <div class="ab-step-card ab-surface">
+              <span class="ab-step-when">Next</span>
+              <h3>M.Sc. in Artificial Intelligence</h3>
+              <p>
+                Starting April 2027 at IU International University of Applied Sciences,
+                going deeper into the architectures and techniques behind modern AI.
+              </p>
+            </div>
+          </li>
+          <li class="ab-step project-animate" data-state="beyond">
+            <span class="ab-step-dot" aria-hidden="true"></span>
+            <div class="ab-step-card ab-surface">
+              <span class="ab-step-when">Beyond</span>
+              <h3>Cutting-edge AI, every day</h3>
+              <p>
+                Build with the latest models and techniques, grow as an engineer and as a
+                lead, and stay as curious as the kid who opened that computer.
+              </p>
+            </div>
+          </li>
+          <li class="ab-step project-animate" data-state="someday">
+            <span class="ab-step-dot" aria-hidden="true"></span>
+            <div class="ab-step-card ab-surface">
+              <span class="ab-step-when">Someday</span>
+              <h3>A home with pets</h3>
+              <p>
+                Not yet, but it is on the list. I really like animals, and one day there will
+                be room for them.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <!-- CLOSING -->
+        <aside class="ab-cta project-animate">
+          <div>
+            <h2>That's me beyond the code.</h2>
+            <p>
+              For the professional side, my projects, skills and experience are on the home
+              page, and my AI assistant can answer the rest.
+            </p>
+          </div>
+          <div class="ab-cta-actions">
+            <a class="project-button" href="{% url 'home' %}#Projects-section">
+              <span>See my projects</span>
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="project-button project-button-outline" href="mailto:alexmtzai2002@gmail.com" data-open-contact="email">
+              <span>Contact Me</span>
+              <svg class="button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- CONTACT MODAL: email and phone, each with a copy button -->
+    <dialog class="contact-modal" id="contactModal" aria-labelledby="contactTitle">
+      <button type="button" class="modal-close" data-close-contact aria-label="Close contact details">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <h2 class="contact-title" id="contactTitle">Get in touch</h2>
+      <p class="contact-sub">Copy my email or phone number.</p>
+      <ul class="contact-list">
+        <li class="contact-row">
+          <img class="contact-icon" alt="" src="{% static 'public/bienvelopefill.svg' %}" />
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <a class="contact-value" href="mailto:alexmtzai2002@gmail.com">alexmtzai2002@gmail.com</a>
+          </div>
+          <button type="button" class="contact-copy" data-copy="alexmtzai2002@gmail.com" data-contact="email" aria-label="Copy email">Copy</button>
+        </li>
+        <li class="contact-row">
+          <img class="contact-icon" alt="" src="{% static 'public/biphonefill.svg' %}" />
+          <div class="contact-info">
+            <span class="contact-label">Phone</span>
+            <a class="contact-value" href="tel:+491714758416">+49 171 4758416</a>
+          </div>
+          <button type="button" class="contact-copy" data-copy="+49 171 4758416" data-contact="phone" aria-label="Copy phone number">Copy</button>
+        </li>
+      </ul>
+      <p class="contact-status" role="status" aria-live="polite"></p>
+    </dialog>
+
+    <script src="{% static 'js/i18n.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="{% static 'js/about.js' %}"></script>
+  </body>
+</html>

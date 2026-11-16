@@ -9,6 +9,7 @@ const DE = {
     'Presentation': 'Präsentation',
     'Skills': 'Skills',
     'Education': 'Ausbildung',
+    'About': 'Über mich',
     'Menu': 'Menü',
     'Connect': 'Kontakt',
     'Language': 'Sprache',
@@ -167,6 +168,105 @@ const DE = {
     'Years Experience': 'Jahre Erfahrung',
     'Companies Worked For': 'Unternehmen',
     'Projects Completed': 'Abgeschlossene Projekte',
+    'Open the About me page': 'Die Seite „Über mich“ öffnen',
+    'Get to know me: origins, hobbies, mindset and where I\'m heading': 'Lern mich kennen: Herkunft, Hobbys, Mindset und wohin ich gehe',
+
+    // ----- About me teaser (home page) and the About me page (/about/) -----
+    'Beyond the code': 'Jenseits des Codes',
+    'There\'s more to me than models and code': 'Ich bin mehr als Modelle und Code',
+    'Where I come from, what I do off the clock, how I think, and where I\'m heading.': 'Woher ich komme, was ich nach Feierabend mache, wie ich denke und wohin ich gehe.',
+    'About me': 'Über mich',
+    'Alex for short. I was born in San Salvador, El Salvador, into a modest family: my mom, my sister and me. This page is about everything that doesn\'t fit on a CV: where I come from, what moves me, and where I\'m heading.':
+        'Kurz: Alex. Ich wurde in San Salvador, El Salvador, in eine bescheidene Familie hineingeboren: meine Mutter, meine Schwester und ich. Diese Seite handelt von allem, was nicht in einen Lebenslauf passt: woher ich komme, was mich antreibt und wohin ich gehe.',
+    'Quick facts': 'Kurz und knapp',
+    'San Salvador → Germany': 'San Salvador → Deutschland',
+    'Boxing': 'Boxen',
+    'Console modding': 'Konsolen-Modding',
+    'Always learning': 'Immer am Lernen',
+    'Future pet owner': 'Künftiger Tierhalter',
+    'My story': 'Meine Geschichte',
+    'See my projects': 'Meine Projekte ansehen',
+    'Born in': 'Geboren in',
+    'Favorite sport': 'Lieblingssport',
+    'Born in San Salvador': 'Geboren in San Salvador',
+    'Open source': 'Open Source',
+    'Self-taught cook': 'Autodidaktischer Koch',
+    'Movie nights': 'Filmabende',
+    'Family first': 'Familie zuerst',
+    'Photo placeholder': 'Platzhalter für ein Foto',
+    'Origins': 'Herkunft',
+    'A giant computer and a screwdriver': 'Ein riesiger Computer und ein Schraubenzieher',
+    'I grew up in San Salvador in a modest home with my mom and my sister. Very early on I discovered that computers were my passion: I remember a huge computer at home that I used to play on for hours. I was never satisfied with just using it, so I opened it up to see what was inside.':
+        'Ich bin in San Salvador in einem bescheidenen Zuhause mit meiner Mutter und meiner Schwester aufgewachsen. Sehr früh habe ich entdeckt, dass Computer meine Leidenschaft sind: Ich erinnere mich an einen riesigen Computer bei uns zu Hause, an dem ich stundenlang gespielt habe. Ihn nur zu benutzen reichte mir nie, also habe ich ihn aufgeschraubt, um zu sehen, was drin ist.',
+    'That curiosity never left. Growing up with little meant learning to do everything myself: cook, clean, fix things, figure things out. I became very self-sufficient, and that turned into the proactive approach I bring to my work every day.':
+        'Diese Neugier ist geblieben. Mit wenig aufzuwachsen hieß, alles selbst zu lernen: kochen, putzen, reparieren, Dinge herausfinden. Ich wurde sehr selbstständig, und daraus ist die proaktive Haltung geworden, die ich jeden Tag in meine Arbeit einbringe.',
+    'Childhood': 'Kindheit',
+    'The spark': 'Der Funke',
+    'Programs that weren\'t programmed': 'Programme, die nicht programmiert wurden',
+    'While I was growing up I saw the first iterations of artificial intelligence, long before transformers were a thing. It was messy and raw, but I fell in love with the idea of creating programs outside the logical, step-by-step way we had always written them.':
+        'Als ich aufwuchs, habe ich die ersten Iterationen der künstlichen Intelligenz gesehen, lange bevor es Transformer gab. Es war chaotisch und roh, aber ich habe mich in die Idee verliebt, Programme jenseits der logischen Schritt-für-Schritt-Art zu erschaffen, in der wir sie immer geschrieben hatten.',
+    'Today that early fascination is my profession. I build AI products, optimize models and keep up with every new technique that comes out, because the field still feels as exciting as it did back then.':
+        'Heute ist diese frühe Faszination mein Beruf. Ich baue KI-Produkte, optimiere Modelle und bleibe bei jeder neuen Technik am Ball, denn das Feld fühlt sich noch genauso aufregend an wie damals.',
+    'First experiments': 'Erste Experimente',
+    'Early AI, before transformers': 'Frühe KI, vor den Transformern',
+    'How I\'m wired': 'Wie ich ticke',
+    'A few things that explain how I work and how I live.': 'Ein paar Dinge, die erklären, wie ich arbeite und wie ich lebe.',
+    'Workaholic, by choice': 'Workaholic, aus Überzeugung',
+    'I\'m always trying to be productive: learning new AI topics, picking up languages, training. Staying busy is how I stay happy.':
+        'Ich versuche immer, produktiv zu sein: neue KI-Themen lernen, Sprachen aufschnappen, trainieren. Beschäftigt zu bleiben macht mich glücklich.',
+    'Self-sufficient': 'Selbstständig',
+    'I grew up doing everything on my own, so I don\'t wait for someone else to solve a problem. I investigate, I try, I ship.':
+        'Ich bin damit aufgewachsen, alles selbst zu machen, also warte ich nicht darauf, dass jemand anderes ein Problem löst. Ich recherchiere, ich probiere, ich liefere.',
+    'Intellectually curious': 'Intellektuell neugierig',
+    'I\'m stoked about learning new things. I follow the news, dig into papers and tools, and ask why until I understand.':
+        'Neues zu lernen begeistert mich. Ich verfolge die Nachrichten, grabe mich in Paper und Tools ein und frage so lange nach dem Warum, bis ich es verstehe.',
+    'Slow down on purpose': 'Bewusst langsamer machen',
+    'Once in a while I step back from work to spend time with my family and my girlfriend. Those moments matter as much as the work.':
+        'Ab und zu nehme ich mir eine Auszeit von der Arbeit, um Zeit mit meiner Familie und meiner Freundin zu verbringen. Diese Momente sind genauso wichtig wie die Arbeit.',
+    'A quiet life': 'Ein ruhiges Leben',
+    'I don\'t go out much and I don\'t drink. I\'d rather spend an evening with a good movie, or building something.':
+        'Ich gehe nicht viel aus und trinke keinen Alkohol. Einen Abend verbringe ich lieber mit einem guten Film oder damit, etwas zu bauen.',
+    'Always improving': 'Immer besser werden',
+    'Whether it\'s a model, a console or my footwork in the ring, I keep measuring, tweaking and getting a little better every time.':
+        'Ob ein Modell, eine Konsole oder meine Beinarbeit im Ring: Ich messe, justiere und werde jedes Mal ein bisschen besser.',
+    'Off the clock': 'Nach Feierabend',
+    'What I do when I\'m not working': 'Was ich mache, wenn ich nicht arbeite',
+    'Mostly things I can tinker with, improve or learn from.': 'Meistens Dinge, an denen ich basteln, die ich verbessern oder aus denen ich lernen kann.',
+    'Boxing keeps me healthy and sharp. The only downside is the punches to the face, so I spend my time learning to dodge them and improving round after round to take as few as possible.':
+        'Boxen hält mich gesund und wach. Der einzige Nachteil sind die Schläge ins Gesicht, also lerne ich, ihnen auszuweichen, und werde Runde für Runde besser, um so wenige wie möglich abzubekommen.',
+    'Consoles': 'Konsolen',
+    'Video games & open source': 'Videospiele & Open Source',
+    'If a console can be jailbroken, I\'ll do it': 'Wenn sich eine Konsole jailbreaken lässt, mache ich es',
+    'I love the versatility and the possibilities that open source opens up. Honestly, I spend more time configuring and investigating than actually playing, but that is the exciting part.':
+        'Ich liebe die Vielseitigkeit und die Möglichkeiten, die Open Source eröffnet. Ehrlich gesagt verbringe ich mehr Zeit mit Konfigurieren und Erforschen als mit dem eigentlichen Spielen, aber genau das ist das Spannende daran.',
+    'Training': 'Training',
+    'Exercise is part of being productive, not a break from it.': 'Sport ist Teil der Produktivität, keine Pause davon.',
+    'AI & languages': 'KI & Sprachen',
+    'New papers and tools, plus Spanish, English and German. Learning is my default state.': 'Neue Paper und Tools, dazu Spanisch, Englisch und Deutsch. Lernen ist mein Normalzustand.',
+    'A good movie at home beats a night out for me, every time.': 'Ein guter Film zu Hause schlägt für mich jeden Abend auswärts.',
+    'Future pets': 'Künftige Haustiere',
+    'No pets for the moment, but someday. I really like animals.': 'Im Moment keine Haustiere, aber eines Tages. Ich mag Tiere sehr.',
+    'Projection': 'Ausblick',
+    'Where I\'m heading': 'Wohin ich gehe',
+    'The plan is simple: keep building, keep learning, keep improving.': 'Der Plan ist einfach: weiter bauen, weiter lernen, weiter besser werden.',
+    'Now': 'Jetzt',
+    'Settled in Germany and open to work': 'In Deutschland angekommen und offen für neue Aufgaben',
+    'Looking for an AI Engineering role in Essen or Cologne where I can keep building AI products that people actually use.':
+        'Auf der Suche nach einer Stelle als AI Engineer in Essen oder Köln, wo ich weiter KI-Produkte bauen kann, die Menschen wirklich nutzen.',
+    'Next': 'Als Nächstes',
+    'Starting April 2027 at IU International University of Applied Sciences, going deeper into the architectures and techniques behind modern AI.':
+        'Ab April 2027 an der IU Internationalen Hochschule, um tiefer in die Architekturen und Techniken hinter moderner KI einzusteigen.',
+    'Beyond': 'Darüber hinaus',
+    'Cutting-edge AI, every day': 'Modernste KI, jeden Tag',
+    'Build with the latest models and techniques, grow as an engineer and as a lead, and stay as curious as the kid who opened that computer.':
+        'Mit den neuesten Modellen und Techniken bauen, als Engineer und als Lead wachsen und so neugierig bleiben wie das Kind, das damals den Computer aufgeschraubt hat.',
+    'Someday': 'Irgendwann',
+    'A home with pets': 'Ein Zuhause mit Haustieren',
+    'Not yet, but it is on the list. I really like animals, and one day there will be room for them.':
+        'Noch nicht, aber es steht auf der Liste. Ich mag Tiere sehr, und eines Tages wird Platz für sie sein.',
+    'That\'s me beyond the code.': 'Das bin ich jenseits des Codes.',
+    'For the professional side, my projects, skills and experience are on the home page, and my AI assistant can answer the rest.':
+        'Die berufliche Seite, meine Projekte, Skills und Erfahrung, findest du auf der Startseite, und mein KI-Assistent beantwortet den Rest.',
 
     // ----- Chatbot -----
     'Chat with Alex\'s AI assistant': 'Mit Alex\' KI-Assistenten chatten',
