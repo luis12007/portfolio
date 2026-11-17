@@ -144,7 +144,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initPresentationModal();
     initCertificateRecords();
     initContactModal();
+    initPresentationInvite();
 });
+
+// For the first minute after the page loads, the "Presentation" link in the
+// header gets a pulsing dot and a small nudge (CSS: .sobre-presentation.invite)
+// to invite a click. Clicking it ends the invitation early.
+const INVITE_MS = 60000;
+
+function initPresentationInvite() {
+    const link = document.querySelector('.sobre-presentation');
+    if (!link) return;
+    link.classList.add('invite');
+    const stop = () => link.classList.remove('invite');
+    setTimeout(stop, INVITE_MS);
+    link.addEventListener('click', stop, { once: true });
+}
 
 // Loading overlay + hero intro. The overlay leaves once the page (and its
 // fonts) have loaded, never later than INTRO_MAX_WAIT_MS; that adds

@@ -21,7 +21,9 @@ The "About" page of the portfolio (/about/, also linked from the home page and t
 - Likes video games and open source: if a console can be jailbroken, he does it, for the versatility and possibilities it opens; he spends almost more time configuring and investigating than playing.
 - Very self-sufficient: he cooks, cleans and does everything himself since he grew up doing things on his own, which gave him the proactive approach he brings to his work.
 - Doesn't go out much and doesn't drink; prefers a good movie or being productive. Very intellectually curious: follows the news and loves learning new things.
+- Doesn't smoke or drink.
 - No pets at the moment, but he really likes animals and wants to have pets someday.
+- Long-term plan: after the M.Sc. in Artificial Intelligence, a master's in robotics, and then founding his own robotics startup.
 
 # Contact
 

@@ -243,13 +243,62 @@
     color: inherit;
 }
 
+/* Same size as the other links; scripts.js adds .invite for the first
+   minute after the page loads: a pulsing mint dot and a small nudge every
+   few seconds, to invite a click. */
 .sobre-presentation {
     text-decoration: none;
     position: relative;
     line-height: 28px;
-    font-weight: bold;
-    font-size: 25px;
+    font-weight: 500;
     color: inherit;
+    background: radial-gradient(circle, #2f9e78 0 3.5px, transparent 4.5px) no-repeat right 0 top 3px / 10px 10px;
+    padding-right: 0;
+    transition: padding-right 0.4s ease, background-size 0.4s ease;
+}
+
+.sobre-presentation.invite {
+    padding-right: 13px;
+    animation: navInvite 3.2s cubic-bezier(0.4, 0, 0.2, 1) 1.2s infinite;
+}
+
+.sobre-presentation:not(.invite) {
+    background-size: 0 0;
+}
+
+.sobre-presentation.invite:hover {
+    animation: none;
+}
+
+@keyframes navInvite {
+    0%,
+    62%,
+    100% {
+        transform: none;
+        color: inherit;
+    }
+    70% {
+        transform: translateY(-3px) rotate(-2deg);
+        color: #2f9e78;
+    }
+    78% {
+        transform: translateY(0) rotate(1.5deg);
+    }
+    86% {
+        transform: translateY(-1.5px);
+        color: #2f9e78;
+    }
+}
+
+/* Brand: "AIex" is Alex with AI, so the AI gets its own color. */
+.brand-ai {
+    background: linear-gradient(135deg, #2f9e78 0%, #354c6b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #2f9e78;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .tab-default {
@@ -1107,8 +1156,8 @@ body.loaded .icons a:nth-child(4) img {
     }
 }
 
-/* Narrow desktops: the six links only fit with a tighter gap and a smaller
-   "Presentation"; otherwise the last link slides under the GitHub icon. */
+/* Narrow desktops: the six links only fit with a tighter gap; otherwise the
+   last link slides under the GitHub icon. */
 @media screen and (min-width: 1051px) and (max-width: 1250px) {
     .frame-parent {
         gap: 14px;
@@ -1123,10 +1172,6 @@ body.loaded .icons a:nth-child(4) img {
 
     .nav {
         gap: 10px;
-    }
-
-    .sobre-presentation {
-        font-size: 20px;
     }
 
     /* the icon block must not shrink, or its row spills over the links */

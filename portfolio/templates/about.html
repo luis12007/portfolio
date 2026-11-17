@@ -41,7 +41,7 @@
 
       <header class="frame-parent">
         <div class="madelyn-torff-wrapper">
-          <b class="madelyn-torff"><a href="{% url 'home' %}">AIex engineer</a></b>
+          <b class="madelyn-torff"><a href="{% url 'home' %}"><span class="brand-ai">AI</span>ex engineer</a></b>
         </div>
 
         <div class="nav-wrapper">
@@ -198,7 +198,7 @@
             <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🥊</span><span>Boxing</span></li>
             <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🎮</span><span>Console modding</span></li>
             <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🧠</span><span>Always learning</span></li>
-            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🐾</span><span>Future pet owner</span></li>
+            <li class="ab-chip"><span class="ab-chip-emoji" aria-hidden="true">🚭</span><span>No smoking, no drinking</span></li>
           </ul>
           <div class="ab-hero-actions">
             <a class="project-button" href="#Origins-section">
@@ -219,7 +219,6 @@
         <div class="ab-hero-visual" data-tilt="5">
           <div class="ab-hero-halo" aria-hidden="true"></div>
           <div class="ab-hero-photo">
-            <!-- Placeholder: swap for a personal photo (static/public/...) -->
             <img src="{% static 'public/headshot.png' %}" alt="Alex Martínez" fetchpriority="high" />
           </div>
           <div class="ab-float ab-float-1" aria-hidden="true">
@@ -275,16 +274,7 @@
       <section class="ab-section" id="Origins-section">
         <div class="ab-story project-animate" data-layout="image-left">
           <figure class="ab-photo" data-tilt="6">
-            <!-- Placeholder: swap for a childhood / San Salvador photo -->
-            <div class="ab-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <circle cx="9" cy="10" r="2" />
-                <path d="M21 16l-5-5-8 8" />
-              </svg>
-              <span class="ab-photo-mark">Childhood</span>
-              <span class="ab-photo-note">Photo placeholder</span>
-            </div>
+            <img src="{% static 'public/about/childhood.png' %}" alt="Illustration: young Alex with a screwdriver, opening up a big retro computer" loading="lazy" />
             <figcaption class="ab-photo-tag">San Salvador, El Salvador</figcaption>
           </figure>
           <div class="ab-story-text">
@@ -325,17 +315,82 @@
             </p>
           </div>
           <figure class="ab-photo" data-tilt="6">
-            <!-- Placeholder: swap for a photo of you at work / a screen with a model -->
-            <div class="ab-photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z" />
-                <path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" />
-              </svg>
-              <span class="ab-photo-mark">First experiments</span>
-              <span class="ab-photo-note">Photo placeholder</span>
-            </div>
+            <img src="{% static 'public/about/spark.png' %}" alt="Illustration: Alex reaching up to a neural network that lights up" loading="lazy" />
             <figcaption class="ab-photo-tag">Early AI, before transformers</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <!-- HOBBIES -->
+      <section class="ab-section" id="Hobbies-section">
+        <div class="ab-section-head project-animate">
+          <span class="ab-eyebrow">Off the clock</span>
+          <h2 class="ab-title">What I do when I'm not working</h2>
+          <p class="ab-intro">Mostly things I can tinker with, improve or learn from.</p>
+        </div>
+
+        <div class="ab-bento">
+          <article class="ab-tile ab-tile-lg ab-surface project-animate">
+            <figure class="ab-photo" data-tilt="4">
+              <img src="{% static 'public/about/boxing.png' %}" alt="Illustration: Alex with his guard up in a boxing ring" loading="lazy" />
+            </figure>
+            <div class="ab-tile-body">
+              <span class="ab-tile-kicker">Favorite sport</span>
+              <h3>Boxing</h3>
+              <p>
+                Boxing keeps me healthy and sharp. The only downside is the punches to the
+                face, so I spend my time learning to dodge them and improving round after
+                round to take as few as possible.
+              </p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-md ab-surface project-animate">
+            <figure class="ab-photo" data-tilt="4">
+              <img src="{% static 'public/about/consoles.png' %}" alt="Illustration: Alex holding a game controller, next to an unlocked padlock and a root terminal" loading="lazy" />
+            </figure>
+            <div class="ab-tile-body">
+              <span class="ab-tile-kicker">Video games &amp; open source</span>
+              <h3>If a console can be jailbroken, I'll do it</h3>
+              <p>
+                I love the versatility and the possibilities that open source opens up.
+                Honestly, I spend more time configuring and investigating than actually
+                playing, but that is the exciting part.
+              </p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🏋️</span>
+              <h3>Training</h3>
+              <p>Exercise is part of being productive, not a break from it.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">📚</span>
+              <h3>AI &amp; languages</h3>
+              <p>New papers and tools, plus Spanish, English and German. Learning is my default state.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🎬</span>
+              <h3>Movie nights</h3>
+              <p>A good movie at home beats a night out for me, every time.</p>
+            </div>
+          </article>
+
+          <article class="ab-tile ab-tile-sm ab-surface project-animate">
+            <div class="ab-tile-body">
+              <span class="ab-tile-emoji" aria-hidden="true">🐶</span>
+              <h3>Future pets</h3>
+              <p>No pets for the moment, but someday. I really like animals.</p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -454,87 +509,6 @@
         </div>
       </section>
 
-      <!-- HOBBIES -->
-      <section class="ab-section" id="Hobbies-section">
-        <div class="ab-section-head project-animate">
-          <span class="ab-eyebrow">Off the clock</span>
-          <h2 class="ab-title">What I do when I'm not working</h2>
-          <p class="ab-intro">Mostly things I can tinker with, improve or learn from.</p>
-        </div>
-
-        <div class="ab-bento">
-          <article class="ab-tile ab-tile-lg ab-surface project-animate">
-            <figure class="ab-photo" data-tilt="4">
-              <!-- Placeholder: swap for a boxing photo -->
-              <div class="ab-photo-placeholder" aria-hidden="true">
-                <span class="ab-photo-mark">Boxing</span>
-                <span class="ab-photo-note">Photo placeholder</span>
-              </div>
-            </figure>
-            <div class="ab-tile-body">
-              <span class="ab-tile-kicker">Favorite sport</span>
-              <h3>Boxing</h3>
-              <p>
-                Boxing keeps me healthy and sharp. The only downside is the punches to the
-                face, so I spend my time learning to dodge them and improving round after
-                round to take as few as possible.
-              </p>
-            </div>
-          </article>
-
-          <article class="ab-tile ab-tile-md ab-surface project-animate">
-            <figure class="ab-photo" data-tilt="4">
-              <!-- Placeholder: swap for a photo of your consoles / setup -->
-              <div class="ab-photo-placeholder" aria-hidden="true">
-                <span class="ab-photo-mark">Consoles</span>
-                <span class="ab-photo-note">Photo placeholder</span>
-              </div>
-            </figure>
-            <div class="ab-tile-body">
-              <span class="ab-tile-kicker">Video games &amp; open source</span>
-              <h3>If a console can be jailbroken, I'll do it</h3>
-              <p>
-                I love the versatility and the possibilities that open source opens up.
-                Honestly, I spend more time configuring and investigating than actually
-                playing, but that is the exciting part.
-              </p>
-            </div>
-          </article>
-
-          <article class="ab-tile ab-tile-sm ab-surface project-animate">
-            <div class="ab-tile-body">
-              <span class="ab-tile-emoji" aria-hidden="true">🏋️</span>
-              <h3>Training</h3>
-              <p>Exercise is part of being productive, not a break from it.</p>
-            </div>
-          </article>
-
-          <article class="ab-tile ab-tile-sm ab-surface project-animate">
-            <div class="ab-tile-body">
-              <span class="ab-tile-emoji" aria-hidden="true">📚</span>
-              <h3>AI &amp; languages</h3>
-              <p>New papers and tools, plus Spanish, English and German. Learning is my default state.</p>
-            </div>
-          </article>
-
-          <article class="ab-tile ab-tile-sm ab-surface project-animate">
-            <div class="ab-tile-body">
-              <span class="ab-tile-emoji" aria-hidden="true">🎬</span>
-              <h3>Movie nights</h3>
-              <p>A good movie at home beats a night out for me, every time.</p>
-            </div>
-          </article>
-
-          <article class="ab-tile ab-tile-sm ab-surface project-animate">
-            <div class="ab-tile-body">
-              <span class="ab-tile-emoji" aria-hidden="true">🐶</span>
-              <h3>Future pets</h3>
-              <p>No pets for the moment, but someday. I really like animals.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
       <!-- PROJECTION -->
       <section class="ab-section" id="Projection-section">
         <div class="ab-section-head project-animate">
@@ -569,22 +543,22 @@
           <li class="ab-step project-animate" data-state="beyond">
             <span class="ab-step-dot" aria-hidden="true"></span>
             <div class="ab-step-card ab-surface">
-              <span class="ab-step-when">Beyond</span>
-              <h3>Cutting-edge AI, every day</h3>
+              <span class="ab-step-when">After that</span>
+              <h3>Master's in Robotics</h3>
               <p>
-                Build with the latest models and techniques, grow as an engineer and as a
-                lead, and stay as curious as the kid who opened that computer.
+                A second master's to take intelligence off the screen and into machines
+                that sense, move and act in the real world.
               </p>
             </div>
           </li>
           <li class="ab-step project-animate" data-state="someday">
             <span class="ab-step-dot" aria-hidden="true"></span>
             <div class="ab-step-card ab-surface">
-              <span class="ab-step-when">Someday</span>
-              <h3>A home with pets</h3>
+              <span class="ab-step-when">The goal</span>
+              <h3>My own robotics startup</h3>
               <p>
-                Not yet, but it is on the list. I really like animals, and one day there will
-                be room for them.
+                Bring together everything I've learned in AI, software and running a
+                company to build robots that solve real problems.
               </p>
             </div>
           </li>

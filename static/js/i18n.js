@@ -184,6 +184,7 @@ const DE = {
     'Console modding': 'Konsolen-Modding',
     'Always learning': 'Immer am Lernen',
     'Future pet owner': 'Künftiger Tierhalter',
+    'No smoking, no drinking': 'Kein Rauchen, kein Alkohol',
     'My story': 'Meine Geschichte',
     'See my projects': 'Meine Projekte ansehen',
     'Born in': 'Geboren in',
@@ -194,6 +195,14 @@ const DE = {
     'Movie nights': 'Filmabende',
     'Family first': 'Familie zuerst',
     'Photo placeholder': 'Platzhalter für ein Foto',
+    'Illustration: young Alex with a screwdriver, opening up a big retro computer':
+        'Illustration: der junge Alex schraubt mit einem Schraubenzieher einen großen Retro-Computer auf',
+    'Illustration: Alex reaching up to a neural network that lights up':
+        'Illustration: Alex greift nach einem aufleuchtenden neuronalen Netz',
+    'Illustration: Alex with his guard up in a boxing ring':
+        'Illustration: Alex mit erhobener Deckung in einem Boxring',
+    'Illustration: Alex holding a game controller, next to an unlocked padlock and a root terminal':
+        'Illustration: Alex mit einem Gamecontroller, neben einem offenen Vorhängeschloss und einem Root-Terminal',
     'Origins': 'Herkunft',
     'A giant computer and a screwdriver': 'Ein riesiger Computer und ein Schraubenzieher',
     'I grew up in San Salvador in a modest home with my mom and my sister. Very early on I discovered that computers were my passion: I remember a huge computer at home that I used to play on for hours. I was never satisfied with just using it, so I opened it up to see what was inside.':
@@ -256,14 +265,14 @@ const DE = {
     'Next': 'Als Nächstes',
     'Starting April 2027 at IU International University of Applied Sciences, going deeper into the architectures and techniques behind modern AI.':
         'Ab April 2027 an der IU Internationalen Hochschule, um tiefer in die Architekturen und Techniken hinter moderner KI einzusteigen.',
-    'Beyond': 'Darüber hinaus',
-    'Cutting-edge AI, every day': 'Modernste KI, jeden Tag',
-    'Build with the latest models and techniques, grow as an engineer and as a lead, and stay as curious as the kid who opened that computer.':
-        'Mit den neuesten Modellen und Techniken bauen, als Engineer und als Lead wachsen und so neugierig bleiben wie das Kind, das damals den Computer aufgeschraubt hat.',
-    'Someday': 'Irgendwann',
-    'A home with pets': 'Ein Zuhause mit Haustieren',
-    'Not yet, but it is on the list. I really like animals, and one day there will be room for them.':
-        'Noch nicht, aber es steht auf der Liste. Ich mag Tiere sehr, und eines Tages wird Platz für sie sein.',
+    'After that': 'Danach',
+    'Master\'s in Robotics': 'Master in Robotik',
+    'A second master\'s to take intelligence off the screen and into machines that sense, move and act in the real world.':
+        'Ein zweiter Master, um Intelligenz vom Bildschirm in Maschinen zu bringen, die in der realen Welt wahrnehmen, sich bewegen und handeln.',
+    'The goal': 'Das Ziel',
+    'My own robotics startup': 'Mein eigenes Robotik-Startup',
+    'Bring together everything I\'ve learned in AI, software and running a company to build robots that solve real problems.':
+        'Alles, was ich über KI, Software und das Führen eines Unternehmens gelernt habe, zusammenbringen, um Roboter zu bauen, die echte Probleme lösen.',
     'That\'s me beyond the code.': 'Das bin ich jenseits des Codes.',
     'For the professional side, my projects, skills and experience are on the home page, and my AI assistant can answer the rest.':
         'Die berufliche Seite, meine Projekte, Skills und Erfahrung, findest du auf der Startseite, und mein KI-Assistent beantwortet den Rest.',
